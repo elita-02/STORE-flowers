@@ -35,9 +35,12 @@
           text-decoration: none;
           transition: color 0.3s;
           font-size: 0.9rem;
-  
+          transition: transform 0.4s ease;
+
           &:hover {
             color: rgb(149, 109, 132);
+            transform: scale(1.1);
+
           }
         }
       }
