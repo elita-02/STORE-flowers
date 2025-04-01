@@ -62,12 +62,10 @@ function Header() {
         </div>
         </div>
       </div>
-
       <div className="main-header container">
         <Link to="/">
         <img src={logo} alt="Логотип" className="logo" />
-        </Link>
-        
+        </Link>    
         <div className="search-section">
           <div className="search-bar">
             <div className="input_one">
