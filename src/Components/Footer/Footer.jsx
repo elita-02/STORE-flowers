@@ -2,9 +2,6 @@ import React from 'react'
 import "./Footer.scss"
 import logo from "../../assets/img/log.jpg"
 import { Link } from 'react-router-dom'
-import master from "../../assets/img/mastercard.png"
-import mastro from "../../assets/img/mastro.png"
-import viselectro from "../../assets/img/viselectron.png"
 import o from "../../assets/img/odengi.png"
 import mbank from "../../assets/img/mbank.png"; 
 import kampanon from "../../assets/img/kampan.jpg";

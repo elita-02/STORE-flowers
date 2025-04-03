@@ -16,7 +16,13 @@
         height: 135px;
         width: 130px;
         object-fit: contain;
-        justify-self: center;
+        transition: transform 0.3s;
+        position: relative;
+        z-index: 1;
+  
+        &:hover {
+          transform: scale(1.05);
+        }
       }
   
       div {
