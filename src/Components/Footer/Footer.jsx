@@ -5,8 +5,10 @@ import { Link } from 'react-router-dom'
 import master from "../../assets/img/mastercard.png"
 import mastro from "../../assets/img/mastro.png"
 import viselectro from "../../assets/img/viselectron.png"
-import visa from "../../assets/img/visa.png"
-
+import o from "../../assets/img/odengi.png"
+import mbank from "../../assets/img/mbank.png"; 
+import kampanon from "../../assets/img/kampan.jpg";
+import bakai from "../../assets/img/bakai.png";
 function Footer() {
   return (
     <div className='footer'>
@@ -48,12 +50,23 @@ function Footer() {
       <div className='footer_bot container'>
          <p> pCopyright © 2021. Все права защищены</p>
          <div className='footer_img'>
-           <p>Способы оплаты:</p>
-           <img src={master} alt="" />
-           <img src={mastro} alt="" />
-           <img src={viselectro} alt="" />
-          <img src={visa} alt="" />
-        </div>
+        <p>Способы оплаты:</p>
+        <a href="https://www.mbank.kg" target="_blank" rel="noopener noreferrer">
+          <img src={mbank} alt="Mbank" />
+        </a>
+
+        <a href="https://www.kompanion.kg" target="_blank" rel="noopener noreferrer">
+          <img src={kampanon} alt="Kompanion" />
+        </a>
+
+        <a href="https://www.bakai.kg" target="_blank" rel="noopener noreferrer">
+          <img src={bakai} alt="Bakai" />
+        </a>
+
+        <a href="https://dengi.kg" target="_blank" rel="noopener noreferrer">
+          <img src={o} alt="odengi" />
+        </a>
+      </div>
        </div>
      </div>
    
