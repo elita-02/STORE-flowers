@@ -1,0 +1,313 @@
+.banner {
+    width: 1424px;
+    margin: 0 auto;
+
+    .section {
+        width: 1420px;
+        height: 674px;
+        margin: 0 auto;
+
+        .block {
+            display: flex;
+            justify-content: space-between;
+            
+
+            .block-div {
+                .img {
+                    width: 687px;
+                    height: 700px;
+                    position: relative;
+                }
+
+                h1 {
+                    position: absolute;
+                    top: 25%;
+                    margin-left: 14%;
+                    width: 412px;
+                    height: 110px;
+                    font-weight: 700;
+                    font-size: 36px;
+                    line-height: 50px;
+                    color: #333333;
+
+                    span {
+                        color: white;
+                    }
+                }
+            }
+
+            .block1-div {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+                margin-right: 20px;
+                margin-top: 20px;
+
+                .div {
+                    position: relative;
+
+
+                    .img1 {
+                        width: 100%;
+                        max-width: 336px;
+                        max-height: 316px;
+                    }
+
+                    h1 {
+                        position: absolute;
+                        color: #333333;
+                        top: 15%;
+                        left: 35%;
+                        transform: translate(-50%, -50%);
+                        font-weight: 500;
+                        font-size: 32px;
+                        line-height: 50px;
+                        text-align: center;
+                        font-weight: bold;
+
+                    }
+                }
+            }
+        }
+    }
+
+    .section1 {
+        width: 1420px;
+        height: 219px;
+        margin-top: 45px;
+
+        .cards {
+            display: flex;
+            justify-content: space-between;
+
+            .card {
+                width: 460px;
+                height: 219px;
+
+            }
+
+            .card1 {
+                width: 460px;
+                height: 219px;
+                background-color: #956D84;
+                color: white;
+                position: relative;
+                overflow: hidden;
+
+                h1 {
+                    padding-top: 28%;
+                    font-family: Museo Sans Cyrl;
+                    font-weight: 300;
+                    font-size: 24px;
+                    line-height: 40px;
+                    letter-spacing: 0%;
+                    text-align: center;
+                }
+
+                p {
+                    margin-top: 15px;
+                    font-family: Museo Sans Cyrl;
+                    font-weight: 300;
+                    font-size: 14px;
+                    text-align: center;
+                }
+
+                /* gul1 үчүн flexbox колдонуу */
+                .gul1 {
+                    display: flex;
+                    justify-content: space-between;
+                    position: absolute;
+                    top: -50px;
+
+                    right: 35%;
+                    width: 100%;
+                }
+
+                .gul1 img {
+                    // width: 48%;
+                    height: auto;
+                }
+
+                .gul2 {
+                    display: flex;
+                    justify-content: space-between;
+                    position: absolute;
+                    top: -70px;
+                    left: 30%;
+                    width: 100%;
+                }
+
+                .gul2 img {
+                    // width: 48%;
+                    height: auto;
+                }
+
+                img {
+                    position: absolute;
+                    top: 25px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                }
+            }
+
+
+            .card2 {
+                width: 460px;
+                height: 219px;
+            }
+
+
+
+
+        }
+    }
+
+    .section2 {
+        height: 648px;
+
+        .bush {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+
+            h2 {
+                font-weight: 800;
+                font-size: 48px;
+                line-height: 18px;
+                margin-top: 30px;
+                text-align: center;
+                vertical-align: middle;
+            }
+
+            .p {
+                display: flex;
+                margin-top: auto;
+                align-self: flex-end;
+                color: #956D84;
+
+                .strel {
+                    margin-bottom: 20px;
+                }
+            }
+        }
+
+        .block-text {
+            margin-top: 14%;
+            display: flex;
+            gap: 20px;
+
+            .forum {
+                width: 460px;
+                height: 371px;
+                background-color: #956D84;
+                color: white;
+                position: relative;
+
+
+                img {
+                    position: absolute;
+                    bottom: 50%;
+                    margin-left: 25px;
+                }
+
+                h1 {
+                    margin-top: 45%;
+                    font-family: Museo Sans Cyrl;
+                    font-weight: 300;
+                    font-size: 30px;
+                    margin-left: 25px;
+
+
+                }
+
+                p {
+                    margin-top: 30px;
+                    font-family: Museo Sans Cyrl;
+                    font-weight: 200;
+                    font-size: 18px;
+                    line-height: 18px;
+                    margin-left: 25px;
+                }
+
+            }
+
+            .forum1 {
+                width: 460px;
+                height: 371px;
+                background-color: #956D84;
+                color: white;
+                position: relative;
+
+
+                img {
+                    position: absolute;
+                    bottom: 50%;
+                    margin-left: 25px;
+                }
+
+                h1 {
+                    margin-top: 45%;
+                    font-family: Museo Sans Cyrl;
+                    font-weight: 300;
+                    font-size: 30px;
+                    margin-left: 25px;
+
+
+                }
+
+                p {
+                    margin-top: 30px;
+                    font-family: Museo Sans Cyrl;
+                    font-weight: 200;
+                    font-size: 18px;
+                    line-height: 18px;
+                    margin-left: 25px;
+                }
+
+            }
+
+            .forum2 {
+                width: 460px;
+                height: 371px;
+                background-color: #956D84;
+                color: white;
+                position: relative;
+
+
+                img {
+                    position: absolute;
+                    bottom: 50%;
+                    margin-left: 25px;
+                }
+
+                h1 {
+                    margin-top: 45%;
+                    font-family: Museo Sans Cyrl;
+                    font-weight: 300;
+                    font-size: 30px;
+                    margin-left: 25px;
+
+
+                }
+
+                p {
+                    margin-top: 30px;
+                    font-family: Museo Sans Cyrl;
+                    font-weight: 200;
+                    font-size: 18px;
+                    line-height: 18px;
+                    margin-left: 25px;
+                }
+
+            }
+
+
+
+            img {
+                width: 412px;
+                height: 343px;
+            }
+        }
+    }
+}

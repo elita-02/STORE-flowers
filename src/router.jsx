@@ -9,6 +9,8 @@ import Information from "./pages/Information/Information";
 import Login from "./pages/Login/Login";
 import Registration from "./pages/Registration/Registration";
 import Wishlist from "./pages/Wishlist/Wishlist";
+import Banner from "./pages/Banner/Banner";
+import Tovar from "./pages/tovar/Tovar";
 
  export const myRouter = createBrowserRouter([
     {
@@ -17,7 +19,15 @@ import Wishlist from "./pages/Wishlist/Wishlist";
         children: [
             {
                 path: "/",
+                element: <Banner/>
+            },
+            {
+                path: "catalog",
                 element: <Catalog/>
+            },
+            {
+                path: "tovar",
+                element: <Tovar/>
             },
             {
                 path: "forum",
