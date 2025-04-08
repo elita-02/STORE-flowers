@@ -1,9 +1,9 @@
+
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { getCategory, setSearch, setKomu, setOccasion, setColor } from '../../redux/category/categorySlice';
-// import { addToCart } from '../../redux/cart/cartSlice';
-// import karzin from '../../assets/svg/karzin.svg';
+// import { addToCart } from '../../redux/';
 import hart from '../../assets/svg/hart.svg';
 import './Tovar.scss';
 
@@ -35,6 +35,18 @@ function Tovar() {
             image: item.image,
             quantity: 1
         }));
+    };
+
+    const handleQuickView = (e, id) => {
+        e.stopPropagation();
+        // Логика быстрого просмотра
+        console.log("Быстрый просмотр товара", id);
+    };
+
+    const handleAddToFavorite = (e, id) => {
+        e.stopPropagation();
+        // Логика добавления в избранное
+        console.log("Добавлено в избранное", id);
     };
 
     return (
@@ -81,33 +93,69 @@ function Tovar() {
                                 <option value="День Святого Валентина">День Святого Валентина</option>
                                 <option value="День Рождения">День Рождения</option>
                                 <option value="Без повода">Без повода</option>
+                                <option value="Юбилей">Юбилей</option>  
+                                <option value="Праздник">Праздник</option>
+                                <option value="День матери">День матери</option>
+                                <option value="Событие">Событие</option>
+                                <option value="Корпоратив">Корпоратив</option>
+                                <option value="День влюбленных">День влюбленных</option>
                             </select>
                             <select name="recipient" onChange={(e) => dispatch(setKomu(e.target.value))} className="filter-select">
                                 <option value="">Кому</option>
                                 <option value="Любимой">Любимой</option>
                                 <option value="Маме">Маме</option>
                                 <option value="Девушке">Девушке</option>
+                                <option value="Друзьям">Друзьям</option>  
+                                <option value="Для бабушки">Для бабушки</option>  
+                                <option value="Невесте">Невесте</option> 
+                                <option value="Для жены">жене</option> 
+                                <option value="Для сестры">Для сестры</option>
+                                <option value="Для творческого человека">Для креативных людей</option>
+                                <option value=""></option>
                             </select>
                             <select name="color" onChange={(e) => dispatch(setColor(e.target.value))} className="filter-select">
                                 <option value="">Цвет</option>
                                 <option value="Красный">Красный</option>
                                 <option value="Розовый">Розовый</option>
                                 <option value="Белый">Белый</option>
+                                <option value="Разноцветный">Разноцветный</option>  {/* Новый цвет */}
+                                <option value="Персиковый">Персиковый</option>  {/* Новый цвет */}
+                                <option value="Голубой">Голубой</option>  
+                                <option value="Бежевый">Бежевый</option> 
+                                <option value="Пурпурный">Пурпурный</option> 
+                                <option value="Персиковый">Персиковый</option>
+                                <option value="Черный">Черный</option>
+                                <option value="Лавандовый, розовый">Лавандовый, розовый</option>
+                                <option value="Синий">Синий"</option>
+                                <option value="Зеленый">Зеленый"</option>
+                                <option value="желтый">желтый</option>
+                                <option value="пастельный">пастельный</option>
                             </select>
                         </div>
 
+
                         <div className="card-grid">
                             {category.map((item, index) => (
-                                <div 
-                                    key={item.id} 
-                                    className="card" 
+                                <div
+                                    key={item.id}
+                                    className="card"
                                     onClick={() => navigate(`/Flowers/${item.id}`)}
                                     style={{ '--i': index }}
                                 >
                                     <div className="image-container">
                                         <img src={item.image} alt={item.title} className="card-image" />
-                                        <img src={hart} alt="hart" className="hart-icon" />
-                                        <button className="quick-view">Быстрый просмотр</button>
+                                        <img
+                                            src={hart}
+                                            alt="hart"
+                                            className="hart-icon"
+                                            onClick={(e) => handleAddToFavorite(e, item.id)}
+                                        />
+                                        <button
+                                            className="quick-view"
+                                            onClick={(e) => handleQuickView(e, item.id)}
+                                        >
+                                            Быстрый просмотр
+                                        </button>
                                     </div>
                                     <div className="card-content">
                                         <div className="h1">
@@ -116,7 +164,7 @@ function Tovar() {
                                         </div>
                                         <div className="line"></div>
                                         <p className="card-description">{item.description}</p>
-                                        <button 
+                                        <button
                                             className="add-btn"
                                             onClick={(e) => handleAddToCart(item, e)}
                                         >
@@ -134,8 +182,3 @@ function Tovar() {
 }
 
 export default Tovar;
-
-
-
-
-
