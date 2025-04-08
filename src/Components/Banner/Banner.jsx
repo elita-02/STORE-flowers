@@ -18,7 +18,7 @@ import './Banner.scss'
 
 function Banner() {
     return (
-        <div className='banner'>
+        <div className='banner container'>
             <section className='section'>
                 <div className='block'>
                     <div className='block-div'>
