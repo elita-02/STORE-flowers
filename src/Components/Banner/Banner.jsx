@@ -46,41 +46,7 @@ function Banner() {
                     </div>
                 </div>
             </section>
-            <section className='section1'>
-                <div className='cards'>
-                    <div className='card'>
-                        {/* <h1>Фото доставок наших букетов</h1>
-                        <p>Безупречное качество обслуживания и доставка в любую точку города</p>
-                        <div>
-                            <img src={gul1} alt="" />
-                            <img src={korob} alt="" />
-                        </div> */}
-                        <img src={photo} alt="" />
-                    </div>
-                    <div className='card1'>
-                        <h1>Видео отчеты клиентов</h1>
-                        <p>Наши счастливые клиенты с букетами от Flowers-Ukraine </p>
-                        <div className='gul1'>
-                            <img src={gul2} alt="" />
-                        </div>
-                        <div className='gul2'>
-                            <img src={gul1} alt="" />
 
-                        </div>
-                        <img src={kamer} alt="" />
-                    </div>
-                    <div className='card2'>
-                        {/* <h1>Подарок каждому клиенту</h1>
-                        <p>К каждому заказу мы прилогаем комплимент от компании 
-                        в виде маленького презента</p>
-                        <div>
-                        <img src={gul2} alt="" />
-                        <img src={podar1} alt="" />
-                        </div> */}
-                        <img src={present} alt="" />
-                    </div>
-                </div>
-            </section>
                         <Aksy />
                         <Podarki/>
             <section className='section2'>

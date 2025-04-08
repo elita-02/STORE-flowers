@@ -27,6 +27,7 @@ function Aksy() {
             <h1>Акции</h1>
             <div className="desserts-list">
                 {desserts.map((dessert, index) => (
+                    
                     <div key={dessert.id} className="dessert-item">
                         <div className="image-container">
                             <img src={dessert.image} alt={dessert.title} />
