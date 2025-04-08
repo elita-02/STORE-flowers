@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchDesserts } from '../../redux/Aksy/AksySlice'; // Асинхрондук аракет
-import './Aksy.scss'
+import { fetchDesserts } from '../../redux/podar/podarkiSlice'; // ← туура жол
+import './Podarki.scss';
 import karzina from '../../assets/svg/karzina.svg';
 import hart from '../../assets/svg/hart.svg';
-import gul2 from '../../assets/svg/gul2.svg'
+import gul2 from '../../assets/svg/gul2.svg';
 
-function Aksy() {
+function Podarki() {
     const dispatch = useDispatch();
-    const { desserts, loading, error } = useSelector((state) => state.aksys);
+    const { desserts, loading, error } = useSelector((state) => state.podar); // ← туура слайс
 
     useEffect(() => {
         dispatch(fetchDesserts()); 
@@ -26,8 +26,7 @@ function Aksy() {
         <div className="desserts">
             <h1>Акции</h1>
             <div className="desserts-list">
-                {desserts.map((dessert, index) => (
-                    
+                {desserts.map((dessert) => (
                     <div key={dessert.id} className="dessert-item">
                         <div className="image-container">
                             <img src={dessert.image} alt={dessert.title} />
@@ -58,6 +57,4 @@ function Aksy() {
     );
 }
 
-export default Aksy;
-
-
+export default Podarki;

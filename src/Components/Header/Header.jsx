@@ -6,12 +6,12 @@ import "./Header.scss";
 
 // Иконкалар
 import logo from "../../assets/img/log.jpg";
-import watsup from "../../assets/svg/watsup.svg";
-import instagram from "../../assets/svg/instagram.svg";
-import facbook from "../../assets/svg/facbook.svg";
-import karzin from "../../assets/svg/karzin.svg";
+import watsup from "../../assets/img/wat.png";
+import instagram from "../../assets/img/instagra.webp";
+import facbook from "../../assets/img/faceebook.png";
+import karzin from "../../assets/img/cart.jpeg";
 import search from "../../assets/svg/search.svg";
-import serd from "../../assets/svg/serdechka.svg";
+import serd from "../../assets/img/wishlist.jpeg";
 import wishlist from "../../assets/svg/wishlist.svg";
 import car from "../../assets/svg/car.svg";
 import call from "../../assets/svg/call.svg";
@@ -155,14 +155,13 @@ function Header() {
         <div className="contact-cart">
           <div className="social-icons">
             <img src={watsup} alt="WhatsApp" />
-            <img src={instagram} alt="Instagram" />
+            <img src={instagram} alt="Instagram" className="ins" />
             <img src={facbook} alt="Facebook" />
           </div>
           <div className="phone">+86 (067) 829 30 30</div>
           <div className="cart-info">
             <img src={serd} alt="Избранное" />
             <img src={karzin} alt="Корзина" />
-            <span className="price">₴ 1 520</span>
           </div>
         </div>
       </div>

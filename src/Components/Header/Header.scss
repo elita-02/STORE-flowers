@@ -284,7 +284,13 @@
           height: 30px;
           cursor: pointer;
           transition: all 0.3s;
+         .ins{
+           img{
+            width: 35px;
+            height: 35px;
 
+          };
+         }
           &:hover {
             transform: scale(1.1);
             filter: brightness(1.2);
@@ -305,8 +311,8 @@
         gap: 15px;
 
         img {
-          width: 28px;
-          height: 28px;
+          width: 35px;
+          height: 35px;
           cursor: pointer;
           transition: all 0.3s;
 
@@ -381,13 +387,17 @@
       }
 
       .search-section {
-        width: 100%;
         margin: 0;
-
+        .social-icons img{
+        width: 35px;  
+        height: 35px; 
+        object-fit: contain; 
+        transition: transform 0.3s ease;
         .forum-nav {
           flex-wrap: wrap;
           justify-content: center;
         }
+      }
       }
 
       .contact-cart {
