@@ -15,6 +15,7 @@ import image3 from '../../assets/img/image3.png'
 import { IoIosArrowForward } from "react-icons/io";
 import Aksy from '../Aksy/Aksy'
 import './Banner.scss'
+import Podarki from '../podar/Podarki'
 
 function Banner() {
     return (
@@ -81,6 +82,7 @@ function Banner() {
                 </div>
             </section>
                         <Aksy />
+                        <Podarki/>
             <section className='section2'>
                 <div className='block1'>
                     <div className='bush'>
