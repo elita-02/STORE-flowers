@@ -49,9 +49,6 @@ function Header() {
 
   return (
     <div className="header">
-
-
-      {/* Жогорку панель */}
       <div className="top-bar">
         <div className="container">
           <div className="left">

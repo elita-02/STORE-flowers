@@ -1,7 +1,7 @@
  import { createBrowserRouter } from "react-router-dom";
 import Layout from "./Components/Layout/Layout";
 import Catalog from "./pages/Catalog/Catalog";
-import Forum from "./pages/Forum/Forum";
+import Forum from "./pages/Forum/Forum"
 import Reviews from "./pages/reviews/Reviews";
 import Aksia from "./pages/Aksia/Aksia";
 import News from "./pages/News/News";
