@@ -1,221 +1,198 @@
 .desserts {
-    max-width: 1420px; // Экрандын максималдуу туурасы 1420px болот
-    margin: 0 auto;     // Ортосуна жайгаштыруу
+    max-width: 1420px;
+    margin: 0 auto;
     padding: 20px;
-
+  
     h1 {
-        text-align: center;
-        font-size: 36px;
-        margin-bottom: 20px;
+      text-align: center;
+      font-size: 36px;
+      margin-bottom: 20px;
     }
-
-    .desserts-list {
+  
+    .mySwiper {
+      padding: 20px;
+      width: 100%;
+      height: auto;
+  
+      .swiper-slide {
         display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        gap: 20px;
-
+        justify-content: center;
+  
         .dessert-item {
-            width: calc(33.33% - 20px); // 3 элемент бири-бирине туура келет, боштукту эсепке алуу
+          width: 100%;
+          max-width: 400px;
+          position: relative;
+          text-align: center;
+          border: 1px solid #ddd;
+          border-radius: 8px;
+          overflow: hidden;
+          padding: 20px;
+          background-color: white;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          animation: fadeIn 0.5s forwards;
+          opacity: 0;
+  
+          &:nth-child(even) {
+            animation-delay: 0.3s;
+          }
+  
+          &:nth-child(odd) {
+            animation-delay: 0.6s;
+          }
+  
+          @keyframes fadeIn {
+            to {
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }
+  
+          .image-container {
             position: relative;
-            text-align: center;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            overflow: hidden;
-            padding: 20px;
-            background-color: white;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            opacity: 0;
-            animation: fadeIn 0.5s forwards;
-            
-            &:nth-child(even) {
-                animation-delay: 0.3s;
+  
+            img {
+              width: 100%;
+              height: 350px;
+              object-fit: cover;
+              border-radius: 8px;
+              transition: transform 0.3s ease;
             }
-            
-            &:nth-child(odd) {
-                animation-delay: 0.6s;
+  
+            &:hover img {
+              transform: scale(1.1);
             }
-
-            @keyframes fadeIn {
-                to {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
+          }
+  
+          .discount {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: black;
+            color: white;
+            font-size: 14px;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-weight: bold;
+            border: 2px solid white;
+          }
+  
+          .icon-container {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            gap: 10px;
+            z-index: 5;
+            display: flex;
+            flex-direction: column;
+          }
+  
+          .heart-icon,
+          .cart-icon {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 7px;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+  
+            &:hover {
+              background-color: rgba(255, 255, 255, 1);
+              transform: scale(1.2);
             }
-
-            .image-container {
-                position: relative;
-
-                img {
-                    width: 100%;
-                    height: 350px;
-                    object-fit: cover;
-                    border-radius: 8px;
-                    transition: transform 0.3s ease; /* Hover эффект */
-                }
-
-                &:hover img {
-                    transform: scale(1.1); /* Сүрөттүн өлчөмүн чоңойтуу */
-                }
+  
+            img {
+              transition: transform 0.3s ease;
+              transform: scale(1.2);
             }
-
-            .discount {
-                position: absolute;
-                top: 10px;
-                left: 50%;
-                transform: translateX(-50%);
-                background-color: black;
-                color: white;
-                font-size: 14px;
-                padding: 5px 10px;
-                border-radius: 20px;
-                font-weight: bold;
-                border: 2px solid white;
+          }
+  
+          .flower-img {
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+            z-index: 10;
+          }
+  
+          .dessert-info {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+  
+            h3 {
+              font-size: 18px;
+              font-weight: bold;
+              color: #333;
             }
-
-            .icon-container {
-                position: absolute;
-                top: 10px;
-                right: 10px;
-                display: flex;
-                flex-direction: column;
-                gap: 10px;
-                z-index: 5;
-            }
-
-            .heart-icon,
-            .cart-icon {
-                width: 25px;
-                height: 25px;
-                cursor: pointer;
-                transition: transform 0.3s ease;
-            }
-
-            .heart-icon:hover,
-            .cart-icon:hover {
-                transform: scale(1.2); /* Hover эффект, иконаларды чоңойтуу */
-            }
-
-            .flower-img {
-                position: absolute;
-                bottom: -30px;
-                left: 50%;
-                transform: translateX(-50%);
-                width: 100px;
-                height: 100px;
-                object-fit: contain;
-                z-index: 10;
-            }
-
-            .dessert-info {
-                margin-top: 20px;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: space-between;
-
-                h3 {
-                    font-size: 18px;
-                    font-weight: bold;
-                    color: #333;
-                }
-
-                .price-container {
-                    display: flex;
-                    gap: 10px;
-                    align-items: center;
-
-                    .old-price {
-                        font-size: 16px;
-                        color: #828282;
-                        text-decoration: line-through;
-                    }
-                    .new-price {
-                        font-size: 18px;
-                        font-weight: bold;
-                        color: #d9534f;
-                    }
-                }
-            }
-
-            button {
-                padding: 10px;
-                background-color: #956D84;
-                color: white;
-                border: none;
-                border-radius: 4px;
-                cursor: pointer;
-                width: 100%;
-                transition: background-color 0.3s ease;
-                margin-top: 10px;
+  
+            .price-container {
+              display: flex;
+              gap: 10px;
+              align-items: center;
+  
+              .old-price {
                 font-size: 16px;
-                position: relative;
-                overflow: hidden;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-
-                /* Gul2 сүрөтү */
-                &:before {
-                    content: "";
-                    position: absolute;
-                    background-image: url("https://your-path-to-gul2.svg"); /* Сүрөттүн URL'ин бул жерге коюңуз */
-                    background-size: contain;
-                    background-repeat: no-repeat;
-                    width: 30px;
-                    height: 30px;
-                    left: 10px;
-                    top: 50%;
-                    transform: translateY(-50%);
-                    z-index: 1;
-                }
-
-                &:hover {
-                    background-color: #e68900;
-                }
-
-                span {
-                    z-index: 2; /* Текст башка элементтерден жогорку деңгээлде болушу үчүн */
-                }
+                color: #828282;
+                text-decoration: line-through;
+              }
+  
+              .new-price {
+                font-size: 18px;
+                font-weight: bold;
+                color: #d9534f;
+              }
             }
-        }
-    }
-}
+          }
+  
+          button {
+            padding: 10px;
+            background: #e91e63;
 
-// #app {
-//     height: 100%;
-//   }
-//   html,
-//   body {
-//     position: relative;
-//     height: 100%;
-//   }
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+            font-size: 16px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
   
-//   body {
-//     background: #eee;
-//     font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-//     font-size: 14px;
-//     color: #000;
-//     margin: 0;
-//     padding: 0;
-//   }
+            &:before {
+              content: "";
+              position: absolute;
+              background-image: url("https://your-path-to-gul2.svg"); 
+              background-size: contain;
+              background-repeat: no-repeat;
+              width: 30px;
+              height: 30px;
+              left: 10px;
+              top: 50%;
+              transform: translateY(-50%);
+              z-index: 1;
+            }
   
-//   .swiper {
-//     width: 100%;
-//     height: 100%;
-//     margin-left: auto;
-//     margin-right: auto;
-//   }
+            &:hover {
+              background-color: #e68900;
+            }
   
-//   .swiper-slide {
-//     text-align: center;
-//     font-size: 18px;
-//     background: #fff;
-//     height: calc((100% - 30px) / 2) !important;
-  
-//     /* Center slide text vertically */
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//   }
+            span {
+              z-index: 2;
+            }
+          }
+        }
+      }
+    }
+  }
   

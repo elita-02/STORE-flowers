@@ -11,6 +11,7 @@ import Registration from "./pages/Registration/Registration";
 import Wishlist from "./pages/Wishlist/Wishlist";
 import Banner from "./pages/Banner/Banner";
 import Tovar from "./pages/tovar/Tovar";
+import Korzina from "./pages/korzina/Korzina";
 
  export const myRouter = createBrowserRouter([
     {
@@ -60,6 +61,10 @@ import Tovar from "./pages/tovar/Tovar";
             {
                 path: "wishlist",
                 element: <Wishlist/>
+            },
+            {
+                path: "Korzina",
+                element: <Korzina/>
             },
         ]
 

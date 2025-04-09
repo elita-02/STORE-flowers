@@ -160,8 +160,12 @@ function Header() {
           </div>
           <div className="phone">+86 (067) 829 30 30</div>
           <div className="cart-info">
+            <Link to="/wishlist">
             <img src={serd} alt="Избранное" />
+            </Link>
+            <Link to="/Korzina">
             <img src={karzin} alt="Корзина" />
+            </Link>
           </div>
         </div>
       </div>
