@@ -1,0 +1,52 @@
+.feedback-section {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+  
+    h2 {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+  
+    form {
+      display: flex;
+      flex-direction: column;
+      textarea {
+        resize: vertical;
+        min-height: 80px;
+        margin-bottom: 0.5rem;
+        padding: 0.5rem;
+      }
+      button {
+        align-self: flex-end;
+        padding: 0.5rem 1rem;
+        background-color: #8bc34a;
+        border: none;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+    }
+  
+    .comments-list {
+      margin-top: 1rem;
+      .comment {
+        background: #f1f1f1;
+        padding: 0.75rem;
+        margin-bottom: 0.5rem;
+        border-radius: 5px;
+        p {
+          margin: 0;
+        }
+        span {
+          display: block;
+          font-size: 0.8rem;
+          color: #555;
+          margin-top: 0.25rem;
+        }
+      }
+    }
+  }
+  

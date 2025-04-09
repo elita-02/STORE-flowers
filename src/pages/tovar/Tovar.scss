@@ -1,751 +1,324 @@
+.mack-container{
+   margin-top: 80px;
+    h1 {
+        font-size: 28px;
+        font-weight: 700;
+        margin-bottom: 20px;
+        text-align: center;
+    }
 
-// .menu-container {
-//     display: flex;
-//     padding: 20px;
-//     gap: 20px;
-
-//     .katalog {
-//         display: flex;
-//         width: 100%;
-//     }
-
-//     .menu {
-//         width: 250px;
-//         background: #f9f9f9;
-//         border-radius: 12px;
-//         padding: 20px;
-//         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-
-//         h1 {
-//             font-size: 20px;
-//             margin-bottom: 15px;
-//         }
-
-//         .menu-item {
-//             padding: 10px 15px;
-//             border-radius: 8px;
-//             cursor: pointer;
-//             transition: all 0.2s;
-//             margin-bottom: 8px;
-
-//             &:hover {
-//                 background: #ffeded;
-//                 color: #e91e63;
-//                 font-weight: bold;
-//             }
-//         }
-//     }
-
-//     .category-items {
-//         flex: 1;
-
-//         .cards {
-//             h1 {
-//                 font-size: 28px;
-//                 font-weight: 700;
-//                 margin-bottom: 20px;
-//             }
-
-//             .search {
-//                 margin-bottom: 20px;
-
-//                 .search-container {
-//                     display: flex;
-//                     align-items: center;
-
-//                     img {
-//                         width: 28px;
-//                         height: 28px;
-//                         cursor: pointer;
-//                     }
-
-//                     input {
-//                         padding: 10px 15px;
-//                         border-radius: 8px;
-//                         border: 1px solid #ccc;
-//                         margin-left: 10px;
-//                         font-size: 14px;
-//                         width: 300px;
-//                         outline: none;
-
-//                         &:focus {
-//                             border-color: #e91e63;
-//                         }
-//                     }
-//                 }
-//             }
-
-//             .filters {
-//                 display: flex;
-//                 gap: 12px;
-//                 margin-bottom: 20px;
-
-//                 .filter-select {
-//                     padding: 8px 12px;
-//                     border-radius: 10px;
-//                     border: 1px solid #ccc;
-//                     background: #fff;
-//                     font-size: 14px;
-//                     min-width: 140px;
-//                     cursor: pointer;
-
-//                     &:hover {
-//                         border-color: #e91e63;
-//                     }
-//                 }
-//             }
-
-//             .card-grid {
-//                 // display: grid;
-//                 // grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-//                 // gap: 20px;
-
-//                 .card {
-//                     // .card:hover .quick-view {
-//                     //     opacity: 1;
-//                     // }
-                    
-//                     .card:hover .card-description {
-//                         // opacity: 0;
-//                         // visibility: hidden;
-//                         // height: 0;
-//                         // overflow: hidden;
-//                     }
-                    
-//                     .card:hover .add-btn {
-//                         // opacity: 1;
-//                         // transform: translateY(0);
-//                         // transition: all 0.3s ease;
-//                     }
-                    
-
-//                     .image-container {
-//                         position: relative;
-
-//                         .card-image {
-//                             width: 100%;
-//                             height: 350px;
-//                             object-fit: cover;
-//                         }
-
-//                         .hart-icon {
-//                             position: absolute;
-//                             top: 10px;
-//                             left: 10px;
-//                             width: 30px;
-//                             height: 30px;
-//                             background: white;
-//                             border-radius: 50%;
-//                             padding: 5px;
-//                             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-//                             cursor: pointer;
-//                             transition: all 0.3s ease;
-
-//                             &:hover {
-//                                 background-color: #ff6b6b;
-//                             }
-//                         }
-
-//                     }
-//                     .card .image-container {
-//                         position: relative; 
-//                     }
-                    
-//                     .card .quick-view {
-//                         position: absolute;
-//                         top: 10px;
-//                         right: 10px;
-//                         padding: 8px 15px;
-//                         background: #ff6b6b;
-//                         color: white;
-//                         border: none;
-//                         border-radius: 50px;
-//                         font-size: 14px;
-//                         cursor: pointer;
-//                         opacity: 0;
-//                         visibility: hidden;
-//                         transition: opacity 0.3s ease, visibility 0.3s ease;
-                    
-//                         &:hover {
-//                             background-color: #e91e63;
-//                         }
-//                     }
-                    
-//                     .card:hover .quick-view {
-//                         opacity: 1;
-//                         visibility: visible;
-//                     }
-                    
-
-//                     .card-content {
-//                         padding: 16px;
-
-//                         .h1 {
-//                             display: flex;
-//                             justify-content: space-between;
-//                             align-items: center;
-
-//                             h1 {
-//                                 font-size: 18px;
-//                                 font-weight: 600;
-//                                 margin: 0;
-//                             }
-
-//                             p {
-//                                 font-size: 16px;
-//                                 color: #e91e63;
-//                                 font-weight: bold;
-//                                 margin: 5px 0;
-//                             }
-//                         }
-
-//                         .line {
-//                             width: 100%;
-//                             height: 1px;
-//                             background: #ccc;
-//                             margin: 10px 0;
-//                         }
-
-//                         .card-description {
-//                             font-size: 14px;
-//                             color: #666;
-//                             margin-bottom: 20px;
-//                         }
-
-//                         .add-btn {
-//                             padding: 8px 15px;
-//                             background: #4caf50;
-//                             color: white;
-//                             border: none;
-//                             border-radius: 50px;
-//                             font-size: 14px;
-//                             cursor: pointer;
-//                             transition: background-color 0.3s ease;
-
-//                             &:hover {
-//                                 background-color: #45a049;
-//                             }
-//                         }
-//                     }
-//                 }
-//             }
-//         }
-//     }
-// }
-
-// .card:hover .quick-view {
-//     opacity: 1;
-// }
-
-// .card-grid {
-//     display: grid;
-//     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-//     gap: 20px;
-
-//     .card {
-//         position: relative;
-
-//         /* Суротко курсор келгенде Быстрый просмотр кнопкасы көрүнөт */
-//         .image-container:hover .quick-view {
-//             opacity: 1;
-//             visibility: visible;
-//         }
-
-//         .image-container {
-//             position: relative;
-
-//             .card-image {
-//                 width: 100%;
-//                 height: 350px;
-//                 object-fit: cover;
-//             }
-
-//             .hart-icon {
-//                 position: absolute;
-//                 top: 10px;
-//                 left: 10px;
-//                 width: 30px;
-//                 height: 30px;
-//                 background: white;
-//                 border-radius: 50%;
-//                 padding: 5px;
-//                 box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-//                 cursor: pointer;
-//                 transition: all 0.3s ease;
-
-//                 &:hover {
-//                     background-color: #ff6b6b;
-//                 }
-//             }
-
-//             /* Быстрый просмотр кнопка */
-//             .quick-view {
-//                 position: absolute;
-//                 top: 10px;
-//                 right: 10px;
-//                 padding: 8px 15px;
-//                 background: #ff6b6b;
-//                 color: white;
-//                 border: none;
-//                 border-radius: 50px;
-//                 font-size: 14px;
-//                 cursor: pointer;
-//                 opacity: 0;
-//                 visibility: hidden;
-//                 transition: opacity 0.3s ease, visibility 0.3s ease;
-
-//                 &:hover {
-//                     background-color: #e91e63;
-//                 }
-//             }
-//         }
-
-       
-//         .card-content {
-//             padding: 16px;
-        
-//             .h1 {
-//                 display: flex;
-//                 justify-content: space-between;
-//                 align-items: center;
-        
-//                 h1 {
-//                     font-size: 18px;
-//                     font-weight: 600;
-//                     margin: 0;
-//                 }
-        
-//                 p {
-//                     font-size: 16px;
-//                     color: #e91e63;
-//                     font-weight: bold;
-//                     margin: 5px 0;
-//                 }
-//             }
-        
-//             .line {
-//                 width: 100%;
-//                 height: 1px;
-//                 background: #ccc;
-//                 margin: 10px 0;
-//             }
-        
-//             .card-description {
-//                 font-size: 14px;
-//                 color: #666;
-//                 margin-bottom: 20px;
-//                 transition: opacity 0.3s ease;
-        
-//                 /* On hover, make description invisible */
-//                 &:hover {
-//                     opacity: 0;
-//                     visibility: hidden;
-//                     height: 0;
-//                     overflow: hidden;
-//                 }
-//             }
-        
-//             /* Ensure add-btn shows only when card-description is hovered */
-//             .card-description:hover + .add-btn {
-//                 opacity: 1;
-//                 transform: translateY(0);
-//                 transition: all 0.3s ease;
-//             }
-        
-//             .add-btn {
-//                 padding: 8px 15px;
-//                 background: #4caf50;
-//                 color: white;
-//                 border: none;
-//                 border-radius: 50px;
-//                 font-size: 14px;
-//                 cursor: pointer;
-//                 opacity: 0;
-//                 transform: translateY(20px);
-//                 transition: all 0.3s ease;
-        
-//                 &:hover {
-//                     background-color: #45a049;
-//                 }
-//             }
-//         }
-//     }}        
-//             /* Дескрипшнга курсор келгенде гана Корзина кнопкасы көрүнө баштайт */
-//             .card-description:hover + .add-btn {
-//                 opacity: 1;
-//                 transform: translateY(0);
-//                 transition: all 0.3s ease;
-//             }
-
-//             .card-description {
-//                 font-size: 14px;
-//                 color: #666;
-//                 margin-bottom: 20px;
-//                 transition: opacity 0.3s ease;
-
-//                 /* Дескрипшнга курсор келгенде анын opacity 0 болот, ошондо ал жоголуп калат */
-//                 &:hover {
-//                     opacity: 0;
-//                     visibility: hidden;
-//                     height: 0;
-//                     overflow: hidden;
-//                 }
-//             }
-
-//             /* Корзина кнопкасы */
-//             .add-btn {
-//                 padding: 8px 15px;
-//                 background: #4caf50;
-//                 color: white;
-//                 border: none;
-//                 border-radius: 50px;
-//                 font-size: 14px;
-//                 cursor: pointer;
-//                 opacity: 0;
-//                 transform: translateY(20px);
-//                 transition: all 0.3s ease;
-
-//                 &:hover {
-//                     background-color: #45a049;
-//                 }
-//             }
-      
-
-//             /* Быстрый просмотр кнопка */
-//             .quick-view {
-//                 position: absolute;
-//                 top: 10px;
-//                 right: 10px;
-//                 padding: 8px 15px;
-//                 background: #ff6b6b;
-//                 color: white;
-//                 border: none;
-//                 border-radius: 50px;
-//                 font-size: 14px;
-//                 cursor: pointer;
-//                 opacity: 0;
-//                 visibility: hidden;
-//                 transition: opacity 0.3s ease, visibility 0.3s ease;
-
-//                 &:hover {
-//                     background-color: #e91e63;
-//                 }
-//             }
-        
-
-//         .card-content {
-//             padding: 16px;
-
-//             .h1 {
-//                 display: flex;
-//                 justify-content: space-between;
-//                 align-items: center;
-
-//                 h1 {
-//                     font-size: 18px;
-//                     font-weight: 600;
-//                     margin: 0;
-//                 }
-
-//                 p {
-//                     font-size: 16px;
-//                     color: #e91e63;
-//                     font-weight: bold;
-//                     margin: 5px 0;
-//                 }
-//             }
-
-//             .line {
-//                 width: 100%;
-//                 height: 1px;
-//                 background: #ccc;
-//                 margin: 10px 0;
-//             }
-
-//             /* Карзина кнопка тек дескрипшн бөлүгүнө келгенде көрүнөт */
-//             .card-description:hover + .add-btn {
-//                 opacity: 1;
-//                 transform: translateY(0);
-//                 transition: all 0.3s ease;
-//             }
-
-//             .card-description {
-//                 font-size: 14px;
-//                 color: #666;
-//                 margin-bottom: 20px;
-//                 transition: opacity 0.3s ease;
-
-//                 /* Дескрипшнга курсор келгенде анын opacity 0 болот, ошондо ал жоголуп калат */
-//                 &:hover {
-//                     opacity: 0;
-//                     visibility: hidden;
-//                     height: 0;
-//                     overflow: hidden;
-//                 }
-//             }
-//             .add-btn {
-//                 padding: 8px 15px;
-//                 background: #4caf50;
-//                 color: white;
-//                 border: none;
-//                 border-radius: 50px;
-//                 font-size: 14px;
-//                 cursor: pointer;
-//                 opacity: 0;
-//                 transform: translateY(20px);
-//                 transition: all 0.3s ease;
-
-//                 &:hover {
-//                     background-color: #45a049;
-//                 }}
-//         }
+    .menu-container {
+        margin-top: 80px;
+        display: flex;
+        padding: 20px;
+        gap: 20px;
     
-
-.menu-container {
-    display: flex;
-    padding: 20px;
-    gap: 20px;
-  
-    .katalog {
-      display: flex;
-      width: 100%;
-    }
-  
-    .menu {
-      width: 250px;
-      background: #f9f9f9;
-      border-radius: 12px;
-      padding: 20px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-  
-      h1 {
-        font-size: 20px;
-        margin-bottom: 15px;
-      }
-  
-      .menu-item {
-        padding: 10px 15px;
-        border-radius: 8px;
-        cursor: pointer;
-        transition: all 0.2s;
-        margin-bottom: 8px;
-  
-        &:hover {
-          background: #ffeded;
-          color: #e91e63;
-          font-weight: bold;
-        }
-      }
-    }
-  
-    .category-items {
-      flex: 1;
-  
-      .cards {
-        h1 {
-          font-size: 28px;
-          font-weight: 700;
-          margin-bottom: 20px;
-        }
-  
-        .search {
-          margin-bottom: 20px;
-  
-          .search-container {
+        .katalog {
             display: flex;
-            align-items: center;
-  
-            img {
-              width: 28px;
-              height: 28px;
-              cursor: pointer;
-            }
-  
-            input {
-              padding: 10px 15px;
-              border-radius: 8px;
-              border: 1px solid #ccc;
-              margin-left: 10px;
-              font-size: 14px;
-              width: 300px;
-              outline: none;
-  
-              &:focus {
-                border-color: #e91e63;
-              }
-            }
-          }
+            width: 100%;
         }
-  
-        .filters {
-          display: flex;
-          gap: 12px;
-          margin-bottom: 20px;
-  
-          .filter-select {
-            padding: 8px 12px;
-            border-radius: 10px;
-            border: 1px solid #ccc;
-            background: #fff;
-            font-size: 14px;
-            min-width: 140px;
-            cursor: pointer;
-  
-            &:hover {
-              border-color: #e91e63;
+    
+        .menu {
+            width: 250px;
+            background: #f9f9f9;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    
+            h1 {
+                font-size: 20px;
+                margin-bottom: 15px;
             }
-          }
+    
+            .menu-item {
+                padding: 10px 15px;
+                border-radius: 8px;
+                cursor: pointer;
+                transition: all 0.2s;
+                margin-bottom: 8px;
+    
+                &:hover {
+                    background: #ffeded;
+                    color: #e91e63;
+                    font-weight: bold;
+                }
+            }
         }
-  
-        .card-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-          gap: 20px;
-  
-          .card {
-            position: relative;
-            transition: all 0.3s ease;
-  
-            .image-container {
-              position: relative;
-              overflow: hidden;
-  
-              .card-image {
-                width: 100%;
-                height: 350px;
-                object-fit: cover;
-                display: block;
-              }
-  
-              .hart-icon {
-                position: absolute;
-                top: 10px;
-                right: 10px;
-                width: 30px;
-                height: 30px;
-                background: white;
-                border-radius: 50%;
-                padding: 5px;
-                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-                cursor: pointer;
-                opacity: 0;
-                visibility: hidden;
-                transition: all 0.3s ease;
-  
-                &:hover {
-                  background-color: #ff6b6b;
+    
+        .category-items {
+
+            flex: 1;
+    
+            .cards {
+             
+                .input-option{
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
                 }
-              }
-  
-              .quick-view {
-                width: 100%;
-                position: absolute;
-                bottom: 0;
-                left: 50%;
-                transform: translate(-50%, 20px);
-                padding: 8px 15px;
-                background: #e91e63;
-                color: white;
-                border: none;
-                border-radius: 5px;
-                font-size: 14px;
-                cursor: pointer;
-                opacity: 0;
-                visibility: hidden;
-                transition: all 0.3s ease;
-  
-                &:hover {
-                  background-color: #ff6b6b;
+    
+                .search {
+                    margin-left: 50px;
+                    margin-bottom: 35px;
+                  
+                    .search-container {
+                      display: flex;
+                      align-items: center;
+                      position: relative;
+                  
+                      img {
+                        width: 28px;
+                        height: 28px;
+                        cursor: pointer;
+                      }
+                  
+                      input {
+                        padding: 10px 0;
+                        margin-left: 10px;
+                        font-size: 14px;
+                        width: 300px;
+                        border: none;
+                        border-bottom: 2px solid #ccc;
+                        background: transparent;
+                        outline: none;
+                        transition: border-color 0.3s ease;
+                  
+                        &:focus {
+                          border-bottom: 2px solid #e91e63;
+                        }
+                      }
+                  
+                      .search-line-btn {
+                        position: absolute;
+                        right: 0;
+                        bottom: 10px;
+                        height: 2px;
+                        width: 30px;
+                        background-color: #e91e63;
+                        cursor: pointer;
+                        transition: background-color 0.3s;
+                  
+                        &:hover {
+                          background-color: #ff3f80;
+                        }
+                      }
+                    }
+                  }
+                  
+                  
+    
+                .filters {
+                    display: flex;
+                    gap: 15px;
+                    flex-wrap: wrap;
+                    margin-bottom: 30px;
+                    
+                    .filter-select {
+                      padding: 10px 15px;
+                      border-radius: 8px;
+                      border: 1px solid #ccc;
+                      background-color: #fff;
+                      font-size: 14px;
+                      min-width: 160px;
+                      cursor: pointer;
+                      transition: all 0.2s ease;
+                      margin-bottom: 10px;
+                      appearance: none; 
+                      background-image: url('data:image/svg+xml;utf8,<svg fill="%23e91e63" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+                      background-repeat: no-repeat;
+                      background-position: right 10px center;
+                      background-size: 16px;
+                      
+                      &:hover {
+                        border-color: #e91e63;
+                      }
+                      
+                      &:focus {
+                        border-color: #e91e63;
+                        outline: none;
+                      }
+                    }
+                    
+                    /* Стили для скролла внутри select */
+                    select {
+                      option {
+                        font-weight: 500;
+                        font-size: 14px;
+                        color: #666;
+                      }
+                      
+                      /* Включаем скролл для опций */
+                      height: auto;
+                      max-height: 200px; /* Ограничиваем высоту выпадающего списка */
+                      overflow-y: auto; /* Включаем вертикальный скролл */
+                      
+                      /* Стили для скроллбара */
+                      scrollbar-width: thin;
+                      scrollbar-color: #e91e63 #f5f5f5;
+                      
+                      &::-webkit-scrollbar {
+                        width: 6px;
+                      }
+                      
+                      &::-webkit-scrollbar-track {
+                        background: #f5f5f5;
+                        border-radius: 3px;
+                      }
+                      
+                      &::-webkit-scrollbar-thumb {
+                        background-color: #e91e63;
+                        border-radius: 3px;
+                      }
+                    }
+                  }
+                  
+                
+    
+                .card-grid {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+                    gap: 20px;
+    
+                    .card {
+                        position: relative;
+                        transition: all 0.3s ease;
+    
+                        .image-container {
+                            position: relative;
+                            overflow: hidden;
+    
+                            .card-image {
+                                width: 100%;
+                                height: 350px;
+                                object-fit: cover;
+                            }
+    
+                            .hart-icon {
+                                position: absolute;
+                                top: 10px;
+                                right: 10px;
+                                width: 30px;
+                                height: 30px;
+                                background: white;
+                                border-radius: 50%;
+                                padding: 5px;
+                                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+                                cursor: pointer;
+                                opacity: 0;
+                                visibility: hidden;
+                                transition: all 0.3s ease;
+    
+                                &:hover {
+                                    background-color: #ff6b6b;
+                                }
+                            }
+    
+                            .quick-view {
+                                width: 100%;
+                                position: absolute;
+                                bottom: 15px;
+                                left: 50%;
+                                transform: translateX(-50%);
+                                padding: 8px 15px;
+                                background:  #e91e63;
+                                color: white;
+                                border: none;
+                                border-radius: 5px;
+                                font-size: 14px;
+                                cursor: pointer;
+                                opacity: 0;
+                                visibility: hidden;
+                                transition: opacity 0.3s ease, visibility 0.3s ease;
+    
+                                &:hover {
+                                    background-color: #ff6b6b;
+                                }
+                            }
+    
+                            &:hover .quick-view,
+                            &:hover .hart-icon {
+                                opacity: 1;
+                                visibility: visible;
+                            }
+                        }
+    
+                        .card-content {
+                            padding: 16px;
+                            position: relative;
+    
+                            .h1 {
+                                display: flex;
+                                justify-content: space-between;
+                                align-items: center;
+    
+                                h1 {
+                                    font-size: 18px;
+                                    font-weight: 600;
+                                    margin: 0;
+                                }
+    
+                                p {
+                                    font-size: 16px;
+                                    color: #e91e63;
+                                    font-weight: bold;
+                                    margin: 5px 0;
+                                }
+                            }
+    
+                            .line {
+                                width: 100%;
+                                height: 1px;
+                                background: #ccc;
+                                margin: 10px 0;
+                            }
+    
+                            .card-description {
+                                font-size: 14px;
+                                color: #666;
+                                margin-bottom: 20px;
+                                transition: opacity 0.3s ease, visibility 0.3s ease, height 0.3s ease;
+                            }
+    
+                            .add-btn {
+                                width: 100%;
+                                padding: 8px 15px;
+                                background:  #e91e63;
+                                color: white;
+                                border: none;
+                                border-radius: 5px;
+                                font-size: 14px;
+                                cursor: pointer;
+                                opacity: 0;
+                                transform: translateY(20px);
+                                transition: all 0.3s ease;
+    
+                                &:hover {
+                                    background-color: #ff6b6b;
+                                }
+                            }
+                        }
+    
+                        &:hover {
+                            .card-content {
+                                .card-description {
+                                    opacity: 0;
+                                    visibility: hidden;
+                                    height: 0;
+                                    overflow: hidden;
+                                }
+    
+                                .add-btn {
+                                    opacity: 1;
+                                    transform: translateY(0);
+                                }
+                            }
+                        }
+                    }
                 }
-              }
-  
-              &:hover {
-                .quick-view {
-                  opacity: 1;
-                  visibility: visible;
-                  transform: translate(-50%, 0);
-                }
-  
-                .hart-icon {
-                  opacity: 1;
-                  visibility: visible;
-                }
-              }
             }
-  
-            .card-content {
-              padding: 16px;
-              position: relative;
-  
-              .h1 {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-  
-                h1 {
-                  font-size: 18px;
-                  font-weight: 600;
-                  margin: 0;
-                }
-  
-                p {
-                  font-size: 16px;
-                  color: #e91e63;
-                  font-weight: bold;
-                  margin: 5px 0;
-                }
-              }
-  
-              .line {
-                width: 100%;
-                height: 1px;
-                background: #ccc;
-                margin: 10px 0;
-              }
-  
-              .card-description {
-                font-size: 14px;
-                color: #666;
-                margin-bottom: 20px;
-                transition: opacity 0.3s ease, visibility 0.3s ease, height 0.3s ease;
-              }
-  
-              .add-btn {
-                width: 100%;
-                padding: 8px 15px;
-                background: #e91e63;
-                color: white;
-                border: none;
-                border-radius: 5px;
-                font-size: 14px;
-                cursor: pointer;
-                opacity: 0;
-                transform: translateY(20px);
-                transition: all 0.3s ease;
-  
-                &:hover {
-                  background-color: #ff6b6b;
-                }
-              }
-            }
-  
-            &:hover {
-              .card-content {
-                .card-description {
-                  opacity: 0;
-                  visibility: hidden;
-                  height: 0;
-                  overflow: hidden;
-                }
-  
-                .add-btn {
-                  opacity: 1;
-                  transform: translateY(0);
-                }
-              }
-            }
-          }
         }
-      }
     }
-  }
+}
+
+
+    

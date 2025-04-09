@@ -50,129 +50,139 @@ function Tovar() {
     };
 
     return (
-        <div className="menu-container">
-            <div className="katalog">
-                <div className="menu">
-                    <div className="menu-items">
-                        <h1>Букеты</h1>
-                        {menu.map((item, index) => (
-                            <div onClick={() => dispatch(setSearch(item))} key={index} className="menu-item">
-                                {item}
-                            </div>
-                        ))}
-                    </div>
-                </div>
 
-                <div className="category-items">
-                    <div className="cards">
-                        <h1>Каталог товаров</h1>
-                        <div className="search">
-                            <div className="search-container">
-                                {!showSearch ? (
-                                    <img
-                                        src="https://cdn.vectorstock.com/i/preview-1x/34/33/search-icon-magnifier-symbol-flat-vector-11283433.jpg"
-                                        alt="search"
-                                        onClick={() => setShowSearch(true)}
-                                    />
-                                ) : (
-                                    <input
-                                        type="text"
-                                        placeholder="Что вы ищите?"
-                                        value={text}
-                                        onChange={(e) => setText(e.target.value)}
-                                        onKeyDown={(e) => e.key === 'Enter' && dispatch(setSearch(text))}
-                                        autoFocus
-                                    />
-                                )}
-                            </div>
-                        </div>
+        <div className='mack-container'>
+            <h1>Каталог товаров</h1>
 
-                        <div className="filters">
-                            <select name="occasion" onChange={(e) => dispatch(setOccasion(e.target.value))} className="filter-select">
-                                <option value="">Повод</option>
-                                <option value="День Святого Валентина">День Святого Валентина</option>
-                                <option value="День Рождения">День Рождения</option>
-                                <option value="Без повода">Без повода</option>
-                                <option value="Юбилей">Юбилей</option>  
-                                <option value="Праздник">Праздник</option>
-                                <option value="День матери">День матери</option>
-                                <option value="Событие">Событие</option>
-                                <option value="Корпоратив">Корпоратив</option>
-                                <option value="День влюбленных">День влюбленных</option>
-                            </select>
-                            <select name="recipient" onChange={(e) => dispatch(setKomu(e.target.value))} className="filter-select">
-                                <option value="">Кому</option>
-                                <option value="Любимой">Любимой</option>
-                                <option value="Маме">Маме</option>
-                                <option value="Девушке">Девушке</option>
-                                <option value="Друзьям">Друзьям</option>  
-                                <option value="Для бабушки">Для бабушки</option>  
-                                <option value="Невесте">Невесте</option> 
-                                <option value="Для жены">жене</option> 
-                                <option value="Для сестры">Для сестры</option>
-                                <option value="Для творческого человека">Для креативных людей</option>
-                                <option value=""></option>
-                            </select>
-                            <select name="color" onChange={(e) => dispatch(setColor(e.target.value))} className="filter-select">
-                                <option value="">Цвет</option>
-                                <option value="Красный">Красный</option>
-                                <option value="Розовый">Розовый</option>
-                                <option value="Белый">Белый</option>
-                                <option value="Разноцветный">Разноцветный</option>  {/* Новый цвет */}
-                                <option value="Персиковый">Персиковый</option>  {/* Новый цвет */}
-                                <option value="Голубой">Голубой</option>  
-                                <option value="Бежевый">Бежевый</option> 
-                                <option value="Пурпурный">Пурпурный</option> 
-                                <option value="Персиковый">Персиковый</option>
-                                <option value="Черный">Черный</option>
-                                <option value="Лавандовый, розовый">Лавандовый, розовый</option>
-                                <option value="Синий">Синий"</option>
-                                <option value="Зеленый">Зеленый"</option>
-                                <option value="желтый">желтый</option>
-                                <option value="пастельный">пастельный</option>
-                            </select>
-                        </div>
-
-
-                        <div className="card-grid">
-                            {category.map((item, index) => (
-                                <div
-                                    key={item.id}
-                                    className="card"
-                                    onClick={() => navigate(`/Flowers/${item.id}`)}
-                                    style={{ '--i': index }}
-                                >
-                                    <div className="image-container">
-                                        <img src={item.image} alt={item.title} className="card-image" />
-                                        <img
-                                            src={hart}
-                                            alt="hart"
-                                            className="hart-icon"
-                                            onClick={(e) => handleAddToFavorite(e, item.id)}
-                                        />
-                                        <button
-                                            className="quick-view"
-                                            onClick={(e) => handleQuickView(e, item.id)}
-                                        >
-                                            Быстрый просмотр
-                                        </button>
-                                    </div>
-                                    <div className="card-content">
-                                        <div className="h1">
-                                            <h1>{item.title}</h1>
-                                            <p>{item.price}</p>
-                                        </div>
-                                        <div className="line"></div>
-                                        <p className="card-description">{item.description}</p>
-                                        <button
-                                            className="add-btn"
-                                            onClick={(e) => handleAddToCart(item, e)}
-                                        >
-                                            В корзину
-                                        </button>
-                                    </div>
+            <div className="menu-container">
+                <div className="katalog">
+                    <div className="menu">
+                        <div className="menu-items">
+                            <h1>Букеты</h1>
+                            {menu.map((item, index) => (
+                                <div onClick={() => dispatch(setSearch(item))} key={index} className="menu-item">
+                                    {item}
                                 </div>
                             ))}
+                        </div>
+                    </div>
+
+                    <div className="category-items">
+                        <div className="cards">
+                            <div className='input-option'>
+                                <div className="search">
+                                    <div className="search-container">
+                                        {!showSearch ? (
+                                            <img
+                                                src="https://cdn.vectorstock.com/i/preview-1x/34/33/search-icon-magnifier-symbol-flat-vector-11283433.jpg"
+                                                alt="search"
+                                                onClick={() => setShowSearch(true)}
+                                            />
+                                        ) : (
+                                            <>
+                                                <input
+                                                    type="text"
+                                                    placeholder="Что вы ищите?"
+                                                    value={text}
+                                                    onChange={(e) => setText(e.target.value)}
+                                                    onKeyDown={(e) => e.key === 'Enter' && dispatch(setSearch(text))}
+                                                    autoFocus
+                                                />
+                                            </>
+                                        )}
+                                    </div>
+                                </div>
+
+
+                                <div className="filters">
+                                    <select name="occasion" onChange={(e) => dispatch(setOccasion(e.target.value))} className="filter-select">
+                                        <option value="">Повод</option>
+                                        <option value="День Святого Валентина">День Святого Валентина</option>
+                                        <option value="День Рождения">День Рождения</option>
+                                        <option value="Без повода">Без повода</option>
+                                        <option value="Юбилей">Юбилей</option>
+                                        <option value="Праздник">Праздник</option>
+                                        <option value="День матери">День матери</option>
+                                        <option value="Событие">Событие</option>
+                                        <option value="Корпоратив">Корпоратив</option>
+                                        <option value="День влюбленных">День влюбленных</option>
+                                    </select>
+                                    <select name="recipient" onChange={(e) => dispatch(setKomu(e.target.value))} className="filter-select">
+                                        <option value="">Кому</option>
+                                        <option value="Любимой">Любимой</option>
+                                        <option value="Маме">Маме</option>
+                                        <option value="Девушке">Девушке</option>
+                                        <option value="Друзьям">Друзьям</option>
+                                        <option value="Для бабушки">Для бабушки</option>
+                                        <option value="Невесте">Невесте</option>
+                                        <option value="Для жены">жене</option>
+                                        <option value="Для сестры">Для сестры</option>
+                                        <option value="Для творческого человека">Для креативных людей</option>
+                                        <option value=""></option>
+                                    </select>
+                                    <select name="color" onChange={(e) => dispatch(setColor(e.target.value))} className="filter-select">
+                                        <option value="">Цвет</option>
+                                        <option value="Красный">Красный</option>
+                                        <option value="Розовый">Розовый</option>
+                                        <option value="Белый">Белый</option>
+                                        <option value="Разноцветный">Разноцветный</option>  {/* Новый цвет */}
+                                        <option value="Персиковый">Персиковый</option>  {/* Новый цвет */}
+                                        <option value="Голубой">Голубой</option>
+                                        <option value="Бежевый">Бежевый</option>
+                                        <option value="Пурпурный">Пурпурный</option>
+                                        <option value="Персиковый">Персиковый</option>
+                                        <option value="Черный">Черный</option>
+                                        <option value="Лавандовый, розовый">Лавандовый, розовый</option>
+                                        <option value="Синий">Синий"</option>
+                                        <option value="Зеленый">Зеленый"</option>
+                                        <option value="желтый">желтый</option>
+                                        <option value="пастельный">пастельный</option>
+                                    </select>
+                                </div>
+
+                            </div>
+
+
+                            <div className="card-grid">
+                                {category.map((item, index) => (
+                                    <div
+                                        key={item.id}
+                                        className="card"
+                                        onClick={() => navigate(`/Flowers/${item.id}`)}
+                                        style={{ '--i': index }}
+                                    >
+                                        <div className="image-container">
+                                            <img src={item.image} alt={item.title} className="card-image" />
+                                            <img
+                                                src={hart}
+                                                alt="hart"
+                                                className="hart-icon"
+                                                onClick={(e) => handleAddToFavorite(e, item.id)}
+                                            />
+                                            <button
+                                                className="quick-view"
+                                                onClick={(e) => handleQuickView(e, item.id)}
+                                            >
+                                                Быстрый просмотр
+                                            </button>
+                                        </div>
+                                        <div className="card-content">
+                                            <div className="h1">
+                                                <h1>{item.title}</h1>
+                                                <p>{item.price}</p>
+                                            </div>
+                                            <div className="line"></div>
+                                            <p className="card-description">{item.description}</p>
+                                            <button
+                                                className="add-btn"
+                                                onClick={(e) => handleAddToCart(item, e)}
+                                            >
+                                                В корзину
+                                            </button>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
                     </div>
                 </div>
