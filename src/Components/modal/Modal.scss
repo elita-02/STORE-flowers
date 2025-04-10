@@ -1,94 +1,3 @@
-// .modal-overlay {
-//     position: fixed;
-//     top: 0;
-//     right: 0; /* Оң жакка жайгаштыруу */
-//     background: rgba(0, 0, 0, 0.5); /* Жарым-жартылай күңгүрт фон */
-//     display: flex;
-//     justify-content: flex-end; /* Оң жакка жайгаштыруу */
-//     align-items: flex-start; /* Жогорку жагына жайгаштыруу */
-//     z-index: 1000;
-//     height: 100%;
-    
-//     .modal-content {
-//         background-color: white;
-//         padding: 30px;
-//         width: 470px; /* 30px кичирейтип белгиленген чоңдук */
-//         height: 100%; /* Толук бийиктик */
-//         overflow-y: auto; /* Узак мазмун болсо скроллдоо */
-//         position: relative;
-//     }
-    
-//     .modal-body {
-//         box-shadow: 0px 1px 13px 0px rgba(0, 0, 0, 0.05);
-//         background: rgb(255, 255, 255);
-//         width: 100%;
-//         height: 300px; /* Белгиленген бийиктик, скролл болушу үчүн */
-//         overflow-y: auto; /* Вертикалдык скроллдун иштешин камсыздайт */
-//         padding-right: 10px; /* Скролл тилкесин жайгаштыруу үчүн */
-//         scrollbar-width: thin; /* Скролл тилкесинин тууралыгын азайтуу */
-//         scrollbar-color: rgba(0, 0, 0, 0.3) rgba(0, 0, 0, 0.1); /* Скролл тилкесинин түсүн орнотуу */
-//     }
-    
-//     .produc-item{
-//         box-shadow: -4px 0 10px rgba(0, 0, 0, 0.2); /* Оң жакка караган тень */
-//         border-radius: 10px; /* Оңдоо үчүн чети жумшартылган */
-//         display: flex;
-//         gap: 30px;
-//         margin-top: 20px;
-    
-//     }
-    
-//     .modal-body img {
-//         width: 100px;
-//         height: 100px;
-//     }
-//     .product-x{
-//         display: flex;
-//         justify-content: space-between;
-//     }
-//     .modal-titl{
-//         display: flex;
-//         flex-direction: column;
-//         gap: 5px; 
-//         font-size: 20px;
-//         line-height: 0.5; 
-//         justify-content: center;
-//     }
-
-//     .close-btn {
-//         position: absolute;
-//         top: 10px;
-//         right: 15px; /* Жабуу кнопкасын сол жакка жайгаштыруу */
-//         background: none;
-//         border: none;
-//         font-size: 34px;
-//         cursor: pointer;
-//     }
-
-//     .modal-btns {
-//         display: flex;
-//         flex-direction: column;
-//         gap: 10px;
-//         margin-top: 20px;
-//         height: 200px;
-//     }
-
-//     .modal-btns button {
-//         padding: 10px 20px;
-//         background-color: #4CAF50;
-//         color: white;
-//         border: none;
-//         cursor: pointer;
-//         font-size: 16px;
-//         border-radius: 5px;
-//         transition: background-color 0.3s;
-//     }
-
-//     .modal-btns button:hover {
-//         background-color: #45a049;
-//     }
-// }
-
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -129,6 +38,13 @@
         margin-top: 20px;
         padding: 10px;
         position: relative;
+        transition: border-color 0.3s ease, box-shadow 0.9s ease;
+        
+        &:hover {
+          outline: none;
+          border-color: #24089e;
+          box-shadow: 0 4px 20px rgba(255, 107, 157, 1.15);
+        }
     }
 
     .modal-body img {
@@ -172,8 +88,8 @@
 
     .close-btn {
         position: absolute;
-        top: 10px;
-        right: 15px;
+        top: 2px;
+        right: 10px;
         background: none;
         border: none;
         font-size: 34px;

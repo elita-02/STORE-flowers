@@ -1,0 +1,191 @@
+.dessert-item {
+    width: 100%;
+    max-width: 400px;
+    position: relative;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    padding: 20px;
+    background-color: white;
+    animation: fadeIn 0.5s forwards;
+    opacity: 0;
+  
+    &:nth-child(even) {
+      animation-delay: 0.3s;
+    }
+  
+    &:nth-child(odd) {
+      animation-delay: 0.6s;
+    }
+  
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  
+    .image-container {
+      position: relative;
+  
+      img {
+        width: 100%;
+        height: 350px;
+        object-fit: cover;
+        border-radius: 8px;
+        transition: transform 0.3s ease;
+      }
+  
+      &:hover img {
+        transform: scale(1.1);
+      }
+  
+      .wish-view-btn {
+        position: absolute;
+        top: 99%; 
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        width: 100%;
+        border: none;
+        background-color: rgba(255, 107, 107, 0.5);
+        color: white;
+        font-size: 16px;
+        padding: 10px 20px;
+        border-radius: 6px;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        cursor: pointer;
+        z-index: 5;
+    }
+    
+    &:hover .wish-view-btn {
+          width: 396px;
+        opacity: 1;
+      }
+    }
+  
+    .icon-container {
+      position: absolute;
+      top: 30px;
+      right: 30px;
+      gap: 10px;
+      z-index: 5;
+      display: flex;
+      flex-direction: column;
+    }
+  
+    .delete_icon {
+      padding: 7px;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+  
+      &:hover {
+        background-color: rgba(255, 255, 255, 1);
+        transform: scale(1.2);
+      }
+  
+      img {
+        transition: transform 0.3s ease;
+        transform: scale(1.2);
+      }
+    }
+  
+    .flower-img {
+      position: absolute;
+      bottom: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+      z-index: 10;
+    }
+  
+    .dessert-info {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+  
+      h3 {
+        font-size: 18px;
+        font-weight: bold;
+        color: #333;
+      }
+  
+      .price-container {
+        width: 350px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+  
+        .old-price {
+          font-size: 16px;
+          color: #828282;
+          text-decoration: line-through;
+        }
+  
+        .new-price {
+          font-size: 18px;
+          font-weight: bold;
+          color: #d9534f;
+        }
+      }
+    }
+  
+    .order-btn {
+        padding: 10px;
+        background: #e91e63;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 100%;
+        transition: background-color 0.3s ease;
+        margin-top: 10px;
+        font-size: 16px;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      
+        &:hover {
+          background-color: #e68900;
+          transition: background-color 0.3s ease;
+        }
+        
+        .order-btn-text {
+          transition: color 0.3s ease;
+        }
+      
+        &:hover .order-btn-text {
+          color: white;  /* Эгерде текстти башка түскө өзгөртмөкчү болсоңуз */
+        }
+      }
+      .delete_icon {
+        padding: 7px;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+      
+        &:hover {
+          background-color: rgba(255, 255, 255, 1);
+          transform: scale(1.2);
+        }
+      
+        img {
+          transition: transform 0.3s ease;
+          transform: scale(1.2);
+        }
+      }
+      
+  }
+  

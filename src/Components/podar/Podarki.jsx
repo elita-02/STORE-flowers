@@ -1,87 +1,117 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchDesserts } from '../../redux/podar/podarkiSlice'; // ← туура жол
+import { fetchDesserts } from '../../redux/podar/podarkiSlice';
 import './Podarki.scss';
-import basketIcon from '../../assets/svg/karzina.svg';
-import heartIcon from "../../assets/svg/wishlist.svg";
-import flowerIcon from '../../assets/svg/gul2.svg';
-
+import { useNavigate } from "react-router-dom";
+import karzina from '../../assets/svg/karzina.svg';
+import hart from "../../assets/svg/wishlist.svg";
+import redHeart from "../../assets/svg/redser.svg"; 
+import gul2 from '../../assets/svg/gul2.svg';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import 'swiper/css/effect-coverflow';
+import 'swiper/css/grid';
 import 'swiper/css/pagination';
-import 'swiper/css/navigation'; 
-
-import { EffectCoverflow, Pagination, Navigation } from 'swiper/modules';
+import { Grid, Pagination, Autoplay, EffectCoverflow } from 'swiper/modules';
+import { addWish, removeWish } from '../../redux/wish/wishSlice';
+import { addToCart } from '../../redux/cart/CartSlice';
+import Modal from '../modal/Modal'; 
 
 function Podarki() {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const { desserts, loading, error } = useSelector((state) => state.podar);
+    const wishlist = useSelector((state) => state.wishlist.items);
+    const cartItems = useSelector((state) => state.cart.items);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [selectedItem, setSelectedItem] = useState(null); 
 
     useEffect(() => {
-        dispatch(fetchDesserts()); 
+        dispatch(fetchDesserts());
     }, [dispatch]);
 
-    if (loading) {
-        return <div>Loading...</div>;
-    }
+    if (loading) return <div>Loading...</div>;
+    if (error) return <div>Error: {error}</div>;
 
-    if (error) {
-        return <div>Error: {error}</div>;
-    }
+    const closeModal = () => {
+        setIsModalOpen(false);
+    };
+
+    const handleAddToCart = (dessert) => {
+        dispatch(addToCart(dessert)); 
+        setIsModalOpen(true);         
+    };
+
+    const handleWishClick = (dessert) => {
+        const isWished = wishlist.some((item) => item.id === dessert.id);
+        if (!isWished) {
+            dispatch(addWish(dessert));
+        } else {
+            dispatch(removeWish(dessert.id));
+        }
+    };
 
     return (
-        <div className="desserts-container">
-            <h1 className="desserts-heading">Подарки</h1>
+        <div className="desserts">
+            <h1>Подарки</h1>
             <Swiper
-                effect={'coverflow'}
-                grabCursor={true}
-                centeredSlides={true}
-                slidesPerView={'auto'}
-                coverflowEffect={{
-                    rotate: 50,
-                    stretch: 0,
-                    depth: 100,
-                    modifier: 1,
-                    slideShadows: true,
-                }}
-                pagination={true}
-                navigation={true} 
-                modules={[EffectCoverflow, Pagination, Navigation]}
-                className="desserts-swiper"
+                slidesPerView={3}
+                spaceBetween={30}
+                pagination={{ clickable: true }}
+                autoplay={{ delay: 2500, disableOnInteraction: false }}
+                modules={[Grid, Pagination, Autoplay, EffectCoverflow]}
+                effect="coverflow"
+                className="mySwiper"
             >
-                {desserts.map((dessert) => (
-                    <SwiperSlide key={dessert.id}>
-                        <div className="dessert-card">
-                            <div className="image-wrapper">
-                                <img src={dessert.image} alt={dessert.title} className="dessert-image"/>
-                                <div className="discount-badge">{dessert.discount}</div>
-                            </div>
-
-                            <div className="icon-wrapper">
-                                <img src={heartIcon} alt="Heart" className="heart-icon" />
-                                <img src={basketIcon} alt="Cart" className="cart-icon" />
-                            </div>
-
-                            <div className="dessert-details">
-                                <div className="price-info">
-                                    <div className="new-price">{dessert.price} </div>
+                {desserts.map((dessert) => {
+                    const isWished = wishlist.some((item) => item.id === dessert.id);
+                    return (
+                        <SwiperSlide key={dessert.id}>
+                            <div className="dessert-item custom-card">
+                                <div className="image-container">
+                                    <img src={dessert.image} alt={dessert.title} />
+                                    <div className="discount">{dessert.discount}</div> 
+                                    <button
+                                        className="quick-view-btn"
+                                        onClick={() => handleQuickView(dessert)} >
+                                        Быстрый просмотр
+                                    </button>
+                                </div>  
+                                <div className="icon-container">
+                                    <img
+                                        src={isWished ? redHeart : hart}
+                                        onClick={() => handleWishClick(dessert)}
+                                        alt="Heart"
+                                        className="heart-icon"
+                                    />
+                                    <img
+                                        src={karzina}
+                                        onClick={() => handleAddToCart(dessert)} 
+                                        alt="Cart"
+                                        className="cart-icon"
+                                    />
                                 </div>
-                                <h3 className="dessert-title">{dessert.title}</h3>
+                                <div className="dessert-info">
+                                    <div className="price-container">
+                                        <div className="new-price">{dessert.price}</div>
+                                    </div>
+                                    <h3>{dessert.title}</h3>
+                                </div>
+                                <button>
+                                    Заказать
+                                </button>
+                                <img src={gul2} alt="Flower" className="flower-img" />
                             </div>
-                            <button className="order-button">
-                                Добавить
-                            </button>
-                            <img src={flowerIcon} alt="Flower" className="flower-icon" />
-                        </div>
-                    </SwiperSlide>
-                ))}
+                        </SwiperSlide>
+                    );
+                })}
             </Swiper>
-            <div className="swiper-button-prev"></div>
-            <div className="swiper-button-next"></div>
+            <Modal
+                isOpen={isModalOpen}
+                onClose={closeModal}
+                items={cartItems} 
+            />
         </div>
     );
 }
 
 export default Podarki;
-
