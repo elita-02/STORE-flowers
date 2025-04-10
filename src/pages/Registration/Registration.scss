@@ -1,272 +1,160 @@
-
-
-// Переменные
-$primary-color: #ff85a2;
-$secondary-color: #7bd3ea;
-$text-color: #2d2d2d;
-$form-width: 600px;
-$form-padding: 2.5rem;
-
-// Общие стили
-.registration-container {
-//   position: relative;
-//   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  
-  .flower-pattern {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-image: url('https://www.transparenttextures.com/patterns/floral.png');
-    opacity: 0.08;
-    pointer-events: none;
-    z-index: 0;
-  }
+.modal-container {
+  position: relative;
+  width: 500px;
+  background: white;
+  margin: 0 auto;
+  margin-top: 30px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+   padding: 2rem;
+   margin-bottom: 30px;
 }
 
-// Модальная версия
-.login-overlay {
+.overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(5px);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
   animation: fadeIn 0.3s ease;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
 }
 
-.floating-login-container {
-  position: relative;
-  background: white;
-  width: 95%;
-  max-width: $form-width;
-  padding: $form-padding;
-  border-radius: 20px;
-  box-shadow: 0 10px 50px rgba(0,0,0,0.2);
-  animation: slideUp 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-  margin: 2rem;
-  z-index: 2;
-}
-
-// Статическая версия
-.static-registration-container {
+.modal-box {
   width: 100%;
-  max-width: $form-width;
-  margin: 2rem auto;
+  max-width: 480px;
+  background-color: white;
+  border-radius: 16px;
   padding: 2rem;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-  border-radius: 10px;
-  
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  animation: slideUp 0.4s ease forwards;
 }
 
-// Общие элементы формы
-.login-form, .registration-form {
-  position: relative;
-  z-index: 1;
-
-  .form-title {
-    color: $primary-color;
-    text-align: center;
-    margin-bottom: 1.5rem;
-    font-size: 2.2rem;
-  }
-
-  .welcome-text {
-    text-align: center;
-    color: $secondary-color;
-    margin-bottom: 2rem;
-    font-size: 1.1rem;
-  }
-
-  .form-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-    margin-bottom: 1.5rem;
-
-    @media (max-width: 768px) {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  .form-group {
-    margin-bottom: 1.5rem;
-
-    label {
-      display: block;
-      margin-bottom: 0.5rem;
-      color: $text-color;
-      font-weight: 500;
-    }
-  }
-
-  .form-input {
-    width: 100%;
-    padding: 0.8rem 1.2rem;
-    border: 2px solid #eee;
-    border-radius: 10px;
-    transition: all 0.3s ease;
-
-    &:focus {
-      border-color: $primary-color;
-      box-shadow: 0 0 0 3px rgba($primary-color, 0.2);
-      outline: none;
-    }
-  }
-
-  .form-select {
-    @extend .form-input;
-    appearance: none;
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
-    background-repeat: no-repeat;
-    background-position: right 1rem center;
-    background-size: 1em;
-  }
-}
-
-// Чекбокс стилдери
-.checkbox-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 1rem;
-  margin-top: 0.5rem;
-}
-
-.checkbox-label {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-
-  input {
-    position: absolute;
-    opacity: 0;
-  }
-
-  .checkmark {
-    width: 20px;
-    height: 20px;
-    border: 2px solid #ddd;
-    border-radius: 5px;
-    margin-right: 0.7rem;
-    position: relative;
-    transition: all 0.3s ease;
-
-    &::after {
-      content: '';
-      position: absolute;
-      display: none;
-      left: 6px;
-      top: 2px;
-      width: 5px;
-      height: 10px;
-      border: solid white;
-      border-width: 0 2px 2px 0;
-      transform: rotate(45deg);
-    }
-  }
-
-  input:checked ~ .checkmark {
-    background: $primary-color;
-    border-color: $primary-color;
-
-    &::after {
-      display: block;
-    }
-  }
-}
-
-// Батырмалар
-.submit-btn {
-  width: 100%;
-  padding: 1rem;
-  background: linear-gradient(45deg, $primary-color, #ff6b9d);
-  color: white;
+.close-button {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: none;
   border: none;
-  border-radius: 10px;
-  font-size: 1.1rem;
-  font-weight: 600;
+  font-size: 2rem;
+  color: #ff6b9d;
   cursor: pointer;
   transition: transform 0.2s ease;
-  margin: 1.5rem 0;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+}
+
+.title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.reg-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; 
+  gap: 1rem; 
+}
+
+.input-group {
+  margin-bottom: 1rem;
+}
+
+.input-field {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #eee;
+  border-radius: 8px !important; 
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+
+  &:focus {
+    outline: none;
+    border-color: #ff6b9d;
+    box-shadow: 0 4px 20px rgba(255, 107, 157, 0.15);
+
+  }
+}
+
+
+.submit-button {
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(45deg, #ff6b9d);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: transform 0.2s ease;
 
   &:hover {
     transform: translateY(-2px);
   }
 }
 
-// Социалдык батырмалар
-
-.social-login {
-    text-align: center;
-    margin: 2rem 0;
-  
-    p {
-      color: #666;
-      margin-bottom: 1.5rem;
-      font-size: 1rem;
-    }
-  
-    .social-buttons {
-      display: flex;
-      gap: 1.5rem;
-      justify-content: center;
-      align-items: center;
-  
-      img {
-        width: 48px;
-        height: 48px;
-        padding: 12px;
-        border-radius: 50%;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-        background: white;
-  
-        &:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-          
-          &[alt="google"] {
-            background: #f8f9fa;
-          }
-          
-          &[alt="fecbook"] {
-            background: #f0f2f5;
-          }
-        }
-  
-        &:active {
-          transform: scale(0.95);
-        }
-      }
-    }
-  }
-
-.terms-text {
+.social-login-container {
   text-align: center;
-  color: #666;
-  font-size: 0.9rem;
-  a {
-    color: $primary-color;
-    text-decoration: none;
+  margin: 2rem 0;
+
+}
+
+.social-button-container {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    width: 48px;
+    height: 48px;
+    padding: 12px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    background: white;
 
     &:hover {
-      text-decoration: underline;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      
+      &[alt="google"] {
+        background: #f8f9fa;
+      }
+      
+      &[alt="facebook"] {
+        background: #f0f2f5;
+      }
     }
   }
 }
 
-// Анимациялар
+.terms-condition {
+  text-align: center;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+  color: #555;
+
+  a {
+    color: #ff6b9d;
+    text-decoration: none;
+  }
+}
+
+.switch-auth {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -283,32 +171,9 @@ $form-padding: 2.5rem;
   }
 }
 
-// Адаптивдүүлүк
 @media (max-width: 768px) {
-  .floating-login-container {
-    width: 95%;
-    margin: 1rem;
+  .modal-box {
+    width: 90%;
     padding: 1.5rem;
-  }
-
-  .form-title {
-    font-size: 1.8rem !important;
-  }
-}
-
-.close-btn {
-  position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
-  background: none;
-  border: none;
-  font-size: 2rem;
-  color: $primary-color;
-  cursor: pointer;
-  transition: transform 0.2s;
-  line-height: 1;
-
-  &:hover {
-    transform: scale(1.2);
   }
 }

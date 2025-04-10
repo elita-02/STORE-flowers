@@ -4,6 +4,7 @@ import aksyReducer from './Aksy/AksySlice';
 import podarReducer from './podar/podarkiSlice';
 import wishlistReducer from "./wish/wishSlice"; 
 import cartReducer from "./cart/CartSlice"
+import modalReducer from "./modal/modalSlice"
 export const mystore = configureStore({
   reducer: {
     category: categoryReducer,
@@ -11,6 +12,7 @@ export const mystore = configureStore({
     podar: podarReducer, 
     wishlist: wishlistReducer, 
     cart: cartReducer, 
+    modal: modalReducer,
 
   },
 });

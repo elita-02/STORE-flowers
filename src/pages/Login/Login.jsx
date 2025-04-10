@@ -6,6 +6,7 @@ import fecbook from "../../assets/svg/fecbook.svg";
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../firebase';
 import { toast } from 'react-toastify';
+
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -13,19 +14,17 @@ function Login() {
   async function createLog() {
     try {
       const res = await signInWithEmailAndPassword(auth, email, password);
-      console.log(res);
       if (res) {
-        toast.success("User successfully created!");
+        toast.success("User successfully logged in!");
       }
     } catch (error) {
-      console.log(error);
       toast.error(error.message);
     }
   }
 
   const [isModal, setIsModal] = useState(true);
   const navigate = useNavigate();
- 
+
   const handleClose = () => {
     setIsModal(false);
     navigate('/login', { replace: true });
@@ -33,6 +32,7 @@ function Login() {
 
   const renderFormContent = () => (
     <>
+      <div className='flower-pattern'></div>
       <h2 className="form-title">🌸 Добро пожаловать в BISHKEK-FLOWERS</h2>
       <p className="auth-switch">
         Нет аккаунта? <Link to="/registration">Зарегистрируйтесь</Link>
@@ -93,24 +93,18 @@ function Login() {
   );
 
   return (
-    <div className="login-container">
+    <div className="auth-container">
       {isModal ? (
-        <div className="login-overlay">
-          <div className="floating-login-container">
-            <button 
-              className="close-btn" 
-              onClick={handleClose}
-            >
+        <div className="auth-overlay">
+          <div className="auth-box">
+            <button className="close-btn" onClick={handleClose}>
               &times;
             </button>
-            <div className="flower-pattern"></div>
-            <div className="login-form">
-              {renderFormContent()}
-            </div>
+            {renderFormContent()}
           </div>
         </div>
       ) : (
-        <div className="static-login-container">
+        <div className="auth-box">
           {renderFormContent()}
         </div>
       )}
@@ -119,3 +113,5 @@ function Login() {
 }
 
 export default Login;
+
+
