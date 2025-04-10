@@ -69,7 +69,6 @@ function Podarki() {
                             <div className="dessert-item custom-card">
                                 <div className="image-container">
                                     <img src={dessert.image} alt={dessert.title} />
-                                    <div className="discount">{dessert.discount}</div> 
                                     <button
                                         className="quick-view-btn"
                                         onClick={() => handleQuickView(dessert)} >
@@ -110,6 +109,8 @@ function Podarki() {
                 onClose={closeModal}
                 items={cartItems} 
             />
+          <div className="swiper-button-prev"></div>
+          <div className="swiper-button-next"></div>
         </div>
     );
 }
