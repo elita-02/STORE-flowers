@@ -1,31 +1,19 @@
-$primary-color: #ff85a2;
-$secondary-color: #7bd3ea;
-$text-color: #2d2d2d;
-$form-width: 500px;
-$form-padding: 2.5rem;
-
-.login-container {
+.auth-container {
   position: relative;
-  min-height: 100vh;
-  
-  .flower-pattern {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-image: url('https://www.transparenttextures.com/patterns/floral.png');
-    opacity: 0.08;
-    pointer-events: none;
-    z-index: 0;
-  }
+  width: 500px;
+  background: white;
+  margin: 0 auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
-.login-overlay {
+.auth-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(5px);
   display: flex;
   justify-content: center;
@@ -34,96 +22,117 @@ $form-padding: 2.5rem;
   animation: fadeIn 0.3s ease;
 }
 
-.floating-login-container {
-  @extend .login-common-styles;
-  animation: slideUp 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-  margin: 2rem;
+.auth-box {
+  width: 100%;
+  max-width: 480px;
+  background-color: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  animation: slideUp 0.4s ease forwards;
 }
 
-.static-login-container {
-  @extend .login-common-styles;
-  margin: 2rem auto;
+.close-btn {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #ff6b9d;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: scale(1.2);
+  }
 }
 
-.login-common-styles {
-  width: 90%;
-  max-width: $form-width;
-  padding: $form-padding;
-  border-radius: 10px;
-  background: white;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-  position: relative;
+.form-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
 
-  .form-title {
-    color: $primary-color;
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #eee;
+  border-radius: 8px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+  &:focus {
+    outline: none;
+    border-color: #ff6b9d;
+    box-shadow: 0 4px 20px rgba(255, 107, 157, 0.15);
   }
+}
 
-  .form-input {
-    width: 100%;
-    padding: 12px;
-    border: 2px solid #eee;
-    border-radius: 8px;
-    transition: border-color 0.3s ease;
+.submit-btn {
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(45deg, #ff6b9d);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: transform 0.2s ease;
 
-    &:focus {
-      border-color: $primary-color;
-      outline: none;
-    }
-  }
-
-  .submit-btn {
-    width: 100%;
-    padding: 1rem;
-    background: linear-gradient(45deg, $primary-color, #ff6b9d);
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 1.1rem;
-    transition: transform 0.2s ease;
-
-    &:hover {
-      transform: translateY(-2px);
-    }
+  &:hover {
+    transform: translateY(-2px);
   }
 }
 
 .social-login {
   text-align: center;
   margin: 2rem 0;
+}
 
-  .social-buttons {
-    display: flex;
-    gap: 1.5rem;
-    justify-content: center;
-    align-items: center;
+.social-buttons {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
 
-    img {
-      width: 48px;
-      height: 48px;
-      padding: 12px;
-      border-radius: 50%;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      background: white;
+  img {
+    width: 48px;
+    height: 48px;
+    padding: 12px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    background: white;
 
-      &:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        
-        &[alt="google"] {
-          background: #f8f9fa;
-        }
-        
-        &[alt="facebook"] {
-          background: #f0f2f5;
-        }
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      
+      &[alt="google"] {
+        background: #f8f9fa;
+      }
+      
+      &[alt="facebook"] {
+        background: #f0f2f5;
       }
     }
+  }
+}
+
+.terms-text {
+  text-align: center;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+  color: #555;
+
+  a {
+    color: #ff6b9d;
+    text-decoration: none;
   }
 }
 
@@ -144,25 +153,8 @@ $form-padding: 2.5rem;
 }
 
 @media (max-width: 768px) {
-  .floating-login-container {
-    width: 95%;
-    margin: 1rem;
+  .auth-box {
+    width: 90%;
     padding: 1.5rem;
-  }
-}
-
-.close-btn {
-  position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
-  background: none;
-  border: none;
-  font-size: 2rem;
-  color: $primary-color;
-  cursor: pointer;
-  transition: transform 0.2s;
-
-  &:hover {
-    transform: scale(1.2);
   }
 }
