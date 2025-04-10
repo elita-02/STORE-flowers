@@ -405,4 +405,28 @@
       }
     }
   }
+  
+  .cart-info {
+    position: relative;
+    
+    .badge {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      background-color: red; /* кызыл фон */
+      color: white; /* ак түс */
+      font-size: 14px; /* шрифт өлчөмү */
+      width: 20px; /* туурасы */
+      height: 20px; /* бийиктиги */
+      border-radius: 50%; /* тегерек кылуу */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: bold; /* шрифтти калың кылуу */
+    }
+  }
+  
+  
+  
+  
 }
