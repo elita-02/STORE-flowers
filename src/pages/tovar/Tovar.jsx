@@ -1,10 +1,10 @@
-
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { getCategory, setSearch, setKomu, setOccasion, setColor } from '../../redux/category/categorySlice';
-// import { addToCart } from '../../redux/';
+// import { addToCart } from '../../redux/cart/cartSlice';
 import hart from '../../assets/svg/hart.svg';
+import QuickViewModal from '../../Components/QuickViewModal/QuickViewModal';  // Импорттогон компонентибиз
 import './Tovar.scss';
 
 function Tovar() {
@@ -13,6 +13,7 @@ function Tovar() {
     const navigate = useNavigate();
     const [text, setText] = useState("");
     const [showSearch, setShowSearch] = useState(false);
+    const [quickViewItem, setQuickViewItem] = useState(null);  // Модал үчүн state
 
     useEffect(() => {
         dispatch(getCategory({ cake: search, text, komu, occasion, color }));
@@ -39,18 +40,16 @@ function Tovar() {
 
     const handleQuickView = (e, id) => {
         e.stopPropagation();
-        // Логика быстрого просмотра
-        console.log("Быстрый просмотр товара", id);
+        const selectedItem = category.find((item) => item.id === id);  // Товардын IDсин табуу
+        setQuickViewItem(selectedItem);  // Тандалган товарды set кылуу
     };
 
     const handleAddToFavorite = (e, id) => {
         e.stopPropagation();
-        // Логика добавления в избранное
         console.log("Добавлено в избранное", id);
     };
 
     return (
-
         <div className='mack-container'>
             <h1>Каталог товаров</h1>
 
@@ -79,20 +78,17 @@ function Tovar() {
                                                 onClick={() => setShowSearch(true)}
                                             />
                                         ) : (
-                                            <>
-                                                <input
-                                                    type="text"
-                                                    placeholder="Что вы ищите?"
-                                                    value={text}
-                                                    onChange={(e) => setText(e.target.value)}
-                                                    onKeyDown={(e) => e.key === 'Enter' && dispatch(setSearch(text))}
-                                                    autoFocus
-                                                />
-                                            </>
+                                            <input
+                                                type="text"
+                                                placeholder="Что вы ищите?"
+                                                value={text}
+                                                onChange={(e) => setText(e.target.value)}
+                                                onKeyDown={(e) => e.key === 'Enter' && dispatch(setSearch(text))}
+                                                autoFocus
+                                            />
                                         )}
                                     </div>
                                 </div>
-
 
                                 <div className="filters">
                                     <select name="occasion" onChange={(e) => dispatch(setOccasion(e.target.value))} className="filter-select">
@@ -118,30 +114,22 @@ function Tovar() {
                                         <option value="Для жены">жене</option>
                                         <option value="Для сестры">Для сестры</option>
                                         <option value="Для творческого человека">Для креативных людей</option>
-                                        <option value=""></option>
                                     </select>
                                     <select name="color" onChange={(e) => dispatch(setColor(e.target.value))} className="filter-select">
                                         <option value="">Цвет</option>
                                         <option value="Красный">Красный</option>
                                         <option value="Розовый">Розовый</option>
                                         <option value="Белый">Белый</option>
-                                        <option value="Разноцветный">Разноцветный</option>  {/* Новый цвет */}
-                                        <option value="Персиковый">Персиковый</option>  {/* Новый цвет */}
+                                        <option value="Разноцветный">Разноцветный</option>
+                                        <option value="Персиковый">Персиковый</option>
                                         <option value="Голубой">Голубой</option>
                                         <option value="Бежевый">Бежевый</option>
                                         <option value="Пурпурный">Пурпурный</option>
-                                        <option value="Персиковый">Персиковый</option>
                                         <option value="Черный">Черный</option>
-                                        <option value="Лавандовый, розовый">Лавандовый, розовый</option>
-                                        <option value="Синий">Синий"</option>
-                                        <option value="Зеленый">Зеленый"</option>
-                                        <option value="желтый">желтый</option>
-                                        <option value="пастельный">пастельный</option>
+                                        <option value="Синий">Синий</option>
                                     </select>
                                 </div>
-
                             </div>
-
 
                             <div className="card-grid">
                                 {category.map((item, index) => (
@@ -161,14 +149,14 @@ function Tovar() {
                                             />
                                             <button
                                                 className="quick-view"
-                                                onClick={(e) => handleQuickView(e, item.id)}
+                                                onClick={(e) => handleQuickView(e, item.id)} 
                                             >
                                                 Быстрый просмотр
                                             </button>
                                         </div>
                                         <div className="card-content">
                                             <div className="h1">
-                                                <h1>{item.title}</h1>
+                                                <h1>"{item.title}"</h1>
                                                 <p>{item.price}</p>
                                             </div>
                                             <div className="line"></div>
@@ -187,8 +175,18 @@ function Tovar() {
                     </div>
                 </div>
             </div>
+
+          
+            {quickViewItem && (
+                <QuickViewModal item={quickViewItem} onClose={() => setQuickViewItem(null)} />
+            )}
         </div>
     );
 }
 
 export default Tovar;
+
+
+
+
+

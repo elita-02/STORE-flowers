@@ -5,7 +5,7 @@ import './Aksy.scss';
 import { useNavigate } from "react-router-dom";
 import karzina from '../../assets/svg/karzina.svg';
 import hart from "../../assets/svg/wishlist.svg";
-import redHeart from "../../assets/svg/redser.svg"; 
+import redHeart from "../../assets/svg/redser.svg";
 import gul2 from '../../assets/svg/gul2.svg';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -40,7 +40,6 @@ function Aksy() {
         dispatch(addToCart(dessert)); 
         setIsModalOpen(true);         
     };
-
     const handleWishClick = (dessert) => {
         const isWished = wishlist.some((item) => item.id === dessert.id);
         if (!isWished) {
