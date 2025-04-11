@@ -126,6 +126,7 @@ function Tovar() {
                                         <option value="Бежевый">Бежевый</option>
                                         <option value="Пурпурный">Пурпурный</option>
                                         <option value="Черный">Черный</option>
+                                        <option value="Синий">Синий</option>
                                     </select>
                                 </div>
                             </div>
