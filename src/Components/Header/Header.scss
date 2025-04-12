@@ -329,6 +329,27 @@
       }
     }
   }
+  .cart-info a {
+    position: relative;
+
+    .wishlist-badge,
+  .cart-badge {
+    position: absolute;
+    top: -4px;
+    right: -2px;
+    background-color: rgb(208, 90, 141);
+    color: white;
+    font-size: 12px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    z-index: 3;
+  }
+  }
 }
 
 @media (max-width: 1440px) {
@@ -399,34 +420,11 @@
         }
       }
       }
-
+      
       .contact-cart {
         align-items: center;
       }
     }
   }
-  
-  .cart-info {
-    position: relative;
-    
-    .badge {
-      position: absolute;
-      top: -5px;
-      right: -5px;
-      background-color: red; /* кызыл фон */
-      color: white; /* ак түс */
-      font-size: 14px; /* шрифт өлчөмү */
-      width: 20px; /* туурасы */
-      height: 20px; /* бийиктиги */
-      border-radius: 50%; /* тегерек кылуу */
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-weight: bold; /* шрифтти калың кылуу */
-    }
-  }
-  
-  
-  
-  
+
 }

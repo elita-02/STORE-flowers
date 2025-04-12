@@ -15,6 +15,8 @@ import { Grid, Pagination, Autoplay } from 'swiper/modules';
 import { addWish, removeWish } from '../../redux/wish/wishSlice';
 import { addToCart } from '../../redux/cart/CartSlice';
 import Modal from '../modal/Modal'; 
+import { removeItem } from '../../redux/modal/modalSlice'; 
+import { removeFromCart } from '../../redux/cart/CartSlice'; 
 
 function Aksy() {
     const dispatch = useDispatch();
@@ -43,12 +45,15 @@ function Aksy() {
     const handleWishClick = (dessert) => {
         const isWished = wishlist.some((item) => item.id === dessert.id);
         if (!isWished) {
-            dispatch(addWish(dessert)); // Wishlistке кошуу
+            dispatch(addWish(dessert));
         } else {
-            dispatch(removeWish(dessert.id)); // Wishlistтен алып салуу
+            dispatch(removeWish(dessert.id)); 
         }
     };
-
+  
+  const handleRemoveItem = (itemId) => {
+    dispatch(removeFromCart(itemId)); 
+  };
     return (
         <div className="desserts">
             <h1>Акции</h1>
@@ -91,12 +96,9 @@ function Aksy() {
                                 </div>
                                 <div className="dessert-info">
                                     <div className="price-container">
-                                        {dessert.old_price && (
-                                            <div className="old-price">{dessert.old_price} сом</div>
-                                        )}
+                                        <h3>{dessert.title}</h3>
                                         <div className="new-price">{dessert.price} сом</div>
                                     </div>
-                                    <h3>{dessert.title}</h3>
                                 </div>
                                 <button>
                                     Заказать
@@ -111,6 +113,8 @@ function Aksy() {
                 isOpen={isModalOpen}
                 onClose={closeModal}
                 items={cartItems} 
+                onRemoveItem={handleRemoveItem}
+
             />
         </div>
     );
