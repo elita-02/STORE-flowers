@@ -1,7 +1,150 @@
 .banner {
-    // width: 1424px;
-    // margin: 0 auto;
+.banner-container {
+    position: relative;
+    width: 100%;
+    max-height: 700px;
+    min-height: 500px;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(255, 105, 180, 0.3);
+  }
+  
+  .background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), transform 8s linear;
+    transform: scale(1.1);
+    filter: brightness(0.8);
+  }
+  
+  .background-image.active {
+    opacity: 1;
+    transform: scale(1);
+    filter: brightness(0.9) contrast(1.1);
+  }
+  
+  .dark-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      45deg, 
+      rgba(255, 105, 180, 0.25) 0%, 
+      rgba(199, 21, 133, 0.4) 100%
+    );
+    z-index: 1;
+  }
+  
+  .content {
+    position: absolute;
+    top: 46%;
+    left: -10px;
+    transform: translateY(-50%);
+    z-index: 2;
+    text-align: left;
+    padding: 2rem;
+    color: white;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+    background-color: rgba(255, 192, 203, 0.3); 
+    border-radius: 15px;
+    backdrop-filter: blur(5px); 
+  }
+  
+  
+  .title {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    font-family: 'Pacific'}
+    .slide-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .title {
+        font-size: 3.5rem;
+        margin-bottom: 1rem;
+        font-family: 'Dancing Script', cursive;
+        color: #fff;
+        text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+      }
+      
+      .subtitle {
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+        font-weight: 300;
+        max-width: 600px;
+        line-height: 1.5;
+        color: #ffe6f2;
+        text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+      }
+      .cta-button {
+        padding: 0.8rem 2rem;
+        font-size: 1.2rem;
+        font-weight: 500;
+        border: 2px solid #fff;
+        background-color: rgba(255, 255, 255, 0.1); /* прозрачный ак фон */
+        color: #fff;
+        border-radius: 16px;
+        cursor: pointer;
+        backdrop-filter: blur(4px); /* модный бүдөмүк эффект */
+        transition: all 0.3s ease;
+      
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.3);
+          transform: scale(1.05);
+        }
+      
+        &:active {
+          transform: scale(0.95);
+        }
+      }
+      
+      
+      /* Ар бир слайдга өз анимациясы */
+      .slide-background:nth-child(1) .title {
+        animation: slideInLeft 1s ease-out;
+      }
+      
+      .slide-background:nth-child(2) .title {
+        animation: slideInRight 1s ease-out;
+      }
+      
+      .slide-background:nth-child(3) .subtitle {
+        animation: floatText 3s ease-in-out infinite;
+      }
+      
+      @keyframes slideInLeft {
+        from { transform: translateX(-100px); opacity: 0; }
+        to { transform: translateX(0); opacity: 1; }
+      }
+      
+      @keyframes slideInRight {
+        from { transform: translateX(100px); opacity: 0; }
+        to { transform: translateX(0); opacity: 1; }
+      }
+      
+      @keyframes floatText {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+      }
 
+    
     .section {
         // width: 1400px;
         height: 674px;
@@ -311,5 +454,188 @@
                 height: 343px;
             }
         }
+    } 
+    .floristy{
+        background-color: rgb(245, 212, 233);
+        height: 700px;
+        border-radius: 18px;
     }
+    .florist-header {
+        text-align: center;
+        padding: 2rem 0;
+        position: relative;
+        margin-bottom: 3rem;
+      
+        .section-title {
+          font-size: 2.5rem;
+          color: #2c3e50;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+          margin-bottom: 1.5rem;
+      
+          &::before,
+          &::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 2px;
+            background: #e74c3c;
+            margin: 0 1.5rem;
+          }
+      
+          .deco-flower {
+            width: 80px;
+            margin: 0 1rem;
+            opacity: 0.8;
+      
+            &.left {
+              transform: rotate(-15deg);
+            }
+            &.right {
+              transform: rotate(15deg);
+            }
+          }
+        }
+      
+        .section-subtitle {
+          font-size: 1.2rem;
+          color: #7f8c8d;
+          max-width: 600px;
+          margin: 0 auto;
+          line-height: 1.6;
+          position: relative;
+          padding-top: 1rem;
+      
+          &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(to right, transparent, #e74c3c, transparent);
+          }
+        }
+      }
+    .florist-cards-compact {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        margin: 3rem 0;
+        padding: 0 8rem;
+      
+        .florist-card-static {
+          position: relative;
+          width: 500px;
+          height: 350px;
+          border-radius: 15px;
+          overflow: hidden;
+          box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+          
+          .card-inner {
+            position: relative;
+            height: 100%;
+            transition: all 0.4s ease;
+      
+            .front-content {
+              position: absolute;
+              width: 100%;
+              height: 100%;
+              padding: 2rem;
+              background: white;
+              transition: opacity 0.3s ease;
+              background-color: #f49ec8;
+      
+              .card-header {
+                text-align: center;
+                
+                .florist-photo {
+                  width: 170px;
+                  height: 150px;
+                  border-radius: 50%;
+                  object-fit: cover;
+                  margin: 0 auto 1rem;
+                  border: 3px solid #ffe5ec;
+                }
+      
+                h3 {
+                  color: #e84393;
+                  margin-bottom: 1rem;
+                }
+              }
+      
+              .question-text {
+                font-size: 1.1rem;
+                color: #2d3436;
+                text-align: center;
+                padding: 0 1rem;
+              }
+            }
+      
+            .hover-content {
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              padding: 2rem;
+              background: linear-gradient(45deg, #fff0f3, #ffffff);
+              opacity: 0;
+              transform: translateY(20px);
+              transition: all 0.4s ease;
+      
+              .answer-text {
+                font-size: 1rem;
+                color: #2d3436;
+                line-height: 1.6;
+                margin-bottom: 1.5rem;
+              }
+      
+              .signature {
+                position: absolute;
+                bottom: 1.5rem;
+                left: 50%;
+                transform: translateX(-50%);
+                display: flex;
+                align-items: center;
+                background: rgba(232,67,147,0.1);
+                padding: 0.5rem 1rem;
+                border-radius: 20px;
+      
+                .sign-icon {
+                  width: 25px;
+                  margin-right: 0.5rem;
+                }
+      
+                span {
+                  color: #e84393;
+                  font-size: 0.9rem;
+                }
+              }
+      
+              .hover-flower {
+                position: absolute;
+                width: 80px;
+                right: -10px;
+                bottom: -10px;
+                opacity: 0.3;
+                transform: rotate(15deg);
+              }
+            }
+          }
+      
+          &:hover {
+            .front-content {
+              opacity: 0;
+            }
+      
+            .hover-content {
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }
+        }
+      }
 }
