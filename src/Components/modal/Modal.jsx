@@ -9,7 +9,7 @@ const Modal = ({ isOpen, onClose, items, onRemoveItem }) => {
 
   const handleClose = () => {
     onClose();
-    navigate(-1); 
+    navigate(); 
   };
 
   

@@ -166,7 +166,7 @@ function Header() {
       <span className="wishlist-badge">{wishlistItems.length}</span>
     )}
   </Link>
-  <Link to="/korzin">
+  <Link to="/Korzina">
     <img src={karzint} alt="Корзина" />
     {cartItems.length > 0 && (
       <span className="cart-badge">{cartItems.length}</span>
