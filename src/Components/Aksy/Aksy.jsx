@@ -56,7 +56,7 @@ function Aksy() {
   };
     return (
         <div className="desserts">
-            <h1>Акции</h1>
+           <h1>Акция</h1>
             <Swiper
                 slidesPerView={3}
                 grid={{ rows: 2, fill: 'row' }}
@@ -97,7 +97,7 @@ function Aksy() {
                                 <div className="dessert-info">
                                     <div className="price-container">
                                         <h3>{dessert.title}</h3>
-                                        <div className="new-price">{dessert.price} сом</div>
+                                        <div className="new-price">{dessert.price}</div>
                                     </div>
                                 </div>
                                 <button>
