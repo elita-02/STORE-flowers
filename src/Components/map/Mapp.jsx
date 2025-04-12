@@ -23,9 +23,29 @@ function Mapp() {
           zoom: 13
         });
 
-        DG.marker([42.8746, 74.5698])
-          .addTo(newMap)
-          .bindPopup('109-1 Turusbekov St, Bishkek');
+        const markers = [
+          {
+            coords: [42.8746, 74.5698],
+            text: 'Панфилова 188/1'
+          },
+          {
+            coords: [42.8705, 74.6000],
+            text: 'Исанова 123'
+          },
+          {
+            coords: [42.8600, 74.5800],
+            text: 'Московская 45'
+          }
+        ];
+
+        // DG.marker([42.8746, 74.5698])
+        //   .addTo(newMap)
+        //   .bindPopup('Панфилова 188/1');
+        markers.forEach(({ coords, text }) => {
+          DG.marker(coords)
+            .addTo(newMap)
+            .bindPopup(text);
+        });
 
         setMap(newMap);
       }).catch(() => {
@@ -43,7 +63,7 @@ function Mapp() {
   }, []);
 
   return (
-    <div className='container'>
+    <div className='container karta'>
       {error && <div className="error container">{error}</div>}
       <div 
         ref={mapContainer} 
