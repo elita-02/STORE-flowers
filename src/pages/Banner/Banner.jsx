@@ -1,11 +1,15 @@
-import React from 'react'
-import BannerComponent from '../../Components/Banner/Banner'  // Импорттоо атын өзгөрттүк
+import React from 'react';
+import BannerComponent from '../../Components/Banner/Banner';
+import Mapp from '../../Components/map/Mapp';
 
 function Banner() {
     return (
-        <BannerComponent /> 
-    )
+        <>
+            <BannerComponent />
+            <Mapp />
+        </>
+    );
 }
 
-export default Banner
+export default Banner;
 

@@ -15,6 +15,7 @@ import { Grid, Pagination, Autoplay, EffectCoverflow } from 'swiper/modules';
 import { addWish, removeWish } from '../../redux/wish/wishSlice';
 import { addToCart } from '../../redux/cart/CartSlice';
 import Modal from '../modal/Modal'; 
+import { removeFromCart } from '../../redux/cart/CartSlice'; 
 
 function Podarki() {
     const dispatch = useDispatch();
@@ -24,7 +25,7 @@ function Podarki() {
     const cartItems = useSelector((state) => state.cart.items);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedItem, setSelectedItem] = useState(null); 
-
+   
     useEffect(() => {
         dispatch(fetchDesserts());
     }, [dispatch]);
@@ -49,7 +50,9 @@ function Podarki() {
             dispatch(removeWish(dessert.id));
         }
     };
-
+    const handleRemoveItem = (itemId) => {
+        dispatch(removeFromCart(itemId)); 
+      };
     return (
         <div className="desserts">
             <h1>Подарки</h1>
@@ -91,9 +94,9 @@ function Podarki() {
                                 </div>
                                 <div className="dessert-info">
                                     <div className="price-container">
+                                    <h3>{dessert.title}</h3>
                                         <div className="new-price">{dessert.price}</div>
                                     </div>
-                                    <h3>{dessert.title}</h3>
                                 </div>
                                 <button>
                                     Заказать
@@ -108,6 +111,8 @@ function Podarki() {
                 isOpen={isModalOpen}
                 onClose={closeModal}
                 items={cartItems} 
+                onRemoveItem={handleRemoveItem} // <-- Бул жерде жөнөтүү
+
             />
           <div className="swiper-button-prev"></div>
           <div className="swiper-button-next"></div>
