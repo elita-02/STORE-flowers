@@ -149,6 +149,7 @@ function Header() {
             <Link to="/aksia">Акции</Link>
             <Link to="/news">Новости</Link>
             <Link to="/info">Информация</Link>
+            <Link to="/PetalMaker">Создай букет</Link>
           </nav>
         </div>
 
