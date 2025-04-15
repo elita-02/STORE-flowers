@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { getCategory, setSearch, setKomu, setOccasion, setColor } from '../../redux/category/categorySlice';
-// import { addToCart } from '../../redux/cart/cartSlice';
 import hart from '../../assets/svg/hart.svg';
 import QuickViewModal from '../../Components/QuickViewModal/QuickViewModal';  // Импорттогон компонентибиз
 import './Tovar.scss';
