@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchDesserts } from '../../redux/Aksy/AksySlice';
 import './Aksy.scss';
 import { useNavigate } from "react-router-dom";
 import karzina from '../../assets/svg/karzina.svg';
@@ -13,11 +12,11 @@ import 'swiper/css/grid';
 import 'swiper/css/pagination';
 import { Grid, Pagination, Autoplay } from 'swiper/modules';
 import { addWish, removeWish } from '../../redux/wish/wishSlice';
-import { addToCart } from '../../redux/cart/CartSlice';
 import Modal from '../modal/Modal'; 
 import { removeItem } from '../../redux/modal/modalSlice'; 
-import { removeFromCart } from '../../redux/cart/CartSlice'; 
-
+import { fetchDesserts } from '../../redux/Aksy/aksySlice';
+import { addToCart } from '../../redux/cart/cartSlice';
+import { removeFromCart } from '../../redux/cart/cartSlice';
 function Aksy() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
