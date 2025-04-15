@@ -1,31 +1,26 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { updateQuantity } from '../../redux/cart/CartSlice';
 import './Cart.scss';
-
+import { updateQuantity } from '../../redux/cart/cartSlice';
 function Cart() {
     const items = useSelector((state) => state.cart.items);
     const dispatch = useDispatch();
     const [isModalOpen, setIsModalOpen] = useState(true); 
 
-    // Товарды көбөйтүү
     const handleIncrement = (id) => {
         dispatch(updateQuantity({ id, quantity: 1 }));
     };
 
-    // Товарды азайтуу
     const handleDecrement = (id) => {
         dispatch(updateQuantity({ id, quantity: -1 }));
     };
 
-    // Ар бир товар үчүн жалпы бааны эсептөө
     const getItemTotalPrice = (price, quantity) => {
         const numericPrice = parseFloat(price) || 0;
         const numericQty = parseInt(quantity) || 0;
         return (numericPrice * numericQty).toFixed(2);
     };
 
-    // Бардык товарлардын жалпы суммасын эсептөө
     const getTotalPrice = () => {
         return items.reduce((total, item) => {
             const price = parseFloat(item.price) || 0;
@@ -34,7 +29,6 @@ function Cart() {
         }, 0).toFixed(2);
     };
 
-    // Модалды жабуу
     const closeModal = () => {
         setIsModalOpen(false);
     };
@@ -43,7 +37,6 @@ function Cart() {
 <div className={`cart ${isModalOpen ? 'open' : 'closed'} container`}>
 <div className="cart-content-wrapper">
   
-  {/* СОЛ ТАРАП: Товарлар */}
   <div className="cart-left">
     <div className="cart_top">
       <p>Продукт ({items.length > 0 ? items.length : 'Корзина пуста'})</p>
