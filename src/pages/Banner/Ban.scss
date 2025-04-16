@@ -7,14 +7,12 @@
     
     .wat-link {
         display: block;
-        width: 100px;
-        height: 100px;
+        width: 80px;
+        height: 80px;
         
         &:hover {
-            transform: scale(1.1);
             filter: drop-shadow(0 0 8px rgba(37, 211, 102, 0.6));
             
-            // Останавливаем анимацию при ховере
             .wat-icon {
                 animation-play-state: paused;
             }

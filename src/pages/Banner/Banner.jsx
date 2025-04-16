@@ -6,7 +6,6 @@ import watt from "../../assets/img/watt.png"
 import "./Ban.scss"
 
 function Banner() {
-    // Закодированное сообщение
     const message = encodeURIComponent("Добро пожаловать в наш магазин FLOWERS-STORE!");
     
     return (
