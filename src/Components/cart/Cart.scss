@@ -106,7 +106,7 @@
 
             span {
               cursor: pointer;
-              user-select: none;
+              // user-select: none;
               transition: transform 0.2s ease-in-out;
 
               &:hover {
