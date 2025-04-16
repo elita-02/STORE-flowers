@@ -1,16 +1,17 @@
 import React from 'react'
 import Checkout from '../../Components/Checkout/Checkout'
+import './CheckoutPage.scss'
 
 function CheckoutPage() {
   return (
     <div>
-      <div className='checkout container'>
-        <div className='checkout-header'>
-          <h2>КОРЗИНА</h2>
-          <h2>Информация о заказе  </h2>
-          <h2>Завершение заказа </h2>
-        </div>
+      <div className='checkout-header'>
+        <h2>КОРЗИНА</h2>
+        <h2>Информация о заказе  </h2>
+        <h2>Завершение заказа </h2>
+      </div>
 
+      <div className='checkout container'>
         <div className="checout-input">
           <div className="checout-line">
             <p>Уже покупали? Нажмите для входа</p>
@@ -72,20 +73,29 @@ function CheckoutPage() {
           <h2>Итого</h2>
 
           <ul>
-            <li></li>
-            <li></li>
-            <li></li>
+            <li>
+              <img src="./img/mbank-icon.svg" alt="MBank" />
+              <span>MBank аркылуу</span>
+            </li>
+            <li>
+              <img src="./img/ogo-icon.svg" alt="О!Деньги" />
+              <span>О!Деньги</span>
+            </li>
+            <li>
+              <img src="./img/cash-icon.svg" alt="Наличные" />
+              <span>Наличный расчет</span>
+            </li>
           </ul>
 
           <ul>
             <li>
-            Я прочитал(а) и принимаю правила и условия сайта *
+              Я прочитал(а) и принимаю правила и условия сайта *
             </li>
           </ul>
           <button>ПОТВЕРДИТЕ ЗАКАЗ</button>
           <p>Ваши личные данные будут использоваться для обработки ваших заказов, упрощения вашей работы с сайтом и для других целей, описанных в нашей политика конфиденциальности.
 
-</p>
+          </p>
         </div>
       </div>
     </div>
