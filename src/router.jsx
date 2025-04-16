@@ -13,6 +13,7 @@ import Banner from "./pages/Banner/Banner";
 import Tovar from "./pages/tovar/Tovar";
 import Korzina from "./pages/korzina/Korzina";
 import CheckoutPage from "./pages/Checkout/CheckoutPage";
+import PetalMaker from "./pages/PetalMaker/PetalMaker";
 
  export const myRouter = createBrowserRouter([
     {
@@ -26,6 +27,10 @@ import CheckoutPage from "./pages/Checkout/CheckoutPage";
             {
                 path: "catalog",
                 element: <Catalog/>
+            },
+            {
+                path: "PetalMaker",
+                element: <PetalMaker/>
             },
             {
                 path: "tovar",
@@ -71,6 +76,7 @@ import CheckoutPage from "./pages/Checkout/CheckoutPage";
                 path: "checkoutpage",
                 element: <CheckoutPage/>
             },
+
         ]
 
     }

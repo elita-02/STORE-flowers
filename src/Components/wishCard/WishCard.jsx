@@ -2,11 +2,10 @@ import React from 'react';
 import './WishCard.scss';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { addToCart } from '../../redux/cart/CartSlice';
 import gul2 from '../../assets/svg/gul2.svg';
 import deleteImg from "../../assets/svg/delate.svg";
 import { removeWish } from '../../redux/wish/wishSlice'; 
-
+import { addToCart } from '../../redux/cart/cartSlice';
 function WishCard({ data, handleWishClick }) { 
   const dispatch = useDispatch();
   const navigate = useNavigate();

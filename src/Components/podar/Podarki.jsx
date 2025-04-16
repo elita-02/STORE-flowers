@@ -13,9 +13,9 @@ import 'swiper/css/grid';
 import 'swiper/css/pagination';
 import { Grid, Pagination, Autoplay, EffectCoverflow } from 'swiper/modules';
 import { addWish, removeWish } from '../../redux/wish/wishSlice';
-import { addToCart } from '../../redux/cart/CartSlice';
 import Modal from '../modal/Modal'; 
 import { removeFromCart } from '../../redux/cart/CartSlice'; 
+import { addToCart } from '../../redux/cart/cartSlice';
 
 function Podarki() {
     const dispatch = useDispatch();

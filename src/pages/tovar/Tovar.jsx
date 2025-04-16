@@ -1,18 +1,32 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { getCategory, setSearch, setKomu, setOccasion, setColor } from '../../redux/category/categorySlice';
+import {
+    getCategory,
+    setSearch,
+    setKomu,
+    setOccasion,
+    setColor
+} from '../../redux/category/categorySlice';
+import { addWish, removeWish } from '../../redux/wish/wishSlice';
+import { addToCart } from '../../redux/cart/cartSlice'; 
 import hart from '../../assets/svg/hart.svg';
-import QuickViewModal from '../../Components/QuickViewModal/QuickViewModal';  // Импорттогон компонентибиз
+import redser from '../../assets/svg/redser.svg';
+import QuickViewModal from '../../Components/QuickViewModal/QuickViewModal';
+import Modal from '../../Components/modal/Modal'; 
 import './Tovar.scss';
 
 function Tovar() {
     const { category, search, komu, occasion, color } = useSelector((state) => state.category);
+    const wishlist = useSelector((state) => state.wishlist.items);
+    const cartItems = useSelector((state) => state.cart.items); // Assuming cart items are here
     const dispatch = useDispatch();
     const navigate = useNavigate();
+
     const [text, setText] = useState("");
     const [showSearch, setShowSearch] = useState(false);
-    const [quickViewItem, setQuickViewItem] = useState(null);  // Модал үчүн state
+    const [quickViewItem, setQuickViewItem] = useState(null);
+    const [isModalOpen, setIsModalOpen] = useState(false); // Track modal visibility
 
     useEffect(() => {
         dispatch(getCategory({ cake: search, text, komu, occasion, color }));
@@ -26,28 +40,31 @@ function Tovar() {
         'Букет невесты', 'Вкусные букеты'
     ];
 
-    const handleAddToCart = (item, e) => {
+    const handleAddToFavorite = (e, item) => {
         e.stopPropagation();
-        dispatch(addToCart({
-            id: item.id,
-            title: item.title,
-            price: item.price,
-            image: item.image,
-            quantity: 1
-        }));
+        const isWished = wishlist.some((wishItem) => wishItem.id === item.id);
+        if (!isWished) {
+            dispatch(addWish(item));
+        } else {
+            dispatch(removeWish(item.id));
+        }
     };
 
     const handleQuickView = (e, id) => {
         e.stopPropagation();
-        const selectedItem = category.find((item) => item.id === id);  // Товардын IDсин табуу
-        setQuickViewItem(selectedItem);  // Тандалган товарды set кылуу
+        const selectedItem = category.find((item) => item.id === id);
+        setQuickViewItem(selectedItem);
     };
 
-    const handleAddToFavorite = (e, id) => {
-        e.stopPropagation();
-        console.log("Добавлено в избранное", id);
-    };
 
+    const handleAddToCart = (e, item) => { 
+        e.stopPropagation(); 
+        dispatch(addToCart(item));
+        setIsModalOpen(true);
+      };
+      
+      
+ 
     return (
         <div className='mack-container'>
             <h1>Каталог товаров</h1>
@@ -90,7 +107,7 @@ function Tovar() {
                                 </div>
 
                                 <div className="filters">
-                                    <select name="occasion" onChange={(e) => dispatch(setOccasion(e.target.value))} className="filter-select">
+                                    <select onChange={(e) => dispatch(setOccasion(e.target.value))} className="filter-select">
                                         <option value="">Повод</option>
                                         <option value="День Святого Валентина">День Святого Валентина</option>
                                         <option value="День Рождения">День Рождения</option>
@@ -102,7 +119,7 @@ function Tovar() {
                                         <option value="Корпоратив">Корпоратив</option>
                                         <option value="День влюбленных">День влюбленных</option>
                                     </select>
-                                    <select name="recipient" onChange={(e) => dispatch(setKomu(e.target.value))} className="filter-select">
+                                    <select onChange={(e) => dispatch(setKomu(e.target.value))} className="filter-select">
                                         <option value="">Кому</option>
                                         <option value="Любимой">Любимой</option>
                                         <option value="Маме">Маме</option>
@@ -114,7 +131,7 @@ function Tovar() {
                                         <option value="Для сестры">Для сестры</option>
                                         <option value="Для творческого человека">Для креативных людей</option>
                                     </select>
-                                    <select name="color" onChange={(e) => dispatch(setColor(e.target.value))} className="filter-select">
+                                    <select onChange={(e) => dispatch(setColor(e.target.value))} className="filter-select">
                                         <option value="">Цвет</option>
                                         <option value="Красный">Красный</option>
                                         <option value="Розовый">Розовый</option>
@@ -141,14 +158,14 @@ function Tovar() {
                                         <div className="image-container">
                                             <img src={item.image} alt={item.title} className="card-image" />
                                             <img
-                                                src={hart}
+                                                src={wishlist.some((wishItem) => wishItem.id === item.id) ? redser : hart}
                                                 alt="hart"
                                                 className="hart-icon"
-                                                onClick={(e) => handleAddToFavorite(e, item.id)}
+                                                onClick={(e) => handleAddToFavorite(e, item)}
                                             />
                                             <button
                                                 className="quick-view"
-                                                onClick={(e) => handleQuickView(e, item.id)} 
+                                                onClick={(e) => handleQuickView(e, item.id)}
                                             >
                                                 Быстрый просмотр
                                             </button>
@@ -162,10 +179,11 @@ function Tovar() {
                                             <p className="card-description">{item.description}</p>
                                             <button
                                                 className="add-btn"
-                                                onClick={(e) => handleAddToCart(item, e)}
-                                            >
+                                                onClick={(e) => handleAddToCart(e, item)} 
+                                                >
                                                 В корзину
-                                            </button>
+                                                </button>
+
                                         </div>
                                     </div>
                                 ))}
@@ -175,17 +193,17 @@ function Tovar() {
                 </div>
             </div>
 
-          
             {quickViewItem && (
                 <QuickViewModal item={quickViewItem} onClose={() => setQuickViewItem(null)} />
             )}
+
+            <Modal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        items={cartItems}
+      />
         </div>
     );
 }
 
 export default Tovar;
-
-
-
-
-

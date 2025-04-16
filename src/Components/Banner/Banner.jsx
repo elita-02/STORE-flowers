@@ -15,7 +15,6 @@ import Aksy from '../Aksy/Aksy'
 import './Banner.scss'
 import Podarki from '../podar/Podarki'
 import { motion, AnimatePresence } from 'framer-motion';
-
 function Banner() {
     const [activeIndex, setActiveIndex] = useState(0);
   
@@ -205,11 +204,6 @@ function Banner() {
                             <img src={image3} alt="" />
                         </div>
                     </div>
-
-
-
-
-
                 </div>
             </section>
         </div>

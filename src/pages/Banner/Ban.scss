@@ -1,0 +1,76 @@
+.wat-container {
+    position: fixed;
+    bottom: 40px;
+    right: 10px;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    
+    .wat-link {
+        display: block;
+        width: 100px;
+        height: 100px;
+        
+        &:hover {
+            transform: scale(1.1);
+            filter: drop-shadow(0 0 8px rgba(37, 211, 102, 0.6));
+            
+            // Останавливаем анимацию при ховере
+            .wat-icon {
+                animation-play-state: paused;
+            }
+        }
+    }
+    
+    .wat-icon {
+        width: 100%;
+        height: auto;
+        border-radius: 50%;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+        transition: all 0.3s ease;
+        
+        // Добавляем пульсацию
+        animation: pulse 1.5s ease-in-out infinite;
+        
+        &:hover {
+            transform: translateY(-3px);
+        }
+    }
+}
+
+// Кейфреймы для пульсации
+@keyframes pulse {
+    0% {
+        transform: scale(1.05);
+    }
+    50% {
+        transform: scale(1.09);
+    }
+    100% {
+        transform: scale(1.1);
+    }
+}
+
+// Для более плавной анимации можно добавить
+@keyframes smoothPulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.9;
+    }
+    30% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+    70% {
+        transform: scale(0.95);
+        opacity: 0.95;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0.9;
+    }
+}
+
+// Чтобы использовать smoothPulse, замените анимацию:
+.wat-icon {
+    animation: smoothPulse 2s ease-in-out infinite;
+}
