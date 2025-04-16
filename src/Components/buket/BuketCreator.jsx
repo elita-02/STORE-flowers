@@ -23,12 +23,14 @@ const BuketCreator = () => {
   };
 
   const formatPrice = (price) => {
-    return new Intl.NumberFormat('ru-RU', {
-      style: 'currency',
-      currency: 'KGS',
-      minimumFractionDigits: 0
-    }).format(price);
+    return (
+      new Intl.NumberFormat('ru-RU', {
+        style: 'decimal',
+        minimumFractionDigits: 0
+      }).format(price) + ' сом'
+    );
   };
+  
 
   const groupByCategory = (items) => {
     return items.reduce((acc, item) => {
@@ -124,7 +126,6 @@ const BuketCreator = () => {
                       )}
                     </div>
 
-                    {/* + / - контроллору */}
                     <div className="quantity-controls">
                       <button
                         className="btn-minus"
