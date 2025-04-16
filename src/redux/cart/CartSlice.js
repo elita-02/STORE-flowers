@@ -1,3 +1,4 @@
+
 import { createSlice } from '@reduxjs/toolkit';
 
 const cartSlice = createSlice({
@@ -25,8 +26,12 @@ const cartSlice = createSlice({
         }
       }
     },
+    removeFromCart: (state, action) => {
+      state.items = state.items.filter(item => item.id !== action.payload); // Товарды ID боюнча алып салуу
+    },
   },
 });
 
-export const { addToCart, removeFromCart, updateQuantity } = cartSlice.actions;
+export const { addToCart, updateQuantity, removeFromCart } = cartSlice.actions;
 export default cartSlice.reducer;
+

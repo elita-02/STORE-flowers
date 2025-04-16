@@ -12,6 +12,7 @@ import Wishlist from "./pages/Wishlist/Wishlist";
 import Banner from "./pages/Banner/Banner";
 import Tovar from "./pages/tovar/Tovar";
 import Korzina from "./pages/korzina/Korzina";
+import CheckoutPage from "./pages/Checkout/CheckoutPage";
 import PetalMaker from "./pages/PetalMaker/PetalMaker";
 
  export const myRouter = createBrowserRouter([
@@ -70,6 +71,10 @@ import PetalMaker from "./pages/PetalMaker/PetalMaker";
             {
                 path: "Korzina",
                 element: <Korzina/>
+            },
+            {
+                path: "checkoutpage",
+                element: <CheckoutPage/>
             },
 
         ]
