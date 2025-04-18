@@ -7,165 +7,137 @@ const BuketCreator = () => {
   const dispatch = useDispatch();
   const { items, loading, error } = useSelector((state) => state.buket);
   const [selectedFlowers, setSelectedFlowers] = useState([]);
+  const [activeCategory, setActiveCategory] = useState('роза');
 
   useEffect(() => {
     dispatch(fetchBukets());
   }, [dispatch]);
 
-  const normalizeData = (items) => {
-    return items
-      .filter(item => item.title && item.price && item.category)
-      .map(item => ({
-        ...item,
-        price: parseFloat(item.price.toString().replace(/[^0-9.]/g, '')),
-        discount: parseFloat(item.discount?.toString().replace('%', '')) || 0
+  const normalizeData = (data) =>
+    data
+      .filter(i => i.title && i.price && i.category)
+      .map(i => ({
+        ...i,
+        price: parseFloat(i.price.toString().replace(/[^\d.]/g, '')),
+        discount: parseFloat(i.discount?.toString().replace('%', '')) || 0,
+        category: i.category.toLowerCase()
       }));
-  };
 
-  const formatPrice = (price) => {
-    return (
-      new Intl.NumberFormat('ru-RU', {
-        style: 'decimal',
-        minimumFractionDigits: 0
-      }).format(price) + ' сом'
-    );
-  };
-  
-
-  const groupByCategory = (items) => {
-    return items.reduce((acc, item) => {
-      const category = item.category.toLowerCase();
-      if (!acc[category]) acc[category] = [];
-      acc[category].push(item);
+  const groupedData = useMemo(() => {
+    return normalizeData(items).reduce((acc, i) => {
+      (acc[i.category] = acc[i.category] || []).push(i);
       return acc;
     }, {});
-  };
+  }, [items]);
 
-  const handleSelectFlower = (flower) => {
-    setSelectedFlowers((prev) => {
-      const existing = prev.find((item) => item.id === flower.id);
-      if (existing) {
-        return prev.map((item) =>
-          item.id === flower.id ? { ...item, count: item.count + 1 } : item
-        );
-      } else {
-        return [...prev, { ...flower, count: 1 }];
-      }
-    });
-  };
+  const formatPrice = (p) =>
+    new Intl.NumberFormat('ru-RU', { style: 'decimal', minimumFractionDigits: 0 }).format(p) + ' сом';
 
-  const handleRemoveFlower = (flowerId) => {
+  const handleSelect = (flower) =>
     setSelectedFlowers((prev) =>
-      prev
-        .map((item) =>
-          item.id === flowerId ? { ...item, count: item.count - 1 } : item
-        )
-        .filter((item) => item.count > 0)
+      prev.some(f => f.id === flower.id)
+        ? prev.map(f => f.id === flower.id ? { ...f, count: f.count + 1 } : f)
+        : [...prev, { ...flower, count: 1 }]
     );
+
+  const handleDecrease = (id) =>
+    setSelectedFlowers((prev) =>
+      prev.map(f => f.id === id ? { ...f, count: f.count - 1 } : f).filter(f => f.count > 0)
+    );
+
+  const handleRemoveFlower = (id) => {
+    setSelectedFlowers((prev) => prev.filter(f => f.id !== id));
   };
 
   const totalPrice = selectedFlowers.reduce(
-    (sum, flower) =>
-      sum + flower.count * flower.price * (1 - flower.discount / 100),
-    0
+    (sum, f) => sum + f.count * f.price * (1 - f.discount / 100), 0
   );
-
-  const groupedData = useMemo(() => {
-    const normalized = normalizeData(items);
-    return groupByCategory(normalized);
-  }, [items]);
 
   if (loading) return <div className="loading">Загрузка...</div>;
   if (error) return <div className="error">Ошибка: {error}</div>;
 
   return (
     <div className="buket-container">
-      <h1 className="main-title">💐 Собери свой букет</h1>
+      <h1 className="buket-title">💐 Собери свой букет</h1>
 
-      {Object.entries(groupedData).map(([category, items]) => (
-        <div key={category} className="category-section">
-          <h2 className="category-title">
-            {category.charAt(0).toUpperCase() + category.slice(1)}
-          </h2>
-          <div className="flowers-grid">
-            {items.map((flower) => {
-              const selected = selectedFlowers.find(f => f.id === flower.id);
-              return (
-                <div key={flower.id} className="flower-card">
-                  {flower.discount > 0 && (
-                    <div className="discount-badge">-{flower.discount}%</div>
-                  )}
-                  <div className="flower-image-container">
-                    <img
-                      src={flower.image}
-                      alt={flower.title}
-                      className="flower-image"
-                      onError={(e) => {
-                        e.target.src = '/default-flower.jpg';
-                        e.target.classList.add('error-image');
-                      }}
-                    />
-                  </div>
-                  <div className="flower-info">
-                    <h3 className="flower-title">{flower.title}</h3>
-                    <p className="flower-description">{flower.description}</p>
-                    <div className="price-container">
-                      {flower.discount > 0 ? (
-                        <>
-                          <span className="original-price">
-                            {formatPrice(flower.price)}
-                          </span>
-                          <span className="discounted-price">
-                            {formatPrice(flower.price * (1 - flower.discount / 100))}
-                          </span>
-                        </>
-                      ) : (
-                        <span className="current-price">
-                          {formatPrice(flower.price)}
-                        </span>
-                      )}
-                    </div>
+      <div className="buket-tabs">
+        {Object.keys(groupedData).map((cat) => (
+          <button
+            key={cat}
+            className={`buket-tab ${activeCategory === cat ? 'active' : ''}`}
+            onClick={() => setActiveCategory(cat)}
+          >
+            {cat.charAt(0).toUpperCase() + cat.slice(1)}
+          </button>
+        ))}
+      </div>
 
-                    <div className="quantity-controls">
-                      <button
-                        className="btn-minus"
-                        onClick={() => handleRemoveFlower(flower.id)}
-                      >
-                        −
-                      </button>
-                      <span className="flower-count">
-                        {selected?.count || 0}
+      <div className="buket-grid">
+        {(groupedData[activeCategory] || []).map((f) => {
+          const selected = selectedFlowers.find(i => i.id === f.id);
+          const discounted = f.discount > 0;
+          return (
+            <div key={f.id} className="buket-flower-card">
+              {discounted && <div className="discount-label">-{f.discount}%</div>}
+              <div className="buket-image-wrapper">
+                <img
+                  src={f.image}
+                  alt={f.title}
+                  onError={(e) => {
+                    e.target.src = '/default-flower.jpg';
+                    e.target.classList.add('error-image');
+                  }}
+                />
+              </div>
+              <div className="buket-info">
+                <h3>{f.title}</h3>
+                <p>{f.description}</p>
+                <div className="buket-price">
+                  {discounted ? (
+                    <>
+                      <span className="original">{formatPrice(f.price)}</span>
+                      <span className="discounted">
+                        {formatPrice(f.price * (1 - f.discount / 100))}
                       </span>
-                      <button
-                        className="btn-plus"
-                        onClick={() => handleSelectFlower(flower)}
-                      >
-                        +
-                      </button>
-                    </div>
-                  </div>
+                    </>
+                  ) : (
+                    <span className="regular">{formatPrice(f.price)}</span>
+                  )}
                 </div>
-              );
-            })}
-          </div>
-        </div>
-      ))}
+                <div className="buket-controls">
+                  <button className="btn-minus" onClick={() => handleDecrease(f.id)}>−</button>
+                  <span className="count-display">{selected?.count || 0}</span>
+                  <button className="btn-plus" onClick={() => handleSelect(f)}>+</button>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
 
-      <div className="selected-flowers">
-        <h3>✨ Ваш букет:</h3>
+      <div className="buket-selection">
+        <h3 className="buket-selection-title">✨ Ваш букет:</h3>
         {selectedFlowers.length === 0 ? (
-          <p>Вы ещё не выбрали цветы</p>
+          <p className="buket-empty">Вы ещё не выбрали цветы</p>
         ) : (
           <>
-            <ul>
+            <ul className="buket-selected-list">
               {selectedFlowers.map((flower) => (
-                <li key={flower.id} className="selected-item">
-                  <span>{flower.title}</span> — {flower.count} шт.
-                  <button onClick={() => handleRemoveFlower(flower.id)}>Удалить</button>
+                <li key={flower.id} className="buket-selected-item">
+                  <span className="buket-flower-name">{flower.title}</span> — {flower.count} шт.
+                  <button
+                    className="buket-remove-btn"
+                    onClick={() => handleRemoveFlower(flower.id)}
+                  >
+                    Удалить
+                  </button>
                 </li>
               ))}
             </ul>
-            <div className="total-price">
+            <div className="buket-order-btn-wrapper">
+  <button className="buket-order-btn">Заказать</button>
+</div>
+            <div className="buket-total">
               Общая стоимость: <strong>{formatPrice(totalPrice)}</strong>
             </div>
           </>

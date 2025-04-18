@@ -1,310 +1,237 @@
 .buket-container {
-  padding: 2rem;
-  background-color: #fff0f6;
+  max-width: 1300px;
+  margin: auto;
+  padding: 30px;
+}
 
-  .main-title {
-    text-align: center;
-    color: #c2185b;
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-    font-weight: bold;
-  }
+.buket-title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #ce5e8a;
+  margin-bottom: 40px;
+}
 
-  .category-section {
-    margin-bottom: 3rem;
+.buket-tabs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 30px;
 
-    .category-title {
-      font-size: 1.8rem;
-      color: #ad1457;
-      margin-bottom: 1.2rem;
-      text-transform: capitalize;
-      border-left: 6px solid #f48fb1;
-      padding-left: 0.8rem;
+  .buket-tab {
+    background: #f7f7f7;
+    border-radius: 20px;
+    padding: 10px 22px;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    color: #555;
+    transition: all 0.3s ease;
+
+    &.active {
+      background: #ce5e8a;
+      color: white;
     }
 
-    .flowers-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.5rem;
+    &:hover {
+      background: #e3a6c2;
+    }
+  }
+}
 
-      .flower-card {
-        background: #ffffff;
-        border-radius: 15px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        padding: 1rem;
-        position: relative;
-        cursor: pointer;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-      
-        &:hover {
-          transform: translateY(-5px);
-          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-        }
-      
-        .discount-badge {
-          position: absolute;
-          top: 10px;
-          left: 10px;
-          background-color: #e91e63;
-          color: white;
-          padding: 0.3rem 0.6rem;
-          border-radius: 5px;
-          font-size: 0.85rem;
-          font-weight: bold;
-        }
-      
-        .flower-image-container {
-          width: 100%;
-          height: 180px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          overflow: hidden;
-          border-radius: 10px;
-          margin-bottom: 0.8rem;
-      
-          .flower-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-            border-radius: 10px;
-          }
-      
-          .error-image {
-            opacity: 0.6;
-            object-fit: contain;
-          }
-        }
-      
-        .flower-info {
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          flex-grow: 1;
-      
-          .flower-title {
-            font-weight: 600;
-            font-size: 1.1rem;
-            margin-bottom: 0.3rem;
-            color: #333;
-          }
-      
-          .flower-description {
-            font-size: 0.9rem;
-            color: #777;
-            margin-bottom: 0.5rem;
-            white-space: normal;
-            overflow: visible;
-            height: auto;
-          }
-      
-          .price-container {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-bottom: 0.5rem;
-      
-            .original-price {
-              text-decoration: line-through;
-              color: #999;
-              font-size: 0.9rem;
-            }
-      
-            .discounted-price {
-              color: #d81b60;
-              font-weight: bold;
-              font-size: 1rem;
-            }
-      
-            .current-price {
-              font-weight: bold;
-              color: #2e2e2e;
-              font-size: 1rem;
-            }
-          }
-      
-          .quantity-controls {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-            margin-top: auto; // push to bottom
-      
-            button {
-              background-color: #ffe5ec;
-              border: none;
-              width: 32px;
-              height: 32px;
-              border-radius: 50%;
-              font-size: 18px;
-              font-weight: bold;
-              color: #d6336c;
-              cursor: pointer;
-              transition: background 0.3s;
-      
-              &:hover {
-                background-color: #ffb3c1;
-                color: white;
-              }
-            }
-      
-            .flower-count {
-              font-weight: bold;
-              font-size: 16px;
-              min-width: 20px;
-              text-align: center;
-              color: #444;
-            }
-          }
-        }
-      }
-      
-        .flower-info {
-          .flower-title {
-            font-weight: 600;
-            font-size: 1.1rem;
-            margin-bottom: 0.3rem;
-            color: #333;
-          }
+.buket-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+  margin-bottom: 40px;
+}
 
-          .flower-description {
-            font-size: 0.9rem;
-            color: #777;
-            margin-bottom: 0.5rem;
-            white-space: normal;
-            overflow: visible;
-            height: auto;
-          }
+.buket-flower-card {
+  position: relative;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.2s ease;
 
-          .price-container {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-bottom: 0.5rem;
+  &:hover {
+    transform: translateY(-6px);
+  }
 
-            .original-price {
-              text-decoration: line-through;
-              color: #999;
-              font-size: 0.9rem;
-            }
+  .discount-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #f05975;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 0 0 14px 0;
+    font-size: 0.85rem;
+    z-index: 1;
+  }
 
-            .discounted-price {
-              color: #d81b60;
-              font-weight: bold;
-              font-size: 1rem;
-            }
+  .buket-image-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background: #f9f9f9;
 
-            .current-price {
-              font-weight: bold;
-              color: #2e2e2e;
-              font-size: 1rem;
-            }
-          }
-
-          .quantity-controls {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-            margin-top: 0.6rem;
-
-            button {
-              background-color: #ffe5ec;
-              border: none;
-              width: 32px;
-              height: 32px;
-              border-radius: 50%;
-              font-size: 18px;
-              font-weight: bold;
-              color: #d6336c;
-              cursor: pointer;
-              transition: background 0.3s;
-
-              &:hover {
-                background-color: #ffb3c1;
-                color: white;
-              }
-            }
-
-            .flower-count {
-              font-weight: bold;
-              font-size: 16px;
-              min-width: 20px;
-              text-align: center;
-              color: #444;
-            }
-          }
-        }
-      }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
   }
 
-  .selected-flowers {
-    background-color: #ffffff;
-    border-radius: 12px;
-    padding: 1.5rem;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    margin-top: 4rem;
+  .buket-info {
+    padding: 16px;
 
     h3 {
-      font-size: 1.6rem;
-      margin-bottom: 1rem;
-      color: #c2185b;
-    }
-
-    ul {
-      list-style-type: disc;
-      padding-left: 1.5rem;
-      margin-bottom: 1rem;
-
-      .selected-item {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 0.5rem;
-
-        span {
-          font-weight: 500;
-          width: 500px;
-        }
-
-        button {
-          background-color: #e57373;
-          border: none;
-          color: white;
-          padding: 0.3rem 0.7rem;
-          border-radius: 5px;
-          cursor: pointer;
-          font-size: 0.9rem;
-          transition: background-color 0.3s;
-
-          &:hover {
-            background-color: #c62828;
-          }
-        }
-      }
-    }
-
-    .total-price {
       font-size: 1.2rem;
-      color: #2e7d32;
-      font-weight: bold;
+      color: #333;
+      margin-bottom: 6px;
     }
 
     p {
-      font-style: italic;
-      color: #999;
+      font-size: 0.9rem;
+      color: #777;
+      margin-bottom: 12px;
+    }
+
+    .buket-price {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 12px;
+
+      .original {
+        text-decoration: line-through;
+        color: #999;
+      }
+
+      .discounted {
+        color: #e24e65;
+        font-weight: bold;
+      }
+
+      .regular {
+        font-weight: bold;
+        color: #333;
+      }
+    }
+
+    .buket-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .btn-minus,
+      .btn-plus {
+        background: #ce5e8a;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        padding: 6px 12px;
+        font-size: 1.1rem;
+        cursor: pointer;
+
+        &:hover {
+          background: #b94f77;
+        }
+      }
+
+      .count-display {
+        font-weight: bold;
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+// 🌸 Selected букет бөлүгү
+.buket-selection {
+  background: #fdf6f9;
+  border: 2px solid #f3dbe6;
+  border-radius: 20px;
+  padding: 25px;
+  margin-top: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+
+  .buket-selection-title {
+    font-size: 1.8rem;
+    color: #ce5e8a;
+    margin-bottom: 16px;
+  }
+
+  .buket-empty {
+    font-style: italic;
+    color: #888;
+    font-size: 1rem;
+  }
+  .buket-flower-name{
+    width: 300px;
+  }
+  .buket-selected-list {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 20px;
+  }
+
+  .buket-selected-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    padding: 12px 16px;
+    margin-bottom: 10px;
+    border-radius: 12px;
+    border: 1px solid #ececec;
+    font-size: 1rem;
+
+    .buket-flower-name {
+      font-weight: 500;
+      color: #444;
+    }
+
+    .buket-remove-btn {
+      background: #e57373;
+      color: white;
+      border: none;
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+
+      &:hover {
+        background: #d25555;
+      }
     }
   }
 
-  .loading,
-  .error {
-    text-align: center;
+  .buket-total {
+    text-align: right;
     font-size: 1.2rem;
-    padding: 2rem;
-    color: #d81b60;
+    font-weight: bold;
+    color: #444;
+
+    strong {
+      color: #d94f7d;
+    }
   }
+  .buket-order-btn-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+  }
+  
+  .buket-order-btn {
+    background-color: #ce5e8a;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    width: 300px;
+    padding: 10px;
+  }
+}
