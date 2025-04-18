@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 import gsap from "gsap";
 import { useSelector } from "react-redux";
 import "./Header.scss";
-
-// Assets
 import logo from "../../assets/img/log.jpg";
 import watsup from "../../assets/img/wat.png";
 import instagram from "../../assets/img/instagra.webp";
@@ -16,9 +14,11 @@ import call from "../../assets/svg/call.svg";
 import pinkflowers from "../../assets/svg/pinkFlower.svg";
 import karzint from "../../assets/svg/karzin.svg";
 import serdechka from "../../assets/svg/serdechka.svg";
+import  karzin from "../../assets/svg/karzin.svg";
 
 function Header() {
   const flowersRef = useRef([]);
+
 
   const cartItems = useSelector((state) => state.cart.items);
   const wishlistItems = useSelector((state) => state.wishlist.items);
@@ -64,6 +64,7 @@ function Header() {
                 <option>SOM</option>
               </select>
 
+
               <p>Язык</p>
               <select>
                 <option>RU</option>
@@ -104,7 +105,6 @@ function Header() {
       </div>
 
       <div className="main-header container">
-        {/* Flowers animation */}
         <div className="flower-container">
           {[...Array(40)].map((_, i) => (
             <div
@@ -120,11 +120,44 @@ function Header() {
             </div>
           ))}
         </div>
-
+      <div className="main-header container">
+        <div className="flower-container">
+          {[...Array(40)].map((_, i) => (
+            <div
+              key={i}
+              ref={el => (flowersRef.current[i] = el)}
+              className="flower"
+              style={{
+                left: `${Math.random() * 90}%`,
+                width: `${20 + Math.random() * 50}px`
+              }}
+            >
+              <img src={pinkflowers} alt="flower" />
+            </div>
+          ))}
+        </div>
         <Link to="/">
           <img src={logo} alt="Логотип" className="logo" />
         </Link>
 
+        <div className="search-section">
+          <div className="search-bar">
+            <div className="input_one">
+              <input
+                className="input"
+                type="text"
+                placeholder="Поиск по категориям"
+              />
+            </div>
+            <div className="search">
+              <input
+                className="input_two"
+                type="text"
+                placeholder="Поиск по товарам"
+              />
+              <img src={search} alt="Поиск" />
+            </div>
+          </div>
         <div className="search-section">
           <div className="search-bar">
             <div className="input_one">
@@ -153,6 +186,7 @@ function Header() {
             <Link to="/PetalMaker">Создай букет</Link>
           </nav>
         </div>
+        </div>
 
         <div className="contact-cart">
           <div className="social-icons">
@@ -180,8 +214,9 @@ function Header() {
           </div>
         </div>
       </div>
+      </div>
     </div>
-  );
+  )
 }
 
 export default Header;

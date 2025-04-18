@@ -4,11 +4,11 @@ import { useNavigate } from 'react-router-dom';
 import './Cart.scss';
 import { updateQuantity } from '../../redux/cart/cartSlice';
 
+
 function Cart() {
     const items = useSelector((state) => state.cart.items);
     const dispatch = useDispatch();
-    const [isModalOpen, setIsModalOpen] = useState(true); 
-    const navigate = useNavigate();
+    const [isModalOpen, setIsModalOpen] = useState(true);
 
     const handleIncrement = (id) => {
         dispatch(updateQuantity({ id, quantity: 1 }));
@@ -69,7 +69,6 @@ function Cart() {
                         ))
                     )}
                 </div>
-
                 <div className="cart-right">
                     <p>Сумма заказов</p>
                     {items.length > 0 && (
@@ -93,7 +92,7 @@ function Cart() {
                         )}
                     </div>
                     <div className='cart_btn'>
-                        <button onClick={() => navigate('/checkoutpage')}>Оформить заказ</button>
+                        <button>Оформить заказ</button>
                     </div>
                 </div>
             </div>
