@@ -20,13 +20,10 @@ function Footer() {
           <h4>ИНФОРМАЦИЯ</h4>
           <Link to="/about">О НАС</Link>
           <Link to="/delivery">ДОСТАВКА И ОПЛАТА</Link>
-          <Link to="/privacy">ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ</Link>
         </div>
 
         <div>
           <h4>СЛУЖБА ПОДДЕРЖКИ</h4>
-          <Link to="/sitemap">КАРТА САЙТА</Link>
-          <Link to="/returns">ВОЗВРАТ ТОВАРА</Link>
           <Link to="/contacts">СВЯЗАТЬСЯ С НАМИ</Link>
           <Link to="/cooperation">ДЛЯ СОТРУДНИЧЕСТВА</Link>
         </div>
@@ -34,7 +31,6 @@ function Footer() {
         <div>
           <h4>ЛИЧНЫЙ КАБИНЕТ</h4>
           <Link to="/profile">ЛИЧНЫЙ КАБИНЕТ</Link>
-          <Link to="/orders">ИСТОРИЯ ЗАКАЗА</Link>
           <Link to="/wishlist">ЗАКЛАДКИ</Link>
           <Link to="/news">СПИСОК НОВОСТЕЙ</Link>
         </div>
@@ -44,7 +40,6 @@ function Footer() {
           <Link to="/gifts">ПОДАРОЧНЫЕ</Link>
           <Link to="/certificates">СЕРТИФИКАТЫ</Link>
           <Link to="/sales">АКЦИИ</Link>
-          <Link to="/office-flowers">ЦВЕТЫ В ОФИС</Link>
         </div>
       </div>
       <div className='footer_bot container'>

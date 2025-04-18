@@ -14,6 +14,7 @@ import Tovar from "./pages/tovar/Tovar";
 import Korzina from "./pages/korzina/Korzina";
 import CheckoutPage from "./pages/Checkout/CheckoutPage";
 import PetalMaker from "./pages/PetalMaker/PetalMaker";
+import Izbrannyi from "./pages/izbrann/Izbrannyi";
 
  export const myRouter = createBrowserRouter([
     {
@@ -75,6 +76,10 @@ import PetalMaker from "./pages/PetalMaker/PetalMaker";
             {
                 path: "checkoutpage",
                 element: <CheckoutPage/>
+            },
+            {
+                path: "/izbran",
+                element: <Izbrannyi/>
             },
 
         ]
