@@ -93,7 +93,7 @@ function Cart() {
                         )}
                     </div>
                     <div className='cart_btn'>
-                        <button onClick={() => navigate('/checkout')}>Оформить заказ</button>
+                        <button onClick={() => navigate('/checkoutpage')}>Оформить заказ</button>
                     </div>
                 </div>
             </div>
@@ -102,5 +102,6 @@ function Cart() {
 }
 
 export default Cart;
+
 
 
