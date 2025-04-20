@@ -1,9 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import roza from '../../assets/svg/roza.svg'
-import gul from '../../assets/svg/gul.svg'
-import podar from '../../assets/svg/podar.svg'
-import photo from '../../assets/img/photo.png'
-import present from '../../assets/img/present.png'
 import gul1 from '../../assets/svg/gul1.svg'
 import gul2 from '../../assets/svg/gul2.svg'
 import kamer from '../../assets/svg/kamer.svg'
@@ -58,7 +53,7 @@ function Banner() {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 1 }}
-                style={{ backgroundImage: `url(${slide.image})` }}
+                style={{ backgroundImage: url(${slide.image}) }}
               >
                 <div className="dark-overlay"></div>
                 

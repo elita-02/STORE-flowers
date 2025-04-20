@@ -4,21 +4,15 @@ import gsap from "gsap";
 import { useSelector } from "react-redux";
 import "./Header.scss";
 
+
 import logo from "../../assets/img/log.jpg";
-import watsup from "../../assets/img/wat.png";
-import instagram from "../../assets/img/instagra.webp";
-import facbook from "../../assets/img/faceebook.png";
 import search from "../../assets/svg/search.svg";
 import wishlist from "../../assets/svg/wishlist.svg";
 import car from "../../assets/svg/car.svg";
 import call from "../../assets/svg/call.svg";
 import pinkflowers from "../../assets/svg/pinkFlower.svg";
-import karzin from "../../assets/svg/karzin.svg";
+import karzint from "../../assets/svg/karzin.svg";
 import serdechka from "../../assets/svg/serdechka.svg";
-import { FaInstagram, FaTelegram, FaWhatsapp } from 'react-icons/fa';
-import { FaRegHeart, } from 'react-icons/fa';
-import { PiShoppingCartLight } from "react-icons/pi"; // башка китепкандан
-
 
 function Header() {
   const flowersRef = useRef([]);
@@ -163,7 +157,7 @@ function Header() {
             <Link to="/">Главная</Link>
             <Link to="/reviews">Отзывы</Link>
             <Link to="/aksia">Акции</Link>
-            <Link to="/news">Новости</Link>
+            <Link to="/postspage">Новости</Link>
             <Link to="/info">Информация</Link>
             <Link to="/PetalMaker">Создай букет</Link>
           </nav>
@@ -183,24 +177,8 @@ function Header() {
           </div>
 
           <div className="phone">+86 (067) 829 30 30</div>
-                    <div className="cart-info">
-                    <Link to="/wishlist" className="cart-icon-link">
-            <FaRegHeart className="cart-icon" />
-            {wishlistItems.length > 0 && (
-              <span className="wishlist-badge">{wishlistItems.length}</span>
-            )}
-          </Link>
 
-          <Link to="/korzina" className="cart-icon-link">
-            <PiShoppingCartLight className="cart-icon-cart" />
-            {cartItems.length > 0 && (
-              <span className="cart-badge">{cartItems.length}</span>
-            )}
-          </Link>
-
-                  </div>
-
-          {/* <div className="cart-info">
+          <div className="cart-info">
             <Link to="/wishlist">
               <img src={serdechka} alt="Избранное" />
               {wishlistItems.length > 0 && (
@@ -209,12 +187,12 @@ function Header() {
             </Link>
 
             <Link to="/korzina">
-              <img src={karzin} alt="Корзина" />
+              <img src={karzint} alt="Корзина" />
               {cartItems.length > 0 && (
                 <span className="cart-badge">{cartItems.length}</span>
               )}
             </Link>
-          </div> */}
+          </div>
         </div>
       </div>
     </div>

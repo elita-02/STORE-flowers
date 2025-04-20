@@ -6,7 +6,7 @@ import Reviews from "./pages/reviews/Reviews";
 import Aksia from "./pages/Aksia/Aksia";
 import News from "./pages/News/News";
 import Information from "./pages/Information/Information";
-import Login from "./pages/Login/Login";
+// import Login
 import Registration from "./pages/Registration/Registration";
 import Wishlist from "./pages/Wishlist/Wishlist";
 import Banner from "./pages/Banner/Banner";
@@ -16,6 +16,9 @@ import CheckoutPage from "./pages/Checkout/CheckoutPage";
 import PetalMaker from "./pages/PetalMaker/PetalMaker";
 import Izbrannyi from "./pages/izbrann/Izbrannyi";
 import Contacty from "./pages/Contacty/Contacty";
+import PostsPage from "./pages/PostsPage/PostsPage";
+import DecorativeFlowersPage from "./pages/DecorativeFlowersPage/DecorativeFlowersPage";
+import Historyzakaza from "./pages/Historyzakaza/Historyzakaza";
 
  export const myRouter = createBrowserRouter([
     {
@@ -62,10 +65,10 @@ import Contacty from "./pages/Contacty/Contacty";
                 path: "info",
                 element: <Information/>
             },
-            {
-                path: "login",
-                element: <Login/>
-            },
+            // {
+            //     path: "login",
+            //     element: <Login/>
+            // },
             {
                 path: "registration",
                 element: <Registration/>
@@ -83,8 +86,16 @@ import Contacty from "./pages/Contacty/Contacty";
                 element: <CheckoutPage/>
             },
             {
-                path: "/izbran",
-                element: <Izbrannyi/>
+                path: "postspage",
+                element: <PostsPage/>
+            },
+            {
+                path: "decorative",
+                element: < DecorativeFlowersPage/>
+            },
+            {
+                path: "history",
+                element: < Historyzakaza/>
             },
 
         ]
