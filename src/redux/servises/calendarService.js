@@ -1,4 +1,4 @@
-import { db } from '../firebase';
+import { db } from '../../firebase';
 import { collection, addDoc, getDocs, query, orderBy } from "firebase/firestore";
 
 export const addEventToFirestore = async (event) => {

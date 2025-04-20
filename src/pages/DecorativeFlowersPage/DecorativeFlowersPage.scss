@@ -1,0 +1,59 @@
+.decorative-wrapper {
+    min-height: 100vh;
+    background: linear-gradient(to bottom, #e6e6fa, #f8f4ff); // lavender gradient
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+  }
+  
+  .decorative-frame {
+    border: 10px double #a28bd4; // lavender border
+    padding: 40px;
+    max-width: 800px;
+    background-color: #ffffff;
+    box-shadow: 0 0 25px rgba(163, 142, 194, 0.3); // soft purple glow
+    border-radius: 20px;
+    position: relative;
+    text-align: center;
+  }
+  
+  .decorative-frame::before,
+  .decorative-frame::after {
+    content: '✦';
+    position: absolute;
+    font-size: 40px;
+    color: #d4af37; 
+  }
+  
+  .decorative-frame::before {
+    top: -20px;
+    left: -20px;
+  }
+  
+  .decorative-frame::after {
+    bottom: -20px;
+    right: -20px;
+  }
+  
+  .decorative-title {
+    font-size: 36px;
+    color: #6b5b95; 
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  
+  .decorative-text {
+    font-size: 18px;
+    color: #444;
+    margin-bottom: 16px;
+    line-height: 1.7;
+  }
+  
+  .decorative-signature {
+    margin-top: 30px;
+    font-style: italic;
+    color: #8a6bbf;
+    font-size: 16px;
+  }
+  
