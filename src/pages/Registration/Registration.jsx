@@ -109,6 +109,7 @@ function Registration() {
   );
 
   return (
+    
     <div className="modal-container">
       {isModal ? (
         <div className="overlay">

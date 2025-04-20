@@ -15,6 +15,8 @@ import Aksy from '../Aksy/Aksy'
 import './Banner.scss'
 import Podarki from '../podar/Podarki'
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link } from 'react-router-dom';
+
 function Banner() {
     const [activeIndex, setActiveIndex] = useState(0);
   
@@ -44,53 +46,55 @@ function Banner() {
     }, []);
     
     return (
-        <div className='banner container'>
-                <div className="banner-container">
-      <AnimatePresence mode='wait'>
-        {slides.map((slide, index) => (
-          index === activeIndex && (
-            <motion.div
-              key={index}
-              className="slide-background"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 1 }}
-              style={{ backgroundImage: `url(${slide.image})` }}
-            >
-              <div className="dark-overlay"></div>
-              
-              <motion.div 
-                className="content"
-                initial={{ y: 50, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.5 }}
+        <div className='banner '>
+                  <div className="banner-container ">
+        <AnimatePresence mode='wait'>
+          {slides.map((slide, index) => (
+            index === activeIndex && (
+              <motion.div
+                key={index}
+                className="slide-background"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 1 }}
+                style={{ backgroundImage: `url(${slide.image})` }}
               >
-                <h1 className="title">{slide.title}</h1>
-                <motion.p 
-                  className="subtitle"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.8 }}
+                <div className="dark-overlay"></div>
+                
+                <motion.div 
+                  className="content"
+                  initial={{ y: 50, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ delay: 0.5 }}
                 >
-                  {slide.text}
-                </motion.p>
-                <motion.button 
-                  className="cta-button"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  Сделать заказ
-                </motion.button>
+                  <h1 className="title">{slide.title}</h1>
+                  <motion.p 
+                    className="subtitle"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.8 }}
+                  >
+                    {slide.text}
+                  </motion.p>
+                  <motion.button 
+                    className="cta-button"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <Link to="checkoutpage">
+                    Сделать заказ
+                    </Link>
+                  </motion.button>
+                </motion.div>
               </motion.div>
-            </motion.div>
-          )
-        ))}
-      </AnimatePresence>
-    </div>
+            )
+          ))}
+        </AnimatePresence>
+                 </div>
 
                         <Aksy />
-                        <div className='floristy'>
+                        <div className='floristy '>
 
                         <div className="florist-header">
     <h1 className="section-title">
@@ -104,7 +108,6 @@ function Banner() {
     </p>
 </div>
                         <div className="florist-cards-compact">
-        {/* Карточка 1 */}
         <div className="florist-card-static">
             
           <div className="card-inner">
@@ -136,7 +139,6 @@ function Banner() {
           </div>
         </div>
 
-        {/* Карточка 2 */}
         <div className="florist-card-static">
           <div className="card-inner">
             <div className="front-content">
@@ -168,9 +170,9 @@ function Banner() {
           </div>
         </div>
                         </div>
-      </div>
+                      </div>
                         <Podarki/>
-            <section className='section2'>
+            <section className='section2 container'>
                 <div className='block1'>
                     <div className='bush'>
                         <h2>Форум</h2>
