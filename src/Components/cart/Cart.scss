@@ -103,10 +103,9 @@
             font-size: 18px;
             font-weight: bold;
             cursor: pointer;
-
+            color: black;
             span {
               cursor: pointer;
-              // user-select: none;
               transition: transform 0.2s ease-in-out;
 
               &:hover {

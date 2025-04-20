@@ -1,7 +1,11 @@
-.buket-container {
-  max-width: 1300px;
-  margin: auto;
-  padding: 30px;
+.maker{
+  width: 1300px;
+  margin: 0 auto;
+}
+
+.buket-petel {
+  background-color: #fffdfd;
+
 }
 
 .buket-title {
@@ -17,7 +21,7 @@
   flex-wrap: wrap;
   gap: 12px;
   margin-bottom: 30px;
-
+  
   .buket-tab {
     background: #f7f7f7;
     border-radius: 20px;
@@ -149,7 +153,6 @@
   }
 }
 
-// 🌸 Selected букет бөлүгү
 .buket-selection {
   background: #fdf6f9;
   border: 2px solid #f3dbe6;

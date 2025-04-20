@@ -2,78 +2,17 @@ import React, { useEffect, useRef, useState } from 'react';
 import "./Map.scss";
 
 function Mapp() {
-  const mapContainer = useRef(null);
-  const [map, setMap] = useState(null);
-  const [error, setError] = useState('');
 
-  useEffect(() => {
-    // 1. Добавьте API-ключ (обязательно)
-    const script = document.createElement('script');
-    script.src = 'https://maps.api.2gis.ru/2.0/loader.js?pkg=full&key=ВАШ_API_КЛЮЧ';
-    script.async = true;
-
-    // 2. Обработка ошибок загрузки скрипта
-    script.onerror = () => setError('Ошибка загрузки 2GIS API');
-
-    script.onload = () => {
-      DG.then(() => {
-        // 3. Используйте useRef вместо id
-        const newMap = new DG.Map(mapContainer.current, {
-          center: [42.8746, 74.5698],
-          zoom: 13
-        });
-
-        const markers = [
-          {
-            coords: [42.8746, 74.5698],
-            text: 'Панфилова 188/1'
-          },
-          {
-            coords: [42.8705, 74.6000],
-            text: 'Исанова 123'
-          },
-          {
-            coords: [42.8600, 74.5800],
-            text: 'Московская 45'
-          }
-        ];
-
-        // DG.marker([42.8746, 74.5698])
-        //   .addTo(newMap)
-        //   .bindPopup('Панфилова 188/1');
-        markers.forEach(({ coords, text }) => {
-          DG.marker(coords)
-            .addTo(newMap)
-            .bindPopup(text);
-        });
-
-        setMap(newMap);
-      }).catch(() => {
-        setError('Ошибка инициализации карты');
-      });
-    };
-
-    document.body.appendChild(script);
-
-    // 4. Полная очистка
-    return () => {
-      if (map) map.remove();
-      if (script.parentNode) document.body.removeChild(script);
-    };
-  }, []);
 
   return (
-    <div className='container karta'>
-      {error && <div className="error container">{error}</div>}
-      <div 
-        ref={mapContainer} 
-        style={{ 
-          width: '100%', 
-          height: '500px', 
-          position: 'relative' 
-        }}
-      />
-    </div>
+
+        <div className="map-container">
+        <iframe 
+          title="location-map"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2906.776284900489!2d76.85162331548127!3d43.23543097913785!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3883692f027581ad%3A0x2426740f56437e63!2z0JDQu9C80LDRgtGL!5e0!3m2!1sru!2skz!4v1625559876000!5m2!1sru!2skz" 
+          loading="lazy">
+        </iframe>
+      </div>
   );
 }
 

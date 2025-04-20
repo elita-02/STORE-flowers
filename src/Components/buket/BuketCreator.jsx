@@ -2,7 +2,7 @@ import React, { useEffect, useState, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchBukets } from '../../redux/PetalMaker/buketSlice';
 import './buket.scss';
-
+import { Link } from 'react-router-dom';
 const BuketCreator = () => {
   const dispatch = useDispatch();
   const { items, loading, error } = useSelector((state) => state.buket);
@@ -57,7 +57,9 @@ const BuketCreator = () => {
   if (error) return <div className="error">Ошибка: {error}</div>;
 
   return (
-    <div className="buket-container">
+    <div className='maker '>
+
+    <div className="buket-petel ">
       <h1 className="buket-title">💐 Собери свой букет</h1>
 
       <div className="buket-tabs">
@@ -135,7 +137,9 @@ const BuketCreator = () => {
               ))}
             </ul>
             <div className="buket-order-btn-wrapper">
+              <Link to="/checkoutpage">
   <button className="buket-order-btn">Заказать</button>
+              </Link>
 </div>
             <div className="buket-total">
               Общая стоимость: <strong>{formatPrice(totalPrice)}</strong>
@@ -143,6 +147,7 @@ const BuketCreator = () => {
           </>
         )}
       </div>
+    </div>
     </div>
   );
 };

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import gsap from "gsap";
 import { useSelector } from "react-redux";
 import "./Header.scss";
+
 import logo from "../../assets/img/log.jpg";
 import watsup from "../../assets/img/wat.png";
 import instagram from "../../assets/img/instagra.webp";
@@ -12,17 +13,43 @@ import wishlist from "../../assets/svg/wishlist.svg";
 import car from "../../assets/svg/car.svg";
 import call from "../../assets/svg/call.svg";
 import pinkflowers from "../../assets/svg/pinkFlower.svg";
-import karzint from "../../assets/svg/karzin.svg";
+import karzin from "../../assets/svg/karzin.svg";
 import serdechka from "../../assets/svg/serdechka.svg";
-import  karzin from "../../assets/svg/karzin.svg";
+import { FaInstagram, FaTelegram, FaWhatsapp } from 'react-icons/fa';
+import { FaRegHeart, } from 'react-icons/fa';
+import { PiShoppingCartLight } from "react-icons/pi"; // башка китепкандан
+
 
 function Header() {
   const flowersRef = useRef([]);
-
-
   const cartItems = useSelector((state) => state.cart.items);
   const wishlistItems = useSelector((state) => state.wishlist.items);
 
+  useEffect(() => {
+    if (!window.googleTranslateElementInit) {
+      const addGoogleTranslateScript = () => {
+        const script = document.createElement("script");
+        script.type = "text/javascript";
+        script.src =
+          "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+        document.body.appendChild(script);
+      };
+  
+      window.googleTranslateElementInit = () => {
+        new window.google.translate.TranslateElement(
+          {
+            pageLanguage: "ru",
+            includedLanguages: "ru,ky,en,tr",
+            layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE,
+          },
+          "google_translate_element"
+        );
+      };
+  
+      addGoogleTranslateScript();
+    }
+  }, []);
+  
   useEffect(() => {
     const flowerElements = flowersRef.current.filter(Boolean);
 
@@ -64,20 +91,8 @@ function Header() {
                 <option>SOM</option>
               </select>
 
-
               <p>Язык</p>
-              <select>
-                <option>RU</option>
-                <option>KG</option>
-                <option>ENG</option>
-              </select>
-
-              <p>Город</p>
-              <select>
-                <option>Bishkek</option>
-                <option>Moskva</option>
-                <option>Osh</option>
-              </select>
+              <div className="language-translate" id="google_translate_element"></div>
 
               <div className="links">
                 <div className="link-item">
@@ -120,22 +135,7 @@ function Header() {
             </div>
           ))}
         </div>
-      <div className="main-header container">
-        <div className="flower-container">
-          {[...Array(40)].map((_, i) => (
-            <div
-              key={i}
-              ref={el => (flowersRef.current[i] = el)}
-              className="flower"
-              style={{
-                left: `${Math.random() * 90}%`,
-                width: `${20 + Math.random() * 50}px`
-              }}
-            >
-              <img src={pinkflowers} alt="flower" />
-            </div>
-          ))}
-        </div>
+
         <Link to="/">
           <img src={logo} alt="Логотип" className="logo" />
         </Link>
@@ -158,27 +158,9 @@ function Header() {
               <img src={search} alt="Поиск" />
             </div>
           </div>
-        <div className="search-section">
-          <div className="search-bar">
-            <div className="input_one">
-              <input
-                className="input"
-                type="text"
-                placeholder="Поиск по категориям"
-              />
-            </div>
-            <div className="search">
-              <input
-                className="input_two"
-                type="text"
-                placeholder="Поиск по товарам"
-              />
-              <img src={search} alt="Поиск" />
-            </div>
-          </div>
 
           <nav className="forum-nav">
-            <Link to="/">Поиск по категориям</Link>
+            <Link to="/">Главная</Link>
             <Link to="/reviews">Отзывы</Link>
             <Link to="/aksia">Акции</Link>
             <Link to="/news">Новости</Link>
@@ -186,18 +168,39 @@ function Header() {
             <Link to="/PetalMaker">Создай букет</Link>
           </nav>
         </div>
-        </div>
 
         <div className="contact-cart">
           <div className="social-icons">
-            <img src={watsup} alt="WhatsApp" />
-            <img src={instagram} alt="Instagram" className="ins" />
-            <img src={facbook} alt="Facebook" />
+          <a href="https://wa.me/your_number" className="social-icon" target="_blank" rel="noopener noreferrer">
+    <FaWhatsapp />
+  </a>
+  <a href="https://t.me/your_username" className="social-icon" target="_blank" rel="noopener noreferrer">
+    <FaTelegram />
+  </a>
+  <a href="https://instagram.com/your_instagram" className="social-icon" target="_blank" rel="noopener noreferrer">
+    <FaInstagram />
+  </a>
           </div>
 
           <div className="phone">+86 (067) 829 30 30</div>
+                    <div className="cart-info">
+                    <Link to="/wishlist" className="cart-icon-link">
+            <FaRegHeart className="cart-icon" />
+            {wishlistItems.length > 0 && (
+              <span className="wishlist-badge">{wishlistItems.length}</span>
+            )}
+          </Link>
 
-          <div className="cart-info">
+          <Link to="/korzina" className="cart-icon-link">
+            <PiShoppingCartLight className="cart-icon-cart" />
+            {cartItems.length > 0 && (
+              <span className="cart-badge">{cartItems.length}</span>
+            )}
+          </Link>
+
+                  </div>
+
+          {/* <div className="cart-info">
             <Link to="/wishlist">
               <img src={serdechka} alt="Избранное" />
               {wishlistItems.length > 0 && (
@@ -206,17 +209,16 @@ function Header() {
             </Link>
 
             <Link to="/korzina">
-              <img src={karzint} alt="Корзина" />
+              <img src={karzin} alt="Корзина" />
               {cartItems.length > 0 && (
                 <span className="cart-badge">{cartItems.length}</span>
               )}
             </Link>
-          </div>
+          </div> */}
         </div>
       </div>
-      </div>
     </div>
-  )
+  );
 }
 
 export default Header;

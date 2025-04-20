@@ -5,11 +5,9 @@ import BuketCreator from '../../Components/buket/BuketCreator'
 
 function PetalMaker() {
   return (
-    <div className="container">
-    <div className="">
+    <div>
       <BuketCreator/>
       <PersonalCalendar/>
-    </div>
   </div>
   )
 }

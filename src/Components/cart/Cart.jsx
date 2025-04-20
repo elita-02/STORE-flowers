@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import './Cart.scss';
 import { updateQuantity } from '../../redux/cart/cartSlice';
-
+import { Link } from 'react-router-dom';
 
 function Cart() {
     const items = useSelector((state) => state.cart.items);
@@ -92,7 +92,9 @@ function Cart() {
                         )}
                     </div>
                     <div className='cart_btn'>
+                        <Link to="checkoutpage">
                         <button>Оформить заказ</button>
+                        </Link>
                     </div>
                 </div>
             </div>

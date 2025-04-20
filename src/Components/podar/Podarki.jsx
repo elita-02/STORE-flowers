@@ -14,7 +14,7 @@ import 'swiper/css/pagination';
 import { Grid, Pagination, Autoplay, EffectCoverflow } from 'swiper/modules';
 import { addWish, removeWish } from '../../redux/wish/wishSlice';
 import Modal from '../modal/Modal'; 
-import { removeFromCart } from '../../redux/cart/CartSlice'; 
+// import { removeFromCart } from '../../redux/cart/CartSlice'; 
 import { addToCart } from '../../redux/cart/cartSlice';
 
 function Podarki() {
@@ -114,8 +114,7 @@ function Podarki() {
                 onRemoveItem={handleRemoveItem} // <-- Бул жерде жөнөтүү
 
             />
-          <div className="swiper-button-prev"></div>
-          <div className="swiper-button-next"></div>
+
         </div>
     );
 }

@@ -15,6 +15,7 @@ import Korzina from "./pages/korzina/Korzina";
 import CheckoutPage from "./pages/Checkout/CheckoutPage";
 import PetalMaker from "./pages/PetalMaker/PetalMaker";
 import Izbrannyi from "./pages/izbrann/Izbrannyi";
+import Contacty from "./pages/Contacty/Contacty";
 
  export const myRouter = createBrowserRouter([
     {
@@ -52,6 +53,10 @@ import Izbrannyi from "./pages/izbrann/Izbrannyi";
             {
                 path: "news",
                 element: <News/>
+            },
+            {
+                path: "contacty",
+                element: <Contacty/>
             },
             {
                 path: "info",
