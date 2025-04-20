@@ -4,7 +4,7 @@ import gsap from "gsap";
 import { useSelector } from "react-redux";
 import "./Header.scss";
 
-// Assets
+
 import logo from "../../assets/img/log.jpg";
 import watsup from "../../assets/img/wat.png";
 import instagram from "../../assets/img/instagra.webp";
@@ -148,7 +148,7 @@ function Header() {
             <Link to="/">Поиск по категориям</Link>
             <Link to="/reviews">Отзывы</Link>
             <Link to="/aksia">Акции</Link>
-            <Link to="/news">Новости</Link>
+            <Link to="/postspage">Новости</Link>
             <Link to="/info">Информация</Link>
             <Link to="/PetalMaker">Создай букет</Link>
           </nav>

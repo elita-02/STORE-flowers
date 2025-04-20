@@ -3,7 +3,6 @@ import "./Registration.scss";
 import { Link, useNavigate } from 'react-router-dom';
 import google from "../../assets/svg/google.svg";
 import fecbook from "../../assets/svg/fecbook.svg";
-// import { auth } from "../../firebase";
 import { auth } from "../../firebase"
 import { toast } from 'react-toastify';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
