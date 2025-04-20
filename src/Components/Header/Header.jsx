@@ -4,15 +4,21 @@ import gsap from "gsap";
 import { useSelector } from "react-redux";
 import "./Header.scss";
 
-
 import logo from "../../assets/img/log.jpg";
+import watsup from "../../assets/img/wat.png";
+import instagram from "../../assets/img/instagra.webp";
+import facbook from "../../assets/img/faceebook.png";
 import search from "../../assets/svg/search.svg";
 import wishlist from "../../assets/svg/wishlist.svg";
 import car from "../../assets/svg/car.svg";
 import call from "../../assets/svg/call.svg";
 import pinkflowers from "../../assets/svg/pinkFlower.svg";
-import karzint from "../../assets/svg/karzin.svg";
+import karzin from "../../assets/svg/karzin.svg";
 import serdechka from "../../assets/svg/serdechka.svg";
+import { FaInstagram, FaTelegram, FaWhatsapp } from 'react-icons/fa';
+import { FaRegHeart } from 'react-icons/fa';
+import { PiShoppingCartLight } from "react-icons/pi"; // башка китепкандан
+
 
 function Header() {
   const flowersRef = useRef([]);
@@ -158,36 +164,35 @@ function Header() {
             <Link to="/reviews">Отзывы</Link>
             <Link to="/aksia">Акции</Link>
             <Link to="/postspage">Новости</Link>
-            <Link to="/info">Информация</Link>
+            <Link to="/tovar">Каталог товаров</Link>
             <Link to="/PetalMaker">Создай букет</Link>
           </nav>
         </div>
 
         <div className="contact-cart">
           <div className="social-icons">
-          <a href="https://wa.me/your_number" className="social-icon" target="_blank" rel="noopener noreferrer">
-    <FaWhatsapp />
-  </a>
-  <a href="https://t.me/your_username" className="social-icon" target="_blank" rel="noopener noreferrer">
-    <FaTelegram />
-  </a>
-  <a href="https://instagram.com/your_instagram" className="social-icon" target="_blank" rel="noopener noreferrer">
-    <FaInstagram />
-  </a>
+            <a href="https://wa.me/your_number" className="social-icon" target="_blank" rel="noopener noreferrer">
+              <FaWhatsapp />
+            </a>
+            <a href="https://t.me/your_username" className="social-icon" target="_blank" rel="noopener noreferrer">
+              <FaTelegram />
+            </a>
+            <a href="https://instagram.com/your_instagram" className="social-icon" target="_blank" rel="noopener noreferrer">
+              <FaInstagram />
+            </a>
           </div>
 
           <div className="phone">+86 (067) 829 30 30</div>
-
           <div className="cart-info">
-            <Link to="/wishlist">
-              <img src={serdechka} alt="Избранное" />
+            <Link to="/wishlist" className="cart-icon-link">
+              <FaRegHeart className="cart-icon" />
               {wishlistItems.length > 0 && (
                 <span className="wishlist-badge">{wishlistItems.length}</span>
               )}
             </Link>
 
-            <Link to="/korzina">
-              <img src={karzint} alt="Корзина" />
+            <Link to="/korzina" className="cart-icon-link">
+              <PiShoppingCartLight className="cart-icon-cart" />
               {cartItems.length > 0 && (
                 <span className="cart-badge">{cartItems.length}</span>
               )}
