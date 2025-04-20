@@ -6,7 +6,6 @@ import Reviews from "./pages/reviews/Reviews";
 import Aksia from "./pages/Aksia/Aksia";
 import News from "./pages/News/News";
 import Information from "./pages/Information/Information";
-// import Login
 import Registration from "./pages/Registration/Registration";
 import Wishlist from "./pages/Wishlist/Wishlist";
 import Banner from "./pages/Banner/Banner";
@@ -65,10 +64,10 @@ import Historyzakaza from "./pages/Historyzakaza/Historyzakaza";
                 path: "info",
                 element: <Information/>
             },
-            // {
-            //     path: "login",
-            //     element: <Login/>
-            // },
+            {
+                path: "login",
+                element: <Login/>
+            },
             {
                 path: "registration",
                 element: <Registration/>
