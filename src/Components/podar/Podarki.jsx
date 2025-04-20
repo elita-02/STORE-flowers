@@ -5,7 +5,7 @@ import './Podarki.scss';
 import { useNavigate } from "react-router-dom";
 import karzina from '../../assets/svg/karzina.svg';
 import hart from "../../assets/svg/wishlist.svg";
-import redHeart from "../../assets/svg/redser.svg"; 
+import redHeart from "../../assets/svg/redser.svg";
 import gul2 from '../../assets/svg/gul2.svg';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -13,9 +13,9 @@ import 'swiper/css/grid';
 import 'swiper/css/pagination';
 import { Grid, Pagination, Autoplay, EffectCoverflow } from 'swiper/modules';
 import { addWish, removeWish } from '../../redux/wish/wishSlice';
-import Modal from '../modal/Modal'; 
-// import { removeFromCart } from '../../redux/cart/CartSlice'; 
+import Modal from '../modal/Modal';
 import { addToCart } from '../../redux/cart/cartSlice';
+import QuickViewModal from '../QuickViewModal/QuickViewModal'; // 🌟 Модал компонентти кош
 
 function Podarki() {
     const dispatch = useDispatch();
@@ -24,22 +24,30 @@ function Podarki() {
     const wishlist = useSelector((state) => state.wishlist.items);
     const cartItems = useSelector((state) => state.cart.items);
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [selectedItem, setSelectedItem] = useState(null); 
-   
+    const [selectedItem, setSelectedItem] = useState(null);
+    const [quickViewOpen, setQuickViewOpen] = useState(false); // 🌟 Быстрый просмотр модал
+
     useEffect(() => {
         dispatch(fetchDesserts());
     }, [dispatch]);
-
-    if (loading) return <div>Loading...</div>;
-    if (error) return <div>Error: {error}</div>;
 
     const closeModal = () => {
         setIsModalOpen(false);
     };
 
+    const handleQuickView = (item) => {
+        setSelectedItem(item);
+        setQuickViewOpen(true);
+    };
+
+    const handleCloseQuickView = () => {
+        setQuickViewOpen(false);
+        setSelectedItem(null);
+    };
+
     const handleAddToCart = (dessert) => {
-        dispatch(addToCart(dessert)); 
-        setIsModalOpen(true);         
+        dispatch(addToCart(dessert));
+        setIsModalOpen(true);
     };
 
     const handleWishClick = (dessert) => {
@@ -50,9 +58,14 @@ function Podarki() {
             dispatch(removeWish(dessert.id));
         }
     };
+
     const handleRemoveItem = (itemId) => {
-        dispatch(removeFromCart(itemId)); 
-      };
+        dispatch(removeFromCart(itemId));
+    };
+
+    if (loading) return <div>Loading...</div>;
+    if (error) return <div>Error: {error}</div>;
+
     return (
         <div className="desserts">
             <h1>Подарки</h1>
@@ -74,10 +87,11 @@ function Podarki() {
                                     <img src={dessert.image} alt={dessert.title} />
                                     <button
                                         className="quick-view-btn"
-                                        onClick={() => handleQuickView(dessert)} >
+                                        onClick={() => handleQuickView(dessert)} // 🌟
+                                    >
                                         Быстрый просмотр
                                     </button>
-                                </div>  
+                                </div>
                                 <div className="icon-container">
                                     <img
                                         src={isWished ? redHeart : hart}
@@ -87,36 +101,38 @@ function Podarki() {
                                     />
                                     <img
                                         src={karzina}
-                                        onClick={() => handleAddToCart(dessert)} 
+                                        onClick={() => handleAddToCart(dessert)}
                                         alt="Cart"
                                         className="cart-icon"
                                     />
                                 </div>
                                 <div className="dessert-info">
                                     <div className="price-container">
-                                    <h3>{dessert.title}</h3>
+                                        <h3>{dessert.title}</h3>
                                         <div className="new-price">{dessert.price}</div>
                                     </div>
                                 </div>
-                                <button>
-                                    Заказать
-                                </button>
+                                <button>Заказать</button>
                                 <img src={gul2} alt="Flower" className="flower-img" />
                             </div>
                         </SwiperSlide>
                     );
                 })}
             </Swiper>
+
             <Modal
                 isOpen={isModalOpen}
                 onClose={closeModal}
-                items={cartItems} 
-                onRemoveItem={handleRemoveItem} // <-- Бул жерде жөнөтүү
-
+                items={cartItems}
+                onRemoveItem={handleRemoveItem}
             />
 
+            {quickViewOpen && selectedItem && (
+                <QuickViewModal item={selectedItem} onClose={handleCloseQuickView} />
+            )}
         </div>
     );
 }
 
 export default Podarki;
+

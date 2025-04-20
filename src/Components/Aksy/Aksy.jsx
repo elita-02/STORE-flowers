@@ -13,9 +13,11 @@ import 'swiper/css/pagination';
 import { Grid, Pagination, Autoplay } from 'swiper/modules';
 import { addWish, removeWish } from '../../redux/wish/wishSlice';
 import Modal from '../modal/Modal';
+import QuickViewModal from '../QuickViewModal/QuickViewModal'; // ✅ Кошулган
 import { removeItem } from '../../redux/modal/modalSlice';
 import { fetchDesserts } from '../../redux/Aksy/aksySlice';
 import { addToCart, removeFromCart } from '../../redux/cart/cartSlice';
+
 function Aksy() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -24,14 +26,14 @@ function Aksy() {
   const cartItems = useSelector((state) => state.cart.items);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
+  const [quickViewOpen, setQuickViewOpen] = useState(false); // ✅ Кошулган
   const swiperRef = useRef(null);
-  const [slidesPerView, setSlidesPerView] = useState(3); // Баштапкы
+  const [slidesPerView, setSlidesPerView] = useState(3);
 
   useEffect(() => {
     dispatch(fetchDesserts());
   }, [dispatch]);
 
-  // Ctrl - басканда карточка санын көбөйтүү
   useEffect(() => {
     const handleKeyDown = (event) => {
       if (event.ctrlKey && event.key === '-') {
@@ -74,7 +76,12 @@ function Aksy() {
 
   const handleQuickView = (item) => {
     setSelectedItem(item);
-    setIsModalOpen(true);
+    setQuickViewOpen(true); // ✅
+  };
+
+  const handleCloseQuickView = () => {
+    setQuickViewOpen(false); // ✅
+    setSelectedItem(null);
   };
 
   if (loading) return <div>Loading...</div>;
@@ -90,9 +97,7 @@ function Aksy() {
         pagination={{ clickable: true }}
         autoplay={{ delay: 2500, disableOnInteraction: false }}
         modules={[Grid, Pagination, Autoplay]}
-        // slidesPerView={slidesPerView}
-        slidesPerView={'auto'} // <-- Бул жерде
-
+        slidesPerView={'auto'}
         className="mySwiper"
         breakpoints={{
           320: { slidesPerView: 1, grid: { rows: 2 } },
@@ -138,10 +143,10 @@ function Aksy() {
                     <p className="new-price">{dessert.price}</p>
                   </div>
                 </div>
-                <div className='aksy-bot '>
-                <Link to="/checkoutpage">
-                <button>Заказать</button>
-                </Link>
+                <div className='aksy-bot'>
+                  <Link to="/checkoutpage">
+                    <button>Заказать</button>
+                  </Link>
                 </div>
                 <img src={gul2} alt="Flower" className="flower-img" />
               </div>
@@ -149,12 +154,19 @@ function Aksy() {
           );
         })}
       </Swiper>
+
+      {/* Корзина модалы */}
       <Modal
         isOpen={isModalOpen}
         onClose={closeModal}
         items={cartItems}
         onRemoveItem={handleRemoveItem}
       />
+
+      {/* Быстрый просмотр модалы */}
+      {quickViewOpen && selectedItem && (
+        <QuickViewModal item={selectedItem} onClose={handleCloseQuickView} />
+      )}
     </div>
   );
 }

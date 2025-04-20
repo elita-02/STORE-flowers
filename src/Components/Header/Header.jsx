@@ -164,8 +164,10 @@ function Header() {
             <Link to="/reviews">Отзывы</Link>
             <Link to="/aksia">Акции</Link>
             <Link to="/news">Новости</Link>
-            <Link to="/info">Информация</Link>
+            <Link to="/tovar">Каталог товаров</Link>
             <Link to="/PetalMaker">Создай букет</Link>
+            
+
           </nav>
         </div>
 
