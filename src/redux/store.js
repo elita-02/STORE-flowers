@@ -12,6 +12,8 @@ import modalReducer from './modal/modalSlice';
 import buketReducer from './PetalMaker/buketSlice'; 
 import postsReducer from './newpost/postsSlice';
 import ordersReducer from './order/ordersSlice'
+import reviewsReducer from './reviews/reviewsSlice';
+
 const persistConfig = {
   key: 'root',
   storage,
@@ -27,6 +29,8 @@ const rootReducer = combineReducers({
   buket: buketReducer, 
   posts: postsReducer,
   orders: ordersReducer, 
+  reviews: reviewsReducer,
+
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

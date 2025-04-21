@@ -4,11 +4,13 @@ import { useNavigate } from 'react-router-dom';
 import './Cart.scss';
 import { updateQuantity } from '../../redux/cart/cartSlice';
 import { Link } from 'react-router-dom';
+import QuickViewModal from '../QuickViewModal/QuickViewModal';
 
 function Cart() {
     const items = useSelector((state) => state.cart.items);
     const dispatch = useDispatch();
     const [isModalOpen, setIsModalOpen] = useState(true);
+    const [selectedItem, setSelectedItem] = useState(null);
 
     const handleIncrement = (id) => {
         dispatch(updateQuantity({ id, quantity: 1 }));
@@ -33,8 +35,9 @@ function Cart() {
     };
 
     return (
-        <div className={`cart ${isModalOpen ? 'open' : 'closed'} container`}>
-            <div className="cart-content-wrapper">
+        <div className='caar '>
+        <div className={`cart ${isModalOpen ? 'open' : 'closed'} `}>
+            <div className="cart-content-wrapper ">
                 <div className="cart-left">
                     <div className="cart_top">
                         <p>Продукт ({items.length > 0 ? items.length : 'Корзина пуста'})</p>
@@ -49,7 +52,11 @@ function Cart() {
                         items.map((item) => (
                             <div className="cart_product" key={item.id}>
                                 <div className="cart_title">
+                                <Link className='QuickViewModal' onClick={() => setSelectedItem(item)}>
                                     <img src={item.image} alt={item.title} />
+                                    </Link>
+
+                                   
                                     <p>{item.title}</p>
                                 </div>
                                 <span className="new-price">{parseFloat(item.price).toFixed(2)} сом</span>
@@ -98,6 +105,13 @@ function Cart() {
                     </div>
                 </div>
             </div>
+        </div>
+        {selectedItem && (
+                <QuickViewModal
+                    item={selectedItem}
+                    onClose={() => setSelectedItem(null)}
+                />
+            )}
         </div>
     );
 }

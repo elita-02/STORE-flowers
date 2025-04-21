@@ -1,89 +1,74 @@
-// .reviews {
-//     padding: 20px;
-//     background-color: #f9f9f9;
-//     border-radius: 8px;
-//     width: 60%;
-//     margin: 0 auto;
-//     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-//   }
+.reviews-page {
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+    font-family: 'Segoe UI', sans-serif;
+  }
   
-//   .reviews h2 {
-//     text-align: center;
-//     font-size: 24px;
-//     margin-bottom: 20px;
-//     color: #333;
-//   }
+  .reviews-header {
+    text-align: center;
+    margin-bottom: 30px;
   
-//   form {
-//     display: flex;
-//     flex-direction: column;
-//   }
+    h2 {
+      font-size: 2rem;
+      color: #333;
+    }
+  }
   
-//   input,
-//   textarea {
-//     padding: 10px;
-//     margin-bottom: 15px;
-//     border: 1px solid #ccc;
-//     border-radius: 4px;
-//     font-size: 16px;
-//   }
+  .reviews-form-section {
+    margin-bottom: 40px;
+    text-align: center;
   
-//   textarea {
-//     resize: vertical;
-//     height: 100px;
-//   }
+    h3 {
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+    }
+  }
   
-//   button {
-//     padding: 10px;
-//     background-color: #28a745;
-//     color: white;
-//     border: none;
-//     border-radius: 4px;
-//     font-size: 16px;
-//     cursor: pointer;
-//     transition: background-color 0.3s ease;
-//   }
+  .reviews-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+  }
   
-//   button:hover {
-//     background-color: #218838;
-//   }
+  .review-card {
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    cursor: pointer;
   
-//   .file-upload {
-//     position: relative;
-//     margin-bottom: 20px;
-//     text-align: center;
-//   }
+    &:hover {
+      transform: translateY(-5px);
+    }
   
-//   .upload-label {
-//     display: inline-block;
-//     padding: 10px 20px;
-//     background-color: #007bff;
-//     color: white;
-//     border-radius: 4px;
-//     cursor: pointer;
-//     font-size: 16px;
-//     transition: background-color 0.3s ease;
-//   }
+    img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-bottom: 1px solid #eee;
+    }
   
-//   .upload-label:hover {
-//     background-color: #0056b3;
-//   }
+    .review-info {
+      padding: 20px;
   
-//   .uploaded-image {
-//     max-width: 100%;
-//     height: auto;
-//     margin-top: 10px;
-//     border-radius: 8px;
-//     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-//   }
+      h4 {
+        font-size: 1.2rem;
+        color: #333;
+        margin-bottom: 10px;
+      }
   
-//   .carousel {
-//     margin-top: 20px;
-//   }
+      p {
+        font-size: 0.95rem;
+        color: #555;
+        margin-bottom: 8px;
+      }
   
-//   .carousel-image {
-//     width: 100%;
-//     height: auto;
-//     border-radius: 8px;
-//   }
+      .review-date {
+        font-size: 0.85rem;
+        color: #888;
+        font-style: italic;
+      }
+    }
+  }
   
