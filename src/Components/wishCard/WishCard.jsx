@@ -4,11 +4,11 @@ import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import gul2 from '../../assets/svg/gul2.svg';
 import deleteImg from "../../assets/svg/delate.svg";
-import { removeWish } from '../../redux/wish/wishSlice'; 
+import { removeWish } from '../../redux/wish/wishSlice';
 import { addToCart } from '../../redux/cart/cartSlice';
 import Izbrannyi from '../../pages/izbrann/Izbrannyi';
 
-function WishCard({ data, handleWishClick }) { 
+function WishCard({ data, handleWishClick }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleAddToCart = () => {
@@ -17,11 +17,11 @@ function WishCard({ data, handleWishClick }) {
   };
 
   const handleDelete = () => {
-    dispatch(removeWish(data.id)); 
+    dispatch(removeWish(data.id));
   };
 
   const handleView = () => {
-    navigate('/izbran', { state: data }); 
+    navigate('/izbran', { state: data });
   };
 
 
@@ -30,23 +30,27 @@ function WishCard({ data, handleWishClick }) {
     <div className="dessert-item ">
       <div className="image-container">
         <Link to="/izbran">
-      <img 
-      onClick={handleView}  
-          src={data.image} 
-          alt={data.title} 
-          style={{ cursor: 'pointer' }}
-        />
+          <img
+
+
+
+            onClick={handleView}
+
+            src={data.image}
+            alt={data.title}
+            style={{ cursor: 'pointer' }}
+          />
         </Link>
         <button className="wish-view-btn" onClick={() => alert("Quick View")}>
           Быстрый просмотр
         </button>
       </div>
-      
+
       {/* Добавляем onClick для удаления */}
       <div className="icon-container">
-        <img 
-          src={deleteImg} 
-          alt="Delete" 
+        <img
+          src={deleteImg}
+          alt="Delete"
           className='delete_icon'
           onClick={handleDelete} // Подключаем обработчик
         />
@@ -58,14 +62,14 @@ function WishCard({ data, handleWishClick }) {
           <p className="new-price">{data.price}</p>
         </div>
       </div>
-      
+
       <button className="order-btn" onClick={handleAddToCart}>
         <span className="order-btn-text">Заказать</span>
       </button>
-      
+
       <img src={gul2} alt="Flower" className="flower-img" />
     </div>
-  
+
   );
 }
 
