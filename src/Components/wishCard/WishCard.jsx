@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import gul2 from '../../assets/svg/gul2.svg';
 import deleteImg from "../../assets/svg/delate.svg";
-import { removeWish } from '../../redux/wish/wishSlice'; 
+import { removeWish } from '../../redux/wish/wishSlice';
 import { addToCart } from '../../redux/cart/cartSlice';
 function WishCard({ data, handleWishClick }) { 
   const dispatch = useDispatch();
@@ -15,13 +15,13 @@ function WishCard({ data, handleWishClick }) {
   };
 
   const handleDelete = () => {
-    dispatch(removeWish(data.id)); 
+    dispatch(removeWish(data.id));
   };
-
 
   return (
     <div className="dessert-item ">
       <div className="image-container">
+
   <Link to="/izbran" state={data}>
     <img 
       src={data.image} 
@@ -34,10 +34,16 @@ function WishCard({ data, handleWishClick }) {
   </button>
 </div>
 
+        <button className="wish-view-btn" onClick={() => alert("Quick View")}>
+          Быстрый просмотр
+        </button>
+      </div>
+
+
       <div className="icon-container">
-        <img 
-          src={deleteImg} 
-          alt="Delete" 
+        <img
+          src={deleteImg}
+          alt="Delete"
           className='delete_icon'
           onClick={handleDelete} 
         />
@@ -49,14 +55,14 @@ function WishCard({ data, handleWishClick }) {
           <p className="new-price">{data.price}</p>
         </div>
       </div>
-      
+
       <button className="order-btn" onClick={handleAddToCart}>
         <span className="order-btn-text">Заказать</span>
       </button>
-      
+
       <img src={gul2} alt="Flower" className="flower-img" />
     </div>
-  
+
   );
 }
 
