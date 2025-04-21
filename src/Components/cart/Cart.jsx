@@ -92,7 +92,7 @@ function Cart() {
                         )}
                     </div>
                     <div className='cart_btn'>
-                        <Link to="checkoutpage">
+                        <Link to="/checkoutpage">
                         <button>Оформить заказ</button>
                         </Link>
                     </div>

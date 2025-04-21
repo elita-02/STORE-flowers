@@ -176,7 +176,10 @@ function Banner() {
           <div className='bush'>
             <h2>Форум</h2>
             <div className='p'>
+              <Link to="/postspage">
               <p>Все новости</p>
+              
+              </Link>
               <div className='strel'>
                 <IoIosArrowForward />
                 <IoIosArrowForward />
