@@ -98,8 +98,13 @@ import Login from "./pages/Login/Login";
                 element: < Historyzakaza/>
             },
             {
+<<<<<<< HEAD
                 path: "izbran",
                 element: <Izbrannyi/>
+=======
+                path: "izbrann",
+                element: < Izbrannyi/>
+>>>>>>> a20476f (add input)
             },
 
         ]
