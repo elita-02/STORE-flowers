@@ -29,12 +29,14 @@ function WishCard({ data, handleWishClick }) {
   return (
     <div className="dessert-item ">
       <div className="image-container">
+        <Link to="/izbran">
       <img 
       onClick={handleView}  
           src={data.image} 
           alt={data.title} 
           style={{ cursor: 'pointer' }}
         />
+        </Link>
         <button className="wish-view-btn" onClick={() => alert("Quick View")}>
           Быстрый просмотр
         </button>

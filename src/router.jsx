@@ -97,6 +97,10 @@ import Login from "./pages/Login/Login";
                 path: "history",
                 element: < Historyzakaza/>
             },
+            {
+                path: "izbran",
+                element: <Izbrannyi/>
+            },
 
         ]
 

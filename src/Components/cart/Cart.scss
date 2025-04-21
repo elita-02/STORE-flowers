@@ -1,7 +1,12 @@
-.cart {
-  padding: 20px;
-  background-color: #f8f8f8;
 
+
+.caar{
+  width: 100%;
+   max-width: 1315px;
+  margin: 0 auto;
+  padding-bottom: 30px;
+  .cart {
+  width: 100%;
   &.open {
     display: block;
   }
@@ -9,7 +14,7 @@
   &.closed {
     display: none;
   }
-
+}
   .cart-content-wrapper {
     display: flex;
     justify-content: space-between;

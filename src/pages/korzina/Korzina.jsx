@@ -4,7 +4,7 @@ import Cart from '../../Components/cart/Cart';
 
 function Korzina() {
   return (
-    <div className="container">
+    <div  className='cart-background'>
       <Cart />
     </div>
   );

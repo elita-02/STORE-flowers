@@ -58,8 +58,24 @@ const Modal = ({ isOpen, onClose, items, onRemoveItem }) => {
           <Link to="/Korzina">
             <button className="custom-modal-one">ПРОСМОТР КОРЗИНЫ</button>
           </Link>
+          <Link>
+  <button
+    className="custom-modal-two"
+    onClick={() => {
+      onClose(); // модалды жап
+      navigate('/podarki'); // подарки баракчасына өт
+    }}
+  >
+    ДОБАВИТЬ ПОДАРОК
+  </button>
+</Link>
+
+          {/* <Link>
           <button className="custom-modal-two">ДОБАВИТЬ ПОДАРОК</button>
+          </Link> */}
+          <Link to="/checkoutpage">
           <button className="custom-modal-three">ОФОРМЛЕНИЕ ЗАКАЗА</button>
+          </Link>
         </div>
       </div>
     </div>
@@ -67,3 +83,4 @@ const Modal = ({ isOpen, onClose, items, onRemoveItem }) => {
 };
 
 export default Modal;
+
