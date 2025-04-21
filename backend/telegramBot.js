@@ -9,7 +9,7 @@ app.post('/sendMessage', async (req, res) => {
   const { message } = req.body;  
 
   try {
-    const telegramRes = await axios.post(`https://api.telegram.org/bot<YOUR_BOT_TOKEN>/sendMessage`, {
+    const telegramRes = await axios.post(`https://api.telegram.org/bot7222270415:AAE6FxN_84XnQEHxDjraObWqz4toy9taC7Y/sendMessage`, {
       chat_id: '<YOUR_CHAT_ID>',
       text: message,
     });
