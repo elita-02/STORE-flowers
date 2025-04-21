@@ -6,8 +6,6 @@ import gul2 from '../../assets/svg/gul2.svg';
 import deleteImg from "../../assets/svg/delate.svg";
 import { removeWish } from '../../redux/wish/wishSlice'; 
 import { addToCart } from '../../redux/cart/cartSlice';
-import Izbrannyi from '../../pages/izbrann/Izbrannyi';
-
 function WishCard({ data, handleWishClick }) { 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -20,35 +18,28 @@ function WishCard({ data, handleWishClick }) {
     dispatch(removeWish(data.id)); 
   };
 
-  const handleView = () => {
-    navigate('/izbran', { state: data }); 
-  };
-
-
 
   return (
     <div className="dessert-item ">
       <div className="image-container">
-        <Link to="/izbran">
-      <img 
-      onClick={handleView}  
-          src={data.image} 
-          alt={data.title} 
-          style={{ cursor: 'pointer' }}
-        />
-        </Link>
-        <button className="wish-view-btn" onClick={() => alert("Quick View")}>
-          Быстрый просмотр
-        </button>
-      </div>
-      
-      {/* Добавляем onClick для удаления */}
+  <Link to="/izbran" state={data}>
+    <img 
+      src={data.image} 
+      alt={data.title} 
+      style={{ cursor: 'pointer' }}
+    />
+  </Link>
+  <button className="wish-view-btn" onClick={() => alert("Quick View")}>
+    Быстрый просмотр
+  </button>
+</div>
+
       <div className="icon-container">
         <img 
           src={deleteImg} 
           alt="Delete" 
           className='delete_icon'
-          onClick={handleDelete} // Подключаем обработчик
+          onClick={handleDelete} 
         />
       </div>
 
