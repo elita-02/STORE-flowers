@@ -1,9 +1,8 @@
-// import { initializeApp } from "firebase/app";
-// import { getFirestore } from "firebase/firestore";
-// import { getAuth } from "firebase/auth";
-// import { getStorage } from "firebase/storage";  // Firebase Storage импорттоо
+// import { initializeApp } from 'firebase/app';
+// import { getFirestore } from 'firebase/firestore';
+// import { getAuth } from 'firebase/auth';
+// import { getStorage } from 'firebase/storage';
 
-// // Firebase конфигурациясы
 // const firebaseConfig = {
 //   apiKey: "AIzaSyAU36GAhH-RG4e4eePQVNMo9pSqCxaGW7o",
 //   authDomain: "flowers-7a684.firebaseapp.com",
@@ -20,14 +19,11 @@
 // // Firestore, Authentication жана Storage'го туташуу
 // export const db = getFirestore(app);
 // export const auth = getAuth(app);
-// export const storage = getStorage(app);  // Firebase Storage экспорттоо
-
-
-// firebase.js
+// export const storage = getStorage(app);
 
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
-import { getAuth } from 'firebase/auth';
+import { getAuth, GoogleAuthProvider } from 'firebase/auth'; // 👈 GoogleAuthProvider'ди коштук
 import { getStorage } from 'firebase/storage';
 
 const firebaseConfig = {
@@ -43,8 +39,10 @@ const firebaseConfig = {
 // Firebase'ди баштоо
 const app = initializeApp(firebaseConfig);
 
-// Firestore, Authentication жана Storage'го туташуу
+// Түзүлгөн сервистерди экспорттоо
 export const db = getFirestore(app);
 export const auth = getAuth(app);
 export const storage = getStorage(app);
 
+// 👇 Google менен аутентификация үчүн провайдерди кошобуз
+export const googleProvider = new GoogleAuthProvider();

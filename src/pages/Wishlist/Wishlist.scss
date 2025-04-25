@@ -1,33 +1,168 @@
-.wishlist.container {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    margin-bottom: 100px;
+.wishlist-page{
+  margin-bottom: 100px;
+
+.dessert-tem {
+  flex: 1 1 auto;
+  position: relative;
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.5s forwards;
+  opacity: 0;
+  
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .flower-img {
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px; 
+    height: 100px; 
+    object-fit: cover;
+    z-index: 10;
   }
   
-  .wishlist-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 1rem;
-    margin-top: 30px;
 }
-.items-list {
+
+.image-container {
+  position: relative;
+  overflow: hidden;
+  height: 250px;
+  width: 100%;
+  margin: 0 auto;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover img {
+    transform: scale(1.1);
+  }
+}
+
+
+.icon-container {
+  position: absolute;
+  top: 10px; /* Жогору жакта */
+  right: 10px; /* Оң жакта */
+  gap: 10px;
+  z-index: 10; /* Сүрөттүн үстүндө болушу үчүн жогорураак */
   display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  justify-content: flex-start;
+  flex-direction: column;
 }
 
+.delete_icon {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 7px;
+  border-radius: 50%;
+  width: 30px; /* Кичирээк өлчөм */
+  height: 30px; /* Кичирээк өлчөм */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  position: relative;
+  top: 10px;
+  left: -10px;
 
-.wishlist-header button {
-  padding: 0.5rem 1rem;
-  background: #000;
+  &:hover {
+    background-color: rgba(255, 255, 255, 1);
+    transform: scale(1.2);
+  }
+
+  img {
+    width: 16px; /* Иконканын ичиндеги сүрөттүн өлчөмү */
+    height: 16px;
+    transition: transform 0.3s ease;
+    transform: scale(1.2);
+  }
+}
+
+.dessert-info {
+  margin-top: 15px; /* Азыраак жогорку боштук */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dessert-info h3 {
+  font-size: 16px; /* Кичирээк шрифт */
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px; /* Азыраак төмөнкү боштук */
+  height: auto; /* Авто бийиктик */
+}
+
+.dessert-info .price-container {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.order-btn {
+  padding: 8px 15px; /* Кичирээк баскыч */
+  background: #e91e63;
   color: white;
   border: none;
+  border-radius: 4px;
   cursor: pointer;
-  background: #e91e63;
-  border-radius: 8px;
-
+  width: 100%;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+  font-size: 14px; /* Кичирээк шрифт */
 }
-  
+
+.price-container {
+  display: flex;
+  gap: 10px;
+  align-items: baseline  !important; 
+  width: 100%;
+  justify-content: space-between;
+
+  .new-price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #d9534f;
+  }
+}
+
+.items-list {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Кичирээк минималдуу туура */
+}
+
+/* Телефондор үчүн (максималдуу туурасы 480px) */
+@media (max-width: 480px) {
+  .items-list {
+    grid-template-columns: repeat(1, 1fr); /* 1 колонка */
+  }
+}
+
+/* Планшеттер үчүн (минималдуу туурасы 768px жана максималдуу 900px) */
+@media (min-width: 768px) and (max-width: 900px) {
+  .items-list {
+    grid-template-columns: repeat(2, 1fr); /* 2 колонка */
+  }
+}
+
+/* Ноутбуктар жана чоңураак экрандар үчүн (минималдуу туурасы 1024px) */
+@media (min-width: 1024px) {
+  .items-list {
+    grid-template-columns: repeat(4, 1fr); /* 4 колонка */
+  }
+}}

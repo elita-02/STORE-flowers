@@ -2,33 +2,30 @@
   position: relative;
   width: 500px;
   background: white;
-  margin: 0 auto;
-  margin-top: 30px;
+  margin: 30px auto 30px auto;
   border-radius: 16px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
   padding: 2rem;
-  margin-bottom: 30px;
   background-image: url("https://t3.ftcdn.net/jpg/06/25/06/20/360_F_625062021_LO6rPWDb2FTinlLW6Fsn4KuLbNOPGHMW.jpg");
   background-repeat: repeat;
-  overflow: hidden; 
+  overflow: hidden;
   background-size: 120px;
-}
 
+  &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.8); /* тунук ак катмар */
+      z-index: 0;
+  }
 
-.modal-container::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.8); /* тунук ак катмар */
-  z-index: 0;
-}
-
-.modal-container > * {
-  position: relative;
-  z-index: 1;
+  > * {
+      position: relative;
+      z-index: 1;
+  }
 }
 
 .overlay {
@@ -44,7 +41,6 @@
   align-items: center;
   z-index: 1000;
   animation: fadeIn 0.3s ease;
-  
 }
 
 .modal-box {
@@ -60,25 +56,24 @@
   background-size: 120px;
   background-repeat: repeat;
   background-position: center;
-  overflow: hidden; /* кошумча */
-}
+  overflow: hidden;
 
-.modal-box::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.8); /* 0.8 тунук ак катмар */
-  z-index: 0;
-}
+  &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.8); /* 0.8 тунук ак катмар */
+      z-index: 0;
+  }
 
-.modal-box > * {
-  position: relative;
-  z-index: 1;
+  > * {
+      position: relative;
+      z-index: 1;
+  }
 }
-
 
 .close-button {
   position: absolute;
@@ -89,10 +84,9 @@
   font-size: 2rem;
   color: #ff6b9d;
   cursor: pointer;
-  transition: transform 0.2s ease;
 
   &:hover {
-    transform: scale(1.2);
+      color: #6bffab;
   }
 }
 
@@ -104,8 +98,8 @@
 
 .reg-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr; 
-  gap: 1rem; 
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
 }
 
 .input-group {
@@ -116,18 +110,15 @@
   width: 100%;
   padding: 12px;
   border: 2px solid #eee;
-  border-radius: 8px !important; 
+  border-radius: 8px !important;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 
-
   &:focus {
-    outline: none;
-    border-color: #ff6b9d;
-    box-shadow: 0 4px 20px rgba(255, 107, 157, 0.15);
-
+      outline: none;
+      border-color: #ff6b9d;
+      box-shadow: 0 4px 20px rgba(255, 107, 157, 0.15);
   }
 }
-
 
 .submit-button {
   width: 100%;
@@ -141,14 +132,13 @@
   transition: transform 0.2s ease;
 
   &:hover {
-    transform: translateY(-2px);
+      transform: translateY(-2px);
   }
 }
 
 .social-login-container {
   text-align: center;
   margin: 2rem 0;
-
 }
 
 .social-button-container {
@@ -158,27 +148,27 @@
   align-items: center;
 
   img {
-    width: 48px;
-    height: 48px;
-    padding: 12px;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    background: white;
+      width: 48px;
+      height: 48px;
+      padding: 12px;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      background: white;
 
-    &:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-      
-      &[alt="google"] {
-        background: #f8f9fa;
+      &:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+          &[alt="google"] {
+              background: #f8f9fa;
+          }
+
+          &[alt="facebook"] {
+              background: #f0f2f5;
+          }
       }
-      
-      &[alt="facebook"] {
-        background: #f0f2f5;
-      }
-    }
   }
 }
 
@@ -189,8 +179,8 @@
   color: #555;
 
   a {
-    color: #ff6b9d;
-    text-decoration: none;
+      color: #ff6b9d;
+      text-decoration: none;
   }
 }
 
@@ -207,19 +197,131 @@
 
 @keyframes slideUp {
   from {
-    opacity: 0;
-    transform: translateY(30px);
+      opacity: 0;
+      transform: translateY(30px);
   }
   to {
-    opacity: 1;
-    transform: translateY(0);
+      opacity: 1;
+      transform: translateY(0);
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 480px) {
+  .modal-container {
+      width: 95%;
+      margin-top: 15px;
+      margin-bottom: 15px;
+      padding: 1rem;
+  }
+
   .modal-box {
-    width: 90%;
-    padding: 1.5rem;
+      width: 95%;
+      padding: 1rem;
+  }
+
+  .reg-grid {
+      grid-template-columns: 1fr; 
+      gap: 0.5rem;
+  }
+
+  .close-button {
+      font-size: 1.5rem;
+      top: 0.5rem;
+      right: 0.5rem;
+  }
+
+  .title {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+  }
+
+  .description {
+      font-size: 0.9rem;
+  }
+
+  .input-field {
+      padding: 10px;
+      font-size: 0.9rem;
+  }
+
+  .submit-button {
+      padding: 0.8rem;
+      font-size: 1rem;
+  }
+
+  .social-button-container {
+      gap: 1rem;
+
+      img {
+          width: 36px;
+          height: 36px;
+          padding: 8px;
+      }
+  }
+
+  .terms-condition, .switch-auth {
+      font-size: 0.8rem;
   }
 }
 
+// Планшеттер үчүн стилдер (768px - 900px)
+@media (min-width: 768px) and (max-width: 900px) {
+  .modal-container {
+      width: 70%;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      padding: 1.5rem;
+  }
+
+  .modal-box {
+      width: 80%;
+      padding: 1.5rem;
+  }
+
+  .reg-grid {
+      gap: 0.8rem;
+  }
+
+  .close-button {
+      font-size: 2.2rem;
+      top: 1rem;
+      right: 1rem;
+  }
+
+  .title {
+      font-size: 2.2rem;
+      margin-bottom: 1.2rem;
+  }
+
+  .description {
+      font-size: 1rem;
+  }
+
+  .input-field {
+      padding: 11px;
+      font-size: 1rem;
+  }
+
+  .submit-button {
+      padding: 0.9rem;
+      font-size: 1.1rem;
+  }
+
+  .social-button-container {
+      gap: 1.2rem;
+
+      img {
+          width: 42px;
+          height: 42px;
+          padding: 10px;
+      }
+  }
+
+  .terms-condition, .switch-auth {
+      font-size: 0.9rem;
+  }
+}
+
+@media (min-width: 1024px) {
+
+}

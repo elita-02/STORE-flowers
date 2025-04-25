@@ -70,10 +70,9 @@
     font-size: 2rem;
     color: #ff6b9d;
     cursor: pointer;
-    transition: transform 0.2s ease;
   
     &:hover {
-      transform: scale(1.2);
+      color: #6bffab;
     }
   }
   
