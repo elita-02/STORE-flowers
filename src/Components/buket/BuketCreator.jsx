@@ -57,7 +57,7 @@ const BuketCreator = () => {
   if (error) return <div className="error">Ошибка: {error}</div>;
 
   return (
-    <div className='maker '>
+    <div className='maker container '>
 
     <div className="buket-petel ">
       <h1 className="buket-title">💐 Собери свой букет</h1>
@@ -126,21 +126,26 @@ const BuketCreator = () => {
             <ul className="buket-selected-list">
               {selectedFlowers.map((flower) => (
                 <li key={flower.id} className="buket-selected-item">
-                  <span className="buket-flower-name">{flower.title}</span> — {flower.count} шт.
-                  <button
-                    className="buket-remove-btn"
-                    onClick={() => handleRemoveFlower(flower.id)}
-                  >
-                    Удалить
-                  </button>
+                 <div className="count">
+                    <div className="buket-flower-name">
+                      {flower.title}
+                      <span className="sut"> — {flower.count} шт.</span>
+                    </div>
+                    <button
+                      className="buket-remove-btn"
+                      onClick={() => handleRemoveFlower(flower.id)}
+                    >
+                      Удалить
+                    </button>
+                  </div>
                 </li>
               ))}
             </ul>
             <div className="buket-order-btn-wrapper">
               <Link to="/checkoutpage">
-  <button className="buket-order-btn">Заказать</button>
+           <button className="buket-order-btn">Заказать</button>
               </Link>
-</div>
+          </div>
             <div className="buket-total">
               Общая стоимость: <strong>{formatPrice(totalPrice)}</strong>
             </div>

@@ -44,23 +44,23 @@ function Contacty() {
 
       <div className="contact-grid">
         <div className="contact-info">
-          {/* инфо карточкалар */}
           <div className="info-card">
             <div className="icon-circle"><FaPhone className="contact-icon"/></div>
             <h3>Телефон</h3>
-            <p>+7 (777) 123-45-67</p>
+            <p>996 702368268</p>
+            <p>996 706247507</p>
           </div>
 
           <div className="info-card">
             <div className="icon-circle"><FaEnvelope className="contact-icon"/></div>
             <h3>Email</h3>
-            <p>contact@example.com</p>
+            <p>jyldyzbekovna04@outlook.com</p>
           </div>
 
           <div className="info-card">
             <div className="icon-circle"><FaMapMarkerAlt className="contact-icon"/></div>
             <h3>Адрес</h3>
-            <p>г. Алматы, ул. Примерная 15</p>
+            <p>г. Бишкек, ул. Панфилова 17/1</p>
           </div>
 
           <div className="social-links">
@@ -115,10 +115,10 @@ function Contacty() {
         </div>
       </div>
 
-      <Mapp />
 
       <ToastContainer position="top-right" autoClose={3000} hideProgressBar={false} newestOnTop closeOnClick pauseOnFocusLoss draggable pauseOnHover />
     </div>
+      // <Mapp />
   );
 }
 

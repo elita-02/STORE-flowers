@@ -80,7 +80,8 @@ function Izbrannyi() {
   }
 
   return (
-    <div className="izbrannyi-page container">
+    <div className="izbrannyi-page ">
+      <div className='container'>
       <h2 className="title">🌸 Избранный товар</h2>
 
       <div className="wish-card">
@@ -156,6 +157,8 @@ function Izbrannyi() {
         ) : (
           <p className="login-warning">Чтобы оставить отзыв, авторизуйтесь.</p>
         )}
+      </div>
+
       </div>
     </div>
   );

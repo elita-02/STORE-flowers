@@ -1,84 +1,185 @@
-
 .footer {
-  // margin-top: 80px;
-    background-color: rgb(51, 51, 51);
-    padding: 40px 0 20px;
-    height: 348px;
-    .footer_top {
-      color: white;
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 80px;
-      padding-bottom: 30px;
-      margin-bottom: 30px;
-      border-bottom: 2px solid rgb(149, 109, 132);
-  
-      .logo {
-        height: 135px;
-        width: 130px;
-        object-fit: contain;
-        justify-self: center;
-      }
-  
-      div {
+  background-color: rgb(51, 51, 51);
+  padding: 40px 0 20px;
+  width: 100%;
+  // height: auto;
+
+  .footer_top {
+    color: white;
+    display: grid;
+    gap: 40px;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    border-bottom: 2px solid rgb(149, 109, 132);
+    grid-template-columns: repeat(auto-fit, minmax(150px, auto)); /* height: auto өзгөртүлдү */
+    text-align: left; /* Десктопто солго */
+
+    .logo {
+      height: 80px;
+      width: auto;
+      object-fit: contain;
+      justify-self: center;
+      grid-column: 1 / -1;
+      margin-bottom: 20px;
+    }
+
+    div {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+
+      h4 {
+        color: rgb(149, 109, 132);
+        margin-bottom: 0; /* h4 менен шилтемелердин ортосундагы аралыкты алып салабыз */
+        font-size: 1rem;
+        cursor: pointer;
         display: flex;
-        flex-direction: column;
-        gap: 12px;
-  
-        h4 {
-          color: rgb(149, 109, 132);
-          margin-bottom: 8px;
-          font-size: 1.1rem;
+        justify-content: space-between;
+        align-items: center;
+
+        svg {
+          font-size: 1rem;
         }
-  
+      }
+
+      .links {
+        display: none;
+        overflow: hidden; /* Анимация үчүн керек */
+        max-height: 0;
+        transition: max-height 0.3s ease-in-out;
+        margin-top: 10px;
+
+        &.open {
+          display: block;
+          max-height: 500px; /* Божомолдонгон максималдуу бийиктик */
+        }
+
         a {
           color: white;
           text-decoration: none;
-          transition: color 0.3s;
-          font-size: 0.9rem;
-          transition: transform 0.4s ease;
+          transition: color 0.3s, transform 0.4s ease;
+          font-size: 0.85rem;
+          padding: 5px 0;
+          display: block;
 
           &:hover {
             color: rgb(149, 109, 132);
-            transform: scale(1.1);
-
-          }
-        }
-      }
-    }
-  
-    .footer_bot {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-  
-      p {
-        color: white;
-        margin: 0;
-        font-size: 0.9rem;
-      }
-  
-      .footer_img {
-        display: flex;
-        align-items: center;
-        gap: 20px;
-        img {
-          width: 60px; // Фиксированная ширина
-          height: 40px; // Фиксированная высота
-          object-fit: contain; // Чтобы лого не искажалось
-          width: 58.66px;
-          height: 35px;
-          transition: transform 0.4s;          
-        }
-        p {
-          margin-right: 15px;
-        }
-  
-        img {
-          &:hover {
-            transform: scale(1.1);
+            transform: translateX(5px);
           }
         }
       }
     }
   }
+
+  .footer_bot {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+
+    p {
+      color: white;
+      margin-bottom: 10px;
+      font-size: 0.8rem;
+    }
+
+    .footer_img {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+
+      img {
+        width: 40px;
+        height: auto;
+        object-fit: contain;
+        transition: transform 0.4s;
+
+        &:hover {
+          transform: scale(1.05);
+        }
+      }
+
+      p {
+        margin-right: 0;
+      }
+    }
+  }
+
+  /* 📱 Телефон: 320px–480px */
+  @media (min-width: 320px) and (max-width: 480px) {
+    .footer_top {
+      width: 390px;
+      grid-template-columns: 1fr;
+      gap: 30px;
+      text-align: center;
+
+      .logo {
+        margin-bottom: 30px;
+      }
+
+      div {
+        .links {
+          margin-top: 5px;
+        }
+      }
+    }
+
+    .footer_bot {
+      width: 390px;
+      .footer_img {
+        flex-direction: row;
+        gap: 15px;
+      }
+    }
+  }
+
+  /* 📱 Планшет: 768px–900px */
+  @media (min-width: 768px) and (max-width: 900px) {
+    .footer_top {
+      grid-template-columns: repeat(3, 1fr);
+      text-align: left;
+
+      .logo {
+        grid-column: 1 / 2;
+        margin-bottom: 0;
+      }
+    }
+
+    .footer_bot {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      text-align: left;
+
+      .footer_img {
+        flex-wrap: nowrap;
+      }
+    }
+  }
+
+  /* 💻 Ноутбук: 1024px жана андан жогору */
+  @media (min-width: 1024px) {
+    .footer_top {
+      grid-template-columns: repeat(5, 1fr);
+      text-align: left;
+
+      .logo {
+        grid-column: 1 / 1;
+      }
+    }
+
+    .footer_bot {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      text-align: left;
+
+      .footer_img {
+        flex-wrap: nowrap;
+      }
+    }
+  }
+}

@@ -42,8 +42,10 @@ function Reviews() {
   ];
 
   return (
+    
     <div className='reviews-page'>
-    <div className=" container">
+      <div className=' container'>
+    <div className=" rev-cont">
       <div className="reviews-header">
         <h2>📸 Фото и Видео отзывы</h2>
       </div>
@@ -82,6 +84,7 @@ function Reviews() {
           </div>
         ))}
       </div>
+    </div>
     </div>
     </div>
   );

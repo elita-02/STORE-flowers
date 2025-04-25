@@ -23,21 +23,21 @@ const PersonalCalendar = () => {
       if (user) {
         setUserEmail(user.email);
         toast.success('Вы успешно вошли', {
-          autoClose: 3000,  // 3 секунддан кийин жабылат
-          closeOnClick: false,  // Колдонуучу басса жабылбайт
-          pauseOnHover: false,  // Hover'де билдирүү жабылбайт
-          hideProgressBar: false, // Прогресс тилкесин көрсөтөт
-          newestOnTop: true,  // Жаңы билдирүүлөр жогоруда болот
-          rtl: false,  // Оңго бурулган (жок)
-          pauseOnFocusLoss: true, // Фокус жоголгон учурда билдирүү токтойт
-          draggable: true, // Билдирүүнү сүйрөп жүрүүгө болот
+          autoClose: 3000,  
+          closeOnClick: false,  
+          pauseOnHover: false,  
+          hideProgressBar: false, 
+          newestOnTop: true,  
+          rtl: false,  
+          pauseOnFocusLoss: true, 
+          draggable: true, 
         });
       } else {
         setUserEmail(null);
         toast.error('Пожалуйста, авторизуйтесь', {
-          autoClose: 3000,  // 3 секунддан кийин жабылат
-          closeOnClick: true, // Колдонуучу басканда жабылат
-          pauseOnHover: false,  // Hover'де билдирүү жабылбайт
+          autoClose: 3000,  
+          closeOnClick: true, 
+          pauseOnHover: false,  
           hideProgressBar: false,
           newestOnTop: true,
           rtl: false,
@@ -91,7 +91,7 @@ const PersonalCalendar = () => {
   };
 
   return (
-    <div className="calendar-container container">
+    <div className="calendar-container ">
       <h2>Личный календарь</h2>
       {userEmail ? (
         <>
@@ -130,14 +130,14 @@ const PersonalCalendar = () => {
 
       <ToastContainer
         position="top-right"
-        autoClose={3000} // 3 секунддан кийин жабылат
+        autoClose={3000}
         hideProgressBar={false}
         newestOnTop={true}
-        closeOnClick={false} // Колдонуучу басканда жабылбайт
+        closeOnClick={false} 
         rtl={false}
         pauseOnFocusLoss={true}
         draggable={true}
-        pauseOnHover={false} // Hover'де жабылбайт
+        pauseOnHover={false} 
       />
     </div>
   );

@@ -84,25 +84,22 @@ function Aksy() {
     <div className="desserts">
       <h1>Акция</h1>
       <Swiper
-        ref={swiperRef}
-        spaceBetween={30}
-        grid={{ rows: 2, fill: 'row' }}
-        pagination={{ clickable: true }}
-        autoplay={{ delay: 2500, disableOnInteraction: false }}
-        modules={[Grid, Pagination, Autoplay]}
-        // slidesPerView={slidesPerView}
-        slidesPerView={'auto'} // <-- Бул жерде
+  ref={swiperRef}
+  spaceBetween={30}
+  grid={{ rows: 2, fill: 'row' }}
+  pagination={{ clickable: true }}
+  autoplay={{ delay: 2500, disableOnInteraction: false }}
+  modules={[Grid, Pagination, Autoplay]}
+  slidesPerView={'auto'}
+  className="mySwiper"
+  breakpoints={{
+    0: { slidesPerView: 2, grid: { rows: 2 } },       // Телефон (360+)
+    768: { slidesPerView: 3, grid: { rows: 2 } },     // Планшет
+    1024: { slidesPerView: 3, grid: { rows: 2 } },    // Ноутбук
+  }}
+>
 
-        className="mySwiper"
-        breakpoints={{
-          320: { slidesPerView: 1, grid: { rows: 2 } },
-          480: { slidesPerView: 2, grid: { rows: 2 } },
-          768: { slidesPerView: 3, grid: { rows: 2 } },
-          1024: { slidesPerView: 3, grid: { rows: 2 } },
-          1280: { slidesPerView: 3, grid: { rows: 2 } },
-          1600: { slidesPerView: 3, grid: { rows: 2 } },
-        }}
-      >
+    
         {desserts.map((dessert) => {
           const isWished = wishlist.some((item) => item.id === dessert.id);
           return (

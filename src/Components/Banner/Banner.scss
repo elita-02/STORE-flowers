@@ -6,14 +6,7 @@
     position: relative;
     width: 100%;
     max-height: 700px;
-    min-height: 500px;
-    overflow: hidden;
-    border-radius: 20px;
-    box-shadow: 0 15px 40px rgba(255, 105, 180, 0.3);
-
-    position: relative;
-    width: 100%;
-    height: 700px;
+    // min-height: 500px;
     overflow: hidden;
     border-radius: 20px;
     box-shadow: 0 15px 40px rgba(255, 105, 180, 0.3);
@@ -107,11 +100,11 @@
         font-size: 1.2rem;
         font-weight: 500;
         border: 2px solid #fff;
-        background-color: rgba(255, 255, 255, 0.1); /* прозрачный ак фон */
+        background-color: rgba(255, 255, 255, 0.1); 
         color: #fff;
         border-radius: 16px;
         cursor: pointer;
-        backdrop-filter: blur(4px); /* модный бүдөмүк эффект */
+        backdrop-filter: blur(4px); 
         transition: all 0.3s ease;
        a{
         text-decoration: none;
@@ -316,7 +309,7 @@
     }
 
     .section2 {
-        height: 648px;
+        height: auto;
 
         .bush {
             display: flex;
@@ -351,7 +344,8 @@
             gap: 20px;
 
             .forum {
-                width: 460px;
+                width: 100%;
+                width: 400px;
                 height: 371px;
                 background-color: #956D84;
                 color: white;
@@ -463,9 +457,10 @@
             }
         }
     } 
+    
     .floristy{
         background-color: rgb(245, 212, 233);
-        height: 700px;
+        // height: 700px;
         border-radius: 18px;
         margin: 0 auto;
       }
@@ -529,126 +524,1072 @@
           }
         }
       }
-    .florist-cards-compact {
-      // width: 700px;
-      display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-  gap: 2rem;
-  margin: 3rem auto;
-  padding: 0 8rem;
-  max-width: 1400px;
+  //   .florist-cards-compact {
+  //     // width: 700px;
+  //     display: grid;
+  // grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  // gap: 2rem;
+  // margin: 3rem auto;
+  // padding: 0 8rem;
+  // max-width: 1400px;
       
-        .florist-card-static {
-          position: relative;
-          margin:0 auto;
-          width: 500px;
-          height: 350px;
-          border-radius: 15px;
-          overflow: hidden;
-          box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  //       .florist-card-static {
+  //         position: relative;
+  //         margin:0 auto;
+  //         width: 500px;
+  //         height: 350px;
+  //         border-radius: 15px;
+  //         overflow: hidden;
+  //         box-shadow: 0 5px 15px rgba(0,0,0,0.1);
           
-          .card-inner {
-            position: relative;
-            height: 100%;
-            transition: all 0.4s ease;
+  //         .card-inner {
+  //           position: relative;
+  //           height: 100%;
+  //           transition: all 0.4s ease;
       
-            .front-content {
-              position: absolute;
-              width: 100%;
-              height: 100%;
-              padding: 2rem;
-              background: white;
-              transition: opacity 0.3s ease;
-              background-color: #f49ec8;
+  //           .front-content {
+  //             position: absolute;
+  //             width: 100%;
+  //             height: 100%;
+  //             padding: 2rem;
+  //             background: white;
+  //             transition: opacity 0.3s ease;
+  //             background-color: #f49ec8;
       
-              .card-header {
-                text-align: center;
+  //             .card-header {
+  //               text-align: center;
                 
-                .florist-photo {
-                  width: 170px;
-                  height: 150px;
-                  border-radius: 50%;
-                  object-fit: cover;
-                  margin: 0 auto 1rem;
-                  border: 3px solid #ffe5ec;
-                }
+  //               .florist-photo {
+  //                 width: 170px;
+  //                 height: 150px;
+  //                 border-radius: 50%;
+  //                 object-fit: cover;
+  //                 margin: 0 auto 1rem;
+  //                 border: 3px solid #ffe5ec;
+  //               }
       
-                h3 {
-                  color: #e84393;
-                  margin-bottom: 1rem;
-                }
-              }
+  //               h3 {
+  //                 color: #e84393;
+  //                 margin-bottom: 1rem;
+  //               }
+  //             }
       
-              .question-text {
-                font-size: 1.1rem;
-                color: #2d3436;
-                text-align: center;
-                padding: 0 1rem;
-              }
-            }
+  //             .question-text {
+  //               font-size: 1.1rem;
+  //               color: #2d3436;
+  //               text-align: center;
+  //               padding: 0 1rem;
+  //             }
+  //           }
       
-            .hover-content {
-              position: absolute;
-              top: 0;
-              left: 0;
-              width: 100%;
-              height: 100%;
-              padding: 2rem;
-              background: linear-gradient(45deg, #fff0f3, #ffffff);
-              opacity: 0;
-              transform: translateY(20px);
-              transition: all 0.4s ease;
+  //           .hover-content {
+  //             position: absolute;
+  //             top: 0;
+  //             left: 0;
+  //             width: 100%;
+  //             height: 100%;
+  //             padding: 2rem;
+  //             background: linear-gradient(45deg, #fff0f3, #ffffff);
+  //             opacity: 0;
+  //             transform: translateY(20px);
+  //             transition: all 0.4s ease;
       
-              .answer-text {
-                font-size: 1rem;
-                color: #2d3436;
-                line-height: 1.6;
-                margin-bottom: 1.5rem;
-              }
+  //             .answer-text {
+  //               font-size: 1rem;
+  //               color: #2d3436;
+  //               line-height: 1.6;
+  //               margin-bottom: 1.5rem;
+  //             }
       
-              .signature {
-                position: absolute;
-                bottom: 1.5rem;
-                left: 50%;
-                transform: translateX(-50%);
-                display: flex;
-                align-items: center;
-                background: rgba(232,67,147,0.1);
-                padding: 0.5rem 1rem;
-                border-radius: 20px;
+  //             .signature {
+  //               position: absolute;
+  //               bottom: 1.5rem;
+  //               left: 50%;
+  //               transform: translateX(-50%);
+  //               display: flex;
+  //               align-items: center;
+  //               background: rgba(232,67,147,0.1);
+  //               padding: 0.5rem 1rem;
+  //               border-radius: 20px;
       
-                .sign-icon {
-                  width: 25px;
-                  margin-right: 0.5rem;
-                }
+  //               .sign-icon {
+  //                 width: 25px;
+  //                 margin-right: 0.5rem;
+  //               }
       
-                span {
-                  color: #e84393;
-                  font-size: 0.9rem;
-                }
-              }
+  //               span {
+  //                 color: #e84393;
+  //                 font-size: 0.9rem;
+  //               }
+  //             }
       
-              .hover-flower {
-                position: absolute;
-                width: 80px;
-                right: -10px;
-                bottom: -10px;
-                opacity: 0.3;
-                transform: rotate(15deg);
-              }
-            }
+  //             .hover-flower {
+  //               position: absolute;
+  //               width: 80px;
+  //               right: -10px;
+  //               bottom: -10px;
+  //               opacity: 0.3;
+  //               transform: rotate(15deg);
+  //             }
+  //           }
+  //         }
+      
+  //         &:hover {
+  //           .front-content {
+  //             opacity: 0;
+  //           }
+      
+  //           .hover-content {
+  //             opacity: 1;
+  //             transform: translateY(0);
+  //           }
+  //         }
+  //       }
+  //     }
+}
+.banner {
+  position: relative;
+  width: 100%;
+
+  .banner-container {
+    position: relative;
+    width: 100%;
+    max-height: 700px;
+    min-height: 300px; /* Кичинекей экрандарда бийиктикти азайтабыз */
+    overflow: hidden;
+    border-radius: 15px; /* Кичинекей экрандарда бурчтарды азыраак кылабыз */
+    box-shadow: 0 5px 20px rgba(255, 105, 180, 0.2); /* Кичинекей экрандарда көлөкөнү азайтабыз */
+    transition: all 0.5s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .slide-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+
+    &.active {
+      opacity: 1;
+    }
+  }
+
+  .dark-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(255, 105, 180, 0.15) 0%, rgba(199, 21, 133, 0.3) 100%);
+    z-index: 1;
+  }
+
+  .content {
+    position: relative;
+    z-index: 2;
+    text-align: center; /* Кичинекей экрандарда борборго */
+    padding: 1.5rem; /* Кичинекей экрандарда ички боштукту азайтабыз */
+    color: white;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+    background-color: rgba(255, 192, 203, 0.2);
+    border-radius: 10px; /* Кичинекей экрандарда бурчтарды азайтабыз */
+    backdrop-filter: blur(3px);
+    max-width: 80%; /* Кичинекей экрандарда туурасын чектейбиз */
+  }
+
+  .title {
+    font-size: 2.5rem; /* Кичинекей экрандарда шрифтти кичирейтебиз */
+    margin-bottom: 0.8rem;
+    font-family: 'Dancing Script', cursive;
+  }
+
+  .subtitle {
+    font-size: 1.2rem; /* Кичинекей экрандарда шрифтти кичирейтебиз */
+    margin-bottom: 1.5rem;
+    font-weight: 300;
+    line-height: 1.4;
+  }
+
+  .cta-button {
+    padding: 0.6rem 1.5rem; /* Кичинекей экрандарда боштукту азайтабыз */
+    font-size: 1rem;
+    font-weight: 500;
+    border: 2px solid #fff;
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #fff;
+    border-radius: 12px; /* Кичинекей экрандарда бурчтарды азайтабыз */
+    cursor: pointer;
+    backdrop-filter: blur(2px);
+    transition: all 0.3s ease;
+
+    a {
+      text-decoration: none;
+      color: white;
+    }
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      transform: scale(1.02);
+    }
+
+    &:active {
+      transform: scale(0.98);
+    }
+  }
+  @media (max-width: 480px) {
+
+    .banner-container {
+      min-height: 300px;
+      border-radius: 10px;
+    }
+    .floristy{
+      min-height: 1030px;
+    }
+    .content {
+      text-align: center;
+      padding: 1rem;
+      border-radius: 8px;
+      max-width: 95%;
+    }
+  
+    .title {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+  
+    .subtitle {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+  
+    .cta-button {
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+      border-radius: 10px;
+    }
+  
+    .section2{
+      max-width: 100%;
+      overflow: hidden;
+      // max-width: 480px;
+      display: flex;
+      flex-direction: column;
+      height: auto;
+      padding-bottom: 2rem; /* Скролл болгондо акыркы элемент көрүнүп турсун үчүн */
+    }
+  
+    .bush {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+  
+    .bush h2 {
+      font-size: 2rem;
+      line-height: 1.1;
+      text-align: center;
+    }
+  
+    .bush .p {
+      display: flex;
+      align-items: center;
+      color: #956d84;
+      margin-top: 0.5rem;
+    }
+  
+    .bush .p p {
+      font-size: 0.9rem;
+      margin-right: 0.5rem;
+    }
+  
+    .bush .p .strel {
+      display: flex;
+    }
+  
+    .bush .p .strel svg {
+      font-size: 0.9rem;
+    }
+  
+    .block-text {
+      width: 100vw;
+      margin-left: -15px;
+      display: flex;
+      flex-direction: row; /* Горизонталдуу кылабыз */
+      overflow-x: auto; /* Горизонталдуу скроллду иштетебиз */
+      gap: 1rem;
+      margin-top: 1.5rem;
+      padding-left: 1rem; /* Сол жагынан бир аз ички боштук */
+      padding-right: 1rem; /* Оң жагынан бир аз ички боштук */
+      -webkit-overflow-scrolling: touch; /* Плавный скролл iOS үчүн */
+    }
+  
+    .block-text .forum,
+    .block-text .forum1,
+    .block-text .forum2 {
+      width: 200px; /* Ар бир слайддын туурасы */
+      height: auto;
+      margin-top: 0;
+      margin-bottom: 0;
+      position: relative;
+      background-color: #956d84;
+      color: white;
+      border-radius: 8px;
+      padding: 1rem;
+      flex-shrink: 0; /* Элементтердин кичирейип кетишине жол бербейбиз */
+    }
+  
+    .block-text .forum img,
+    .block-text .forum1 img,
+    .block-text .forum2 img {
+      width: 340px;
+      max-height: 150px;
+      object-fit: cover;
+      margin-bottom: 0.5rem;
+      margin-left: 0;
+      position: relative;
+      border-radius: 6px;
+    }
+  
+    .block-text .forum h1,
+    .block-text .forum1 h1,
+    .block-text .forum2 h1 {
+      font-size: 1rem;
+      margin-top: 0.5rem;
+      position: relative;
+      font-weight: bold;
+    }
+  
+    .block-text .forum p,
+    .block-text .forum1 p,
+    .block-text .forum2 p {
+      font-size: 0.7rem;
+      line-height: 1.2;
+      position: relative;
+      color: white;
+      margin-top: 0.3rem;
+    }
+  }
+  // @media (max-width: 480px) {
+
+  //   .banner-container {
+  //     min-height: 350px;
+  //     border-radius: 10px;
+  //   }
+  //   .floristy{
+  //     min-height: 1030px;
+  //   }
+  //   .content {
+  //     text-align: center;
+  //     padding: 1rem;
+  //     border-radius: 8px;
+  //     max-width: 95%;
+  //   }
+  
+  //   .title {
+  //     font-size: 2rem;
+  //     margin-bottom: 0.5rem;
+  //   }
+  
+  //   .subtitle {
+  //     font-size: 1rem;
+  //     margin-bottom: 1rem;
+  //   }
+  
+  //   .cta-button {
+  //     padding: 0.5rem 1rem;
+  //     font-size: 0.9rem;
+  //     border-radius: 10px;
+  //   }
+  
+  //   .section2{
+  //     max-width: 480px;
+  //     display: flex;
+  //     flex-direction: column;
+  //     height: auto; /* Бийиктикти автоматтык түрдө жөнгө салабыз */
+  //   }
+  
+  //   .block-text {
+  //     display: flex;
+  //     flex-direction: column;
+  //     gap: 1rem; /* Карточкалардын ортосундагы аралык */
+  //     margin-top: 1.5rem;
+  //   }
+  
+  //   .block-text .forum,
+  //   .block-text .forum1,
+  //   .block-text .forum2 {
+  //     margin-top: 30px;
+  //     // width: 300px;
+  //     height: auto; /* Ар бир карточканын бийиктиги контентке жараша болот */
+  //     margin-bottom: 1rem; /* Ар бир карточканын астынан боштук */
+  //     position: relative; /* Ички элементтер үчүн позициялоо контексти */
+  //   }
+  
+  //   .block-text .forum img,
+  //   .block-text .forum1 img,
+  //   .block-text .forum2 img {
+  //     width: 390px;
+  //     max-height: 200px;
+  //     object-fit: cover;
+  //     margin-bottom: 1rem;
+  //     margin-left: 0;
+  //     position: relative; /* Сүрөттү карточканын ичинде калтырабыз */
+  //   }
+  
+  //   .block-text .forum h1,
+  //   .block-text .forum1 h1,
+  //   .block-text .forum2 h1 {
+  //     font-size: 1.3rem;
+  //     margin-top: 1rem;
+  //     position: relative; /* Текстти карточканын ичинде калтырабыз */
+  //   }
+  
+  //   .block-text .forum p,
+  //   .block-text .forum1 p,
+  //   .block-text .forum2 p {
+  //     font-size: 0.8rem;
+  //     line-height: 1.2;
+  //     position: relative;
+  //     color: white;
+  //      /* Текстти карточканын ичинде калтырабыз */
+  //   }
+  // }
+  /* 📱 Телефон: 320px–480px */
+  // @media (max-width: 480px) {
+    
+  //   .banner-container {
+  //     min-height: 350px;
+  //     border-radius: 10px;
+  //   }
+  //   .floristy{
+  //     min-height: 1030px;
+  //   }
+  //   .content {
+  //     text-align: center;
+  //     padding: 1rem;
+  //     border-radius: 8px;
+  //     max-width: 95%;
+  //   }
+
+  //   .title {
+  //     font-size: 2rem;
+  //     margin-bottom: 0.5rem;
+  //   }
+
+  //   .subtitle {
+  //     font-size: 1rem;
+  //     margin-bottom: 1rem;
+  //   }
+
+  //   .cta-button {
+  //     padding: 0.5rem 1rem;
+  //     font-size: 0.9rem;
+  //     border-radius: 10px;
+  //   }
+
+  //   .section2{
+  //     max-width: 480px;
+  //     display: flex;
+  //     .bush h2 {
+  //       font-size: 2rem;
+  //       line-height: 1.1;
+  //     }
+    
+  //     .bush .p p {
+  //       font-size: 0.9rem;
+  //     }
+    
+  //     .bush .p .strel svg {
+  //       font-size: 0.9rem;
+  //     }
+    
+  //     .block-text .forum h1,
+  //     .block-text .forum1 h1,
+  //     .block-text .forum2 h1 {
+  //       font-size: 1.3rem;
+  //     }
+    
+  //     .block-text .forum p,
+  //     .block-text .forum1 p,
+  //     .block-text .forum2 p {
+  //       font-size: 0.8rem;
+  //       line-height: 1.2;
+  //     }
+  //   }
+  // }
+
+  /* 📱 Планшет: 768px–900px */
+  @media (min-width: 768px) and (max-width: 900px) {
+    .banner-container {
+      border-radius: 18px;
+      min-height: 500px;
+    }
+
+    .content {
+      text-align: left;
+      padding: 2rem;
+      border-radius: 12px;
+      max-width: 70%;
+    }
+
+    .title {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .subtitle {
+      font-size: 1.4rem;
+      margin-bottom: 2rem;
+    }
+
+    .cta-button {
+      padding: 0.7rem 1.8rem;
+      font-size: 1.1rem;
+      border-radius: 14px;
+    }
+  }
+
+  /* 💻 Ноутбук: 1024px жана андан жогору */
+  @media (min-width: 1024px) {
+    .banner-container {
+      border-radius: 20px;
+      min-height: 600px;
+    }
+
+    .content {
+      text-align: left;
+      padding: 3rem;
+      border-radius: 15px;
+      max-width: 60%;
+    }
+
+    .title {
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .subtitle {
+      font-size: 1.6rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .cta-button {
+      padding: 0.8rem 2rem;
+      font-size: 1.2rem;
+      border-radius: 16px;
+    }
+  }
+}
+
+.florist-cards-compact {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Кичинекей экрандарда да кеминде 280px туурасы болот */
+  gap: 1.5rem; /* Кичинекей экрандарда боштукту азайтабыз */
+  margin: 2rem auto; /* Кичинекей экрандарда маржаны азайтабыз */
+  padding: 0 1rem; /* Кичинекей экрандарда ички боштукту азайтабыз */
+  max-width: 1200px; /* Максималдуу туураны азайтабыз */
+
+  .florist-card-static {
+    position: relative;
+    margin: 0 auto;
+    width: 100%; /* Карталар контейнердин туурасынын 100% ээлейт */
+    max-width: 400px; /* Максималдуу туураны азайтабыз */
+    height: 300px; /* Бийиктикти азайтабыз */
+    border-radius: 12px; /* Бурчтарды азайтабыз */
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+
+    .card-inner {
+      position: relative;
+      height: 100%;
+      transition: all 0.4s ease;
+
+      .front-content {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        padding: 1.5rem; /* Ички боштукту азайтабыз */
+        background: white;
+        transition: opacity 0.3s ease;
+        background-color: #f49ec8;
+
+        .card-header {
+          text-align: center;
+
+          .florist-photo {
+            width: 120px; /* Сүрөттүн өлчөмүн азайтабыз */
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 0.8rem; /* Маржаны азайтабыз */
+            border: 2px solid #ffe5ec; /* Чек араны азайтабыз */
           }
-      
-          &:hover {
-            .front-content {
-              opacity: 0;
-            }
-      
-            .hover-content {
-              opacity: 1;
-              transform: translateY(0);
-            }
+
+          h3 {
+            color: #e84393;
+            margin-bottom: 0.5rem; /* Маржаны азайтабыз */
+            font-size: 1.2rem; /* Шрифттин өлчөмүн азайтабыз */
+          }
+
+          p {
+            font-size: 0.9rem; /* Шрифттин өлчөмүн азайтабыз */
+          }
+        }
+
+        .question-block {
+          padding-top: 0.5rem; /* Ички боштукту азайтабыз */
+          .question-text {
+            font-size: 1rem;
+            color: #2d3436;
+            text-align: center;
+            padding: 0 0.5rem; /* Ички боштукту азайтабыз */
           }
         }
       }
+
+      .hover-content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        padding: 1.5rem; /* Ички боштукту азайтабыз */
+        background: linear-gradient(45deg, #fff0f3, #ffffff);
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.4s ease;
+
+        .answer-block {
+          .answer-text {
+            font-size: 0.9rem;
+            color: #2d3436;
+            line-height: 1.4; /* Саптардын аралыгын азайтабыз */
+            margin-bottom: 1rem; /* Маржаны азайтабыз */
+          }
+
+          .signature {
+            position: absolute;
+            bottom: 1rem; /* Төмөнкү маржаны азайтабыз */
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            background: rgba(232, 67, 147, 0.1);
+            padding: 0.3rem 0.8rem; /* Ички боштукту азайтабыз */
+            border-radius: 15px; /* Бурчтарды азайтабыз */
+
+            .sign-icon {
+              width: 20px; /* Иконканын өлчөмүн азайтабыз */
+              margin-right: 0.3rem; /* Маржаны азайтабыз */
+            }
+
+            span {
+              color: #e84393;
+              font-size: 0.8rem; /* Шрифттин өлчөмүн азайтабыз */
+            }
+          }
+        }
+
+        .hover-flower {
+          position: absolute;
+          width: 60px; /* Гүлдүн өлчөмүн азайтабыз */
+          right: -5px;
+          bottom: -5px;
+          opacity: 0.3;
+          transform: rotate(15deg);
+        }
+      }
+    }
+
+    &:hover {
+      .front-content {
+        opacity: 0;
+      }
+
+      .hover-content {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  }
 }
+
+/* 📱 Телефон: 320px–480px */
+@media (max-width: 480px) {
+  .florist-cards-compact {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem auto;
+    padding: 0 0.5rem;
+  }
+
+  .florist-cards-compact .florist-card-static {
+    max-width: 300px;
+    // height: 280px;
+    border-radius: 10px;
+
+    .card-inner .front-content .card-header .florist-photo {
+      width: 100px;
+      height: 80px;
+      margin-bottom: 0.5rem;
+    }
+
+    .card-inner .front-content .card-header h3 {
+      font-size: 1.1rem;
+    }
+
+    .card-inner .front-content .card-header p {
+      font-size: 0.8rem;
+    }
+
+    .card-inner .front-content .question-block .question-text {
+      font-size: 0.9rem;
+    }
+
+    .card-inner .hover-content .answer-block .answer-text {
+      font-size: 0.8rem;
+      line-height: 1.3;
+      margin-bottom: 0.8rem;
+    }
+
+    .card-inner .hover-content .answer-block .signature {
+      bottom: 0.8rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 12px;
+
+      .sign-icon {
+        width: 18px;
+        margin-right: 0.2rem;
+      }
+
+      span {
+        font-size: 0.7rem;
+      }
+    }
+
+    .card-inner .hover-content .hover-flower {
+      width: 50px;
+      right: -3px;
+      bottom: -3px;
+    }
+  }
+}
+
+/* 📱 Планшет: 768px–900px */
+@media (min-width: 768px) and (max-width: 900px) {
+  .florist-cards-compact {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 0 2rem;
+    margin: 2.5rem auto;
+  }
+
+  .florist-cards-compact .florist-card-static {
+    max-width: 450px;
+    height: 320px;
+    border-radius: 14px;
+
+    .card-inner .front-content .card-header .florist-photo {
+      width: 140px;
+      height: 120px;
+      margin-bottom: 0.6rem;
+    }
+
+    .card-inner .front-content .card-header h3 {
+      font-size: 1.4rem;
+    }
+
+    .card-inner .front-content .card-header p {
+      font-size: 1rem;
+    }
+
+    .card-inner .front-content .question-block .question-text {
+      font-size: 1.1rem;
+    }
+
+    .card-inner .hover-content .answer-block .answer-text {
+      font-size: 1rem;
+      line-height: 1.5;
+      margin-bottom: 1.2rem;
+    }
+
+    .card-inner .hover-content .answer-block .signature {
+      bottom: 1rem;
+      padding: 0.4rem 0.9rem;
+      border-radius: 16px;
+
+      .sign-icon {
+        width: 22px;
+        margin-right: 0.3rem;
+      }
+
+      span {
+        font-size: 0.9rem;
+      }
+    }
+
+    .card-inner .hover-content .hover-flower {
+      width: 70px;
+      right: -7px;
+      bottom: -7px;
+    }
+  }
+}
+
+/* 💻 Ноутбук: 1024px жана андан жогору */
+@media (min-width: 1024px) {
+  .florist-cards-compact {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    padding: 0 4rem;
+    margin: 3rem auto;
+    max-width: 1400px;
+  }
+
+  .florist-cards-compact .florist-card-static {
+    max-width: 500px;
+    height: 350px;
+    border-radius: 15px;
+
+    .card-inner .front-content .card-header .florist-photo {
+      width: 170px;
+      height: 150px;
+      margin-bottom: 1rem;
+    }
+
+    .card-inner .front-content .card-header h3 {
+      font-size: 1.5rem;
+    }
+
+    .card-inner .front-content .card-header p {
+      font-size: 1.1rem;
+    }
+
+    .card-inner .front-content .question-block .question-text {
+      font-size: 1.2rem;
+    }
+
+    .card-inner .hover-content .answer-block .answer-text {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .card-inner .hover-content .answer-block .signature {
+      bottom: 1.5rem;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+
+      .sign-icon {
+        width: 25px;
+        margin-right: 0.5rem;
+      }
+
+      span {
+        font-size: 0.9rem;
+      }
+    }
+
+    .card-inner .hover-content .hover-flower {
+      width: 80px;
+      right: -10px;
+      bottom: -10px;
+    }
+  }
+}
+
+
+/* 📱 Телефон: 320px–480px */
+// @media (max-width: 480px) {
+//   .florist-cards-compact {
+//     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+//     gap: 1rem;
+//     margin: 1.5rem auto;
+//     padding: 0 0.5rem;
+//   }
+
+//   .florist-cards-compact .florist-card-static {
+//     max-width: 300px;
+//     height: 280px;
+//     border-radius: 10px;
+
+//     .card-inner .front-content .card-header .florist-photo {
+//       width: 100px;
+//       height: 80px;
+//       margin-bottom: 0.5rem;
+//     }
+
+//     .card-inner .front-content .card-header h3 {
+//       font-size: 1.1rem;
+//     }
+
+//     .card-inner .front-content .card-header p {
+//       font-size: 0.8rem;
+//     }
+
+//     .card-inner .front-content .question-block .question-text {
+//       font-size: 0.9rem;
+//     }
+
+//     .card-inner .hover-content .answer-block .answer-text {
+//       font-size: 0.8rem;
+//       line-height: 1.3;
+//       margin-bottom: 0.8rem;
+//     }
+
+//     .card-inner .hover-content .answer-block .signature {
+//       bottom: 0.8rem;
+//       padding: 0.2rem 0.6rem;
+//       border-radius: 12px;
+
+//       .sign-icon {
+//         width: 18px;
+//         margin-right: 0.2rem;
+//       }
+
+//       span {
+//         font-size: 0.7rem;
+//       }
+//     }
+
+//     .card-inner .hover-content .hover-flower {
+//       width: 50px;
+//       right: -3px;
+//       bottom: -3px;
+//     }
+//   }
+// }
+
+// /* 📱 Планшет: 768px–900px */
+// @media (min-width: 768px) and (max-width: 900px) {
+//   .florist-cards-compact {
+//     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+//     gap: 2rem;
+//     padding: 0 2rem;
+//     margin: 2.5rem auto;
+//   }
+
+//   .florist-cards-compact .florist-card-static {
+//     max-width: 450px;
+//     height: 320px;
+//     border-radius: 14px;
+
+//     .card-inner .front-content .card-header .florist-photo {
+//       width: 140px;
+//       height: 120px;
+//       margin-bottom: 0.6rem;
+//     }
+
+//     .card-inner .front-content .card-header h3 {
+//       font-size: 1.4rem;
+//     }
+
+//     .card-inner .front-content .card-header p {
+//       font-size: 1rem;
+//     }
+
+//     .card-inner .front-content .question-block .question-text {
+//       font-size: 1.1rem;
+//     }
+
+//     .card-inner .hover-content .answer-block .answer-text {
+//       font-size: 1rem;
+//       line-height: 1.5;
+//       margin-bottom: 1.2rem;
+//     }
+
+//     .card-inner .hover-content .answer-block .signature {
+//       bottom: 1rem;
+//       padding: 0.4rem 0.9rem;
+//       border-radius: 16px;
+
+//       .sign-icon {
+//         width: 22px;
+//         margin-right: 0.3rem;
+//       }
+
+//       span {
+//         font-size: 0.9rem;
+//       }
+//     }
+
+//     .card-inner .hover-content .hover-flower {
+//       width: 70px;
+//       right: -7px;
+//       bottom: -7px;
+//     }
+//   }
+// }
+
+// /* 💻 Ноутбук: 1024px жана андан жогору */
+// @media (min-width: 1024px) {
+//   .florist-cards-compact {
+//     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+//     gap: 2rem;
+//     padding: 0 4rem;
+//     margin: 3rem auto;
+//     max-width: 1400px;
+//   }
+
+//   .florist-cards-compact .florist-card-static {
+//     max-width: 500px;
+//     height: 350px;
+//     border-radius: 15px;
+
+//     .card-inner .front-content .card-header .florist-photo {
+//       width: 170px;
+//       height: 150px;
+//       margin-bottom: 1rem;
+//     }
+
+//     .card-inner .front-content .card-header h3 {
+//       font-size: 1.5rem;
+//     }
+
+//     .card-inner .front-content .card-header p {
+//       font-size: 1.1rem;
+//     }
+
+//     .card-inner .front-content .question-block .question-text {
+//       font-size: 1.2rem;
+//     }
+
+//     .card-inner .hover-content .answer-block .answer-text {
+//       font-size: 1.1rem;
+//       line-height: 1.6;
+//       margin-bottom: 1.5rem;
+//     }
+
+//     .card-inner .hover-content .answer-block .signature {
+//       bottom: 1.5rem;
+//       padding: 0.5rem 1rem;
+//       border-radius: 20px;
+
+//       .sign-icon {
+//         width: 25px;
+//         margin-right: 0.5rem;
+//       }
+
+//       span {
+//         font-size: 0.9rem;
+//       }
+//     }
+
+//     .card-inner .hover-content .hover-flower {
+//       width: 80px;
+//       right: -10px;
+//       bottom: -10px;
+//     }
+//   }
+// }
