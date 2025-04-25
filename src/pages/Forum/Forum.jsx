@@ -16,7 +16,7 @@ const Forum = () => {
   const [recipientRole, setRecipientRole] = useState("developer");
 
   const currentUser = auth.currentUser;
-  const isAdmin = currentUser?.email === 'admin@example.com'; // Админ текшерүүсү
+  const isAdmin = currentUser?.email === 'admin@example.com'; 
 
   useEffect(() => {
     const q = query(collection(db, 'messages'), orderBy('createdAt'));
@@ -38,7 +38,7 @@ const Forum = () => {
     };
 
     if (!isAdmin) {
-      newMessage.to = recipientRole; // Рольди гана клиент кошот
+      newMessage.to = recipientRole; 
     }
 
     await addDoc(collection(db, 'messages'), newMessage);
@@ -191,6 +191,8 @@ const Forum = () => {
 };
 
 export default Forum;
+
+
 
 
 

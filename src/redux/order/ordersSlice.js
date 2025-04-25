@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  list: JSON.parse(localStorage.getItem('orders')) || []
+  orders: JSON.parse(localStorage.getItem('orders')) || []
 };
 
 const ordersSlice = createSlice({
@@ -9,15 +9,16 @@ const ordersSlice = createSlice({
   initialState,
   reducers: {
     addOrder: (state, action) => {
-      state.list.push(action.payload);
-      localStorage.setItem('orders', JSON.stringify(state.list)); // persist
+      state.orders.push(action.payload);
+      localStorage.setItem('orders', JSON.stringify(state.orders));
     },
     confirmOrder: (state, action) => {
-      const index = state.list.findIndex((order) => order.createdAt === action.payload);
-      if (index !== -1) {
-        state.list[index].confirmed = true;
-        localStorage.setItem('orders', JSON.stringify(state.list));
+      const orderId = action.payload;
+      const order = state.orders.find(order => order.id === orderId);
+      if (order) {
+        order.confirmed = true;
       }
+      localStorage.setItem('orders', JSON.stringify(state.orders));
     }
   }
 });

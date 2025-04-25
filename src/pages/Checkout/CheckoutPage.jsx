@@ -77,13 +77,16 @@ function CheckoutPage() {
   return (
     <div className="checkout container">
       <div className='checkout-header'>
-        <div className={`step ${activeStep === 1 ? 'active' : ''}`}>КОРЗИНА</div>
-        <div className='arrow'>→</div>
-        <div className={`step ${activeStep === 2 ? 'active' : ''}`}>Информация о заказе</div>
-        <div className='arrow'>→</div>
-        <Link to="/history">
-          <div className={`step ${activeStep === 3 ? 'active' : ''}`}>Завершение заказа</div>
+        <Link to="/korzina"  className="step-link">
+        <span className={`step ${activeStep === 1 ? 'active' : ''}`}>КОРЗИНА</span>
         </Link>
+        <div className='arrow'>→</div>
+        <span className={`step ${activeStep === 2 ? 'active' : ''}`}>Информация о заказе</span>
+        <div className='arrow'>→</div>
+        <Link to="/history" className="step-link">
+          <span className={`step ${activeStep === 3 ? 'active' : ''}`}>Завершение заказа</span>
+        </Link>
+
       </div>
 
       <div className="checkout-cel">
@@ -226,10 +229,12 @@ function CheckoutPage() {
               Я прочитал(а) и принимаю правила и условия сайта *
             </label>
           </div>
+          <Link to="/history">
+            <button className="confirm-order" onClick={handleConfirm}>
+              ПОДТВЕРДИТЕ ЗАКАЗ
+            </button>
 
-          <button className="confirm-order" onClick={handleConfirm}>
-            ПОДТВЕРДИТЕ ЗАКАЗ
-          </button>
+          </Link>
 
           <p>Ваши личные данные используются для обработки заказов и в соответствии с нашей политикой конфиденциальности.</p>
         </div>
