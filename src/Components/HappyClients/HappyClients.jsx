@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from "react";
 import { collection, onSnapshot } from "firebase/firestore";
 import { db } from "../../firebase";
@@ -49,30 +50,24 @@ const HappyClients = () => {
     };
   }, []);
 
+  const statsData = [
+    { title: "Всего клиентов", value: stats.total + 45000 },
+    { title: "Постоянные клиенты", value: stats.regular + 32004 },
+    { title: "Довольные клиенты", value: stats.happy + 24408 },
+    { title: "Ошибочные заказы", value: stats.error - 1208 },
+    { title: "Зарегистрированные пользователи", value: stats.admins + 34708 }
+  ];
+
   return (
     <div className="client-stats container">
       <h2>Статистика клиентов с 2023 года</h2>
       <div className="stats-grid">
-        <div className="stat-card">
-          <h3>Всего клиентов</h3>
-          <p><CountUp end={stats.total + 45000} duration={10} /></p>
-        </div>
-        <div className="stat-card">
-          <h3>Постоянные клиенты</h3>
-          <p><CountUp end={stats.regular + 32004} duration={10} /></p>
-        </div>
-        <div className="stat-card">
-          <h3>Довольные клиенты</h3>
-          <p><CountUp end={stats.happy + 24408} duration={10} /></p>
-        </div>
-        <div className="stat-card">
-          <h3>Ошибочные заказы</h3>
-          <p><CountUp end={stats.error - 1208} duration={10} /></p>
-        </div>
-        <div className="stat-card">
-          <h3>Зарегистрированные пользователи</h3>
-          <p><CountUp end={stats.admins + 34708} duration={10} /></p>
-        </div>
+        {statsData.map((stat, index) => (
+          <div className="stat-card" key={index}>
+            <h3>{stat.title}</h3>
+            <p><CountUp end={stat.value} duration={10} /></p>
+          </div>
+        ))}
       </div>
     </div>
   );

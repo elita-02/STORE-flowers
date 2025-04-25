@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { confirmOrder } from '../../redux/order/ordersSlice';
+
 import './Historyzakaza.scss';
 
 function formatDate(dateString) {
@@ -54,11 +55,12 @@ function Historyzakaza() {
               <p className="confirmed">✅ Заказ получен</p>
             ) : (
               <button
-                onClick={() => dispatch(confirmOrder(order.createdAt))}
+                onClick={() => dispatch(confirmOrder(order.id))}
                 className="confirm-btn"
               >
                 Товар получен
               </button>
+
             )}
           </div>
         ))

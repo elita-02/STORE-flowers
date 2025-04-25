@@ -19,14 +19,15 @@ import './Tovar.scss';
 function Tovar() {
     const { category, search, komu, occasion, color } = useSelector((state) => state.category);
     const wishlist = useSelector((state) => state.wishlist.items);
-    const cartItems = useSelector((state) => state.cart.items); // Assuming cart items are here
+    const cartItems = useSelector((state) => state.cart.items);
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
     const [text, setText] = useState("");
     const [showSearch, setShowSearch] = useState(false);
     const [quickViewItem, setQuickViewItem] = useState(null);
-    const [isModalOpen, setIsModalOpen] = useState(false); // Track modal visibility
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     useEffect(() => {
         dispatch(getCategory({ cake: search, text, komu, occasion, color }));
@@ -56,30 +57,43 @@ function Tovar() {
         setQuickViewItem(selectedItem);
     };
 
-
-    const handleAddToCart = (e, item) => { 
+    const handleAddToCart = (e, item) => {
         e.stopPropagation(); 
         dispatch(addToCart(item));
         setIsModalOpen(true);
-      };
-      
-      
- 
+    };
+
     return (
         <div className='mack-container'>
             <h1>Каталог товаров</h1>
 
+            {/* Бургер-меню */}
+            <div 
+                className={`burger-btn ${isMenuOpen ? 'open' : ''}`} 
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
             <div className="menu-container">
                 <div className="katalog">
-                    <div className="menu">
-                        <div className="menu-items">
-                            <h1>Букеты</h1>
-                            {menu.map((item, index) => (
-                                <div onClick={() => dispatch(setSearch(item))} key={index} className="menu-item">
-                                    {item}
-                                </div>
-                            ))}
-                        </div>
+                    {/* Боковое меню */}
+                    <div className={`menu ${isMenuOpen ? 'active' : ''}`}>
+                        <h1>Букеты</h1>
+                        {menu.map((item, index) => (
+                            <div 
+                                onClick={() => {
+                                    dispatch(setSearch(item));
+                                    setIsMenuOpen(false);
+                                }} 
+                                key={index} 
+                                className="menu-item"
+                            >
+                                {item}
+                            </div>
+                        ))}
                     </div>
 
                     <div className="category-items">
@@ -180,10 +194,9 @@ function Tovar() {
                                             <button
                                                 className="add-btn"
                                                 onClick={(e) => handleAddToCart(e, item)} 
-                                                >
+                                            >
                                                 В корзину
-                                                </button>
-
+                                            </button>
                                         </div>
                                     </div>
                                 ))}
@@ -198,10 +211,10 @@ function Tovar() {
             )}
 
             <Modal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        items={cartItems}
-      />
+                isOpen={isModalOpen}
+                onClose={() => setIsModalOpen(false)}
+                items={cartItems}
+            />
         </div>
     );
 }

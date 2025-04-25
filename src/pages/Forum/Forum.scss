@@ -1,91 +1,4 @@
-// .forum-header {
-//   position: relative;
-//   background: url(https://static9.depositphotos.com/1037987/1188/i/450/depositphotos_11884152-stock-photo-woman-standing-outside-florist.jpg);
-//   background-repeat: no-repeat;
-//   background-size: cover;
-//   background-position: center;
-//   width: 100%;
-//   height: 700px;
-//   border-radius: 15px;
-//   overflow: hidden;
-//   margin-bottom: 30px;
-//   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 
-//   &::before {
-//     content: "";
-//     position: absolute;
-//     inset: 0;
-//     background-color: rgba(0, 0, 0, 0.5); // Караңгылатуу
-//     z-index: 1;
-//   }
-
-//   .forum-header-content {
-//     position: relative;
-//     z-index: 2;
-//     text-align: center;
-//     color: #fff;
-//   }
-
-//   h1 {
-//     font-size: 2.8rem;
-//     font-weight: 700;
-//     margin-top: 200px;
-//     margin-bottom: 20px;
-//     text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.6);
-//   }
-
-//   p {
-//     font-size: 1.4rem;
-//     max-width: 700px;
-//     margin: 0 auto;
-//     text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
-//   }
-
-//   .sales-statistics {
-//     margin: 50px 0;
-//     padding: 20px;
-//     background: #fff0f5;
-//     border-radius: 20px;
-//     box-shadow: 0 4px 20px rgba(255, 105, 180, 0.2);
-//     transition: all 0.3s ease-in-out;
-  
-//     .stats-header {
-//       display: flex;
-//       justify-content: space-between;
-//       align-items: center;
-//       margin-bottom: 20px;
-  
-//       h2 {
-//         font-size: 1.8rem;
-//         color: #d63384;
-//       }
-  
-//       .year-selector {
-//         padding: 10px 15px;
-//         border: none;
-//         background: #ffe4f1;
-//         border-radius: 12px;
-//         font-size: 1rem;
-//         color: #d63384;
-//         font-weight: bold;
-//         cursor: pointer;
-//         transition: 0.3s;
-  
-//         &:hover {
-//           background: #ffd1e5;
-//         }
-  
-//         option {
-//           background: #fff;
-//           color: #d63384;
-//         }
-//       }
-//     }
-//   }
-
-  
-  
-// }
 .forum-header {
   position: relative;
   background: url(https://static9.depositphotos.com/1037987/1188/i/450/depositphotos_11884152-stock-photo-woman-standing-outside-florist.jpg);
@@ -103,7 +16,7 @@
     content: "";
     position: absolute;
     inset: 0;
-    background-color: rgba(0, 0, 0, 0.5); // Караңгылатуу
+    background-color: rgba(0, 0, 0, 0.5);
     z-index: 1;
   }
 
@@ -171,9 +84,8 @@
       }
     }
   }
-
-  
 }
+
 .chat-box {
   background: #fff9fb;
   border-radius: 20px;
@@ -254,6 +166,7 @@
     }
   }
 }
+
 .recipient-selector {
   display: flex;
   align-items: center;
@@ -282,7 +195,6 @@
   margin-left: 5px;
 }
 
-
 @keyframes pop {
   from {
     opacity: 0;
@@ -294,10 +206,71 @@
   }
 }
 
+/* ===== Happy Clients Component ===== */
+.happy-clients {
+  margin: 30px auto;
+  width: 100%;
+  max-width: 1200px;
+}
 
+/* Скрываем полностью на мобильных */
+@media (max-width: 768px) {
+  .happy-clients {
+    display: none !important;
+  }
+}
 
-
-
-
-
+/* Планшеты (768-1024px) - 3 колонки */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .happy-clients {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 0 15px;
+  }
   
+  .client-stat {
+    display: block !important;
+  }
+}
+
+/* Ноутбуки (1024px+) - все в одну строку */
+@media (min-width: 1024px) {
+  .happy-clients {
+    display: flex;
+    justify-content: space-between;
+    gap: 25px;
+    padding: 0;
+  }
+
+  .client-stat {
+    flex: 1;
+    min-width: 0;
+  }
+}
+
+/* Общие стили карточек (без изменений) */
+.client-stat {
+  background: #fff9fb;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 15px rgba(255, 105, 180, 0.1);
+  transition: all 0.3s ease;
+}
+
+.client-stat h3 {
+  font-size: 1.2rem;
+  color: #d63384;
+  margin-bottom: 10px;
+}
+
+.client-stat p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+.client-stat:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(255, 105, 180, 0.15);
+}

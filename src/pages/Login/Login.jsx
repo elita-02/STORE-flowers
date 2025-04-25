@@ -87,7 +87,7 @@ function Login() {
 
       <p className="terms-text">
         Входя в аккаунт, вы соглашаетесь с 
-        <a href="#"> условиями использования сервиса aa</a>
+        <a href="#"> условиями использования сервиса</a>
       </p>
     </>
   );
@@ -113,3 +113,5 @@ function Login() {
 }
 
 export default Login;
+
+

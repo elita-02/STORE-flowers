@@ -19,6 +19,7 @@ import PostsPage from "./pages/PostsPage/PostsPage";
 import DecorativeFlowersPage from "./pages/DecorativeFlowersPage/DecorativeFlowersPage";
 import Historyzakaza from "./pages/Historyzakaza/Historyzakaza";
 import Login from "./pages/Login/Login";
+import Sotrudnichestvo from "./pages/Sotrudnichestvo/Sotrudnichestvo";
 
  export const myRouter = createBrowserRouter([
     {
@@ -78,7 +79,7 @@ import Login from "./pages/Login/Login";
                 element: <Wishlist/>
             },
             {
-                path: "Korzina",
+                path: "korzina",
                 element: <Korzina/>
             },
             {
@@ -100,7 +101,10 @@ import Login from "./pages/Login/Login";
             {
                 path: "izbran",
                 element: <Izbrannyi/>
+              
             },
+         
+           
 
         ]
 
