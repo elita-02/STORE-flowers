@@ -36,8 +36,10 @@ function Contacty() {
   };
 
   return (
-    <div className="contact-container container">
-      <div className="contact-header">
+    <div className="contact-container ">
+      <div className="contact-header container ">
+        <div className=''>
+           
         <h2>Свяжитесь с нами</h2>
         <p>Мы всегда готовы ответить на ваши вопросы</p>
       </div>
@@ -55,6 +57,7 @@ function Contacty() {
             <div className="icon-circle"><FaEnvelope className="contact-icon"/></div>
             <h3>Email</h3>
             <p>jyldyzbekovna04@outlook.com</p>
+            <p>nurzadatobokelova@gmail.com</p>
           </div>
 
           <div className="info-card">
@@ -114,11 +117,10 @@ function Contacty() {
           </form>
         </div>
       </div>
-
-
-      <ToastContainer position="top-right" autoClose={3000} hideProgressBar={false} newestOnTop closeOnClick pauseOnFocusLoss draggable pauseOnHover />
+      {/* <ToastContainer position="top-right" autoClose={3000} hideProgressBar={false} newestOnTop closeOnClick pauseOnFocusLoss draggable pauseOnHover /> */}
+        </div>
+        <Mapp />
     </div>
-      // <Mapp />
   );
 }
 
