@@ -22,7 +22,6 @@ function Tovar() {
     const cartItems = useSelector((state) => state.cart.items);
     const dispatch = useDispatch();
     const navigate = useNavigate();
-
     const [text, setText] = useState("");
     const [showSearch, setShowSearch] = useState(false);
     const [quickViewItem, setQuickViewItem] = useState(null);
@@ -67,7 +66,7 @@ function Tovar() {
         <div className='mack-container'>
             <h1>Каталог товаров</h1>
 
-            {/* Бургер-меню */}
+          
             <div 
                 className={`burger-btn ${isMenuOpen ? 'open' : ''}`} 
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
