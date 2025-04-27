@@ -13,20 +13,24 @@ const Modal = ({ isOpen, onClose, items, onRemoveItem }) => {
   };
 
   
+  const handleRemoveItem = (id) => {
+    onRemoveItem(id);
+  };
 
   return (
     <div className="custom-modal-overlay" onClick={handleClose}>
-         <button
-    className="custom-close-btn"
-    onClick={handleClose}
-    aria-label="Закрыть окно"
-  >
-    ×
-  </button>
-  <div
-    className="custom-modal-content"
-    onClick={(e) => e.stopPropagation()}
-  >
+      <div
+        className="custom-modal-content"
+        onClick={(e) => e.stopPropagation()} // Модалдын ичин басканда жабылбасын деп
+      >
+        <button
+          className="custom-close-btn"
+          onClick={handleClose}
+          aria-label="Закрыть окно"
+        >
+          ×
+        </button>
+
         <div className="custom-modal-body">
           <div className="custom-products-list">
             {items.map((item) => (
@@ -42,11 +46,12 @@ const Modal = ({ isOpen, onClose, items, onRemoveItem }) => {
                     <p className="custom-modal-price">{item.price}</p>
 
                     <button
-                    className="custom-close-title"
-                    onClick={() => onRemoveItem(item.id)}
-                  >
-                    ×
-                  </button>
+                      className="custom-close-title"
+                      onClick={() => handleRemoveItem(item.id)} // Туура кылдык
+                      aria-label="Удалить товар"
+                    >
+                      ×
+                    </button>
                   </div>
                 </div>
               </div>
@@ -59,7 +64,7 @@ const Modal = ({ isOpen, onClose, items, onRemoveItem }) => {
             <button className="custom-modal-one">ПРОСМОТР КОРЗИНЫ</button>
           </Link>
           <Link to="/checkoutpage">
-          <button className="custom-modal-three">ОФОРМЛЕНИЕ ЗАКАЗА</button>
+            <button className="custom-modal-three">ОФОРМЛЕНИЕ ЗАКАЗА</button>
           </Link>
         </div>
       </div>
@@ -68,4 +73,3 @@ const Modal = ({ isOpen, onClose, items, onRemoveItem }) => {
 };
 
 export default Modal;
-

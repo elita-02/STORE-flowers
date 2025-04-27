@@ -62,6 +62,10 @@ function Tovar() {
         setIsModalOpen(true);
     };
 
+    const handleRemoveItem = (id) => {
+        dispatch(removeFromCart(id));
+      };
+
     return (
         <div className='mack-container'>
             <h1>Каталог товаров</h1>
@@ -213,6 +217,7 @@ function Tovar() {
                 isOpen={isModalOpen}
                 onClose={() => setIsModalOpen(false)}
                 items={cartItems}
+                onRemoveItem={handleRemoveItem}
             />
         </div>
     );

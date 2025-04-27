@@ -1,486 +1,3 @@
-
-// .flower-banner {
-//     background: linear-gradient(135deg, #fff9fb 0%, #ffeef1 100%);
-//     padding: 4rem 2rem;
-//     border-radius: 30px;
-//     box-shadow: 0 15px 40px rgba(255, 131, 149, 0.15);
-//     margin: 2rem;
-//     border: 2px solid #ffe5e9;
-  
-//     .content-wrapper {
-//       display: flex;
-//       align-items: center;
-//       justify-content: space-between;
-//       max-width: 1200px;
-//       margin: 0 auto;
-  
-//       @media (max-width: 768px) {
-//         flex-direction: column;
-//       }
-//     }
-//   }
-  
-//   .text-content {
-//     flex: 1;
-//     padding-right: 5rem;
-  
-//     @media (max-width: 768px) {
-//       padding-right: 0;
-//       margin-bottom: 3rem;
-//       text-align: center;
-//     }
-  
-//     .main-title {
-//       font-size: 3.2rem;
-//       color: #2d3436;
-//       margin-bottom: 2rem;
-//       font-family: 'Playfair Display', serif;
-//       line-height: 1.2;
-  
-//       .special-offer {
-//         color: #ff6b6b;
-//         font-size: 2.2rem;
-//         display: block;
-//         margin-bottom: 0.5rem;
-//       }
-  
-//       .blossom {
-//         color: #ff7675;
-//         position: relative;
-//         display: inline-block;
-  
-//         &::after {
-//           content: '';
-//           position: absolute;
-//           bottom: -5px;
-//           left: 0;
-//           width: 100%;
-//           height: 3px;
-//           background: #ffd3d6;
-//         }
-//       }
-//     }
-//   }
-  
-//   .features {
-//     display: grid;
-//     gap: 2rem;
-//     margin: 3rem 0;
-  
-//     .feature-item {
-//       display: flex;
-//       align-items: center;
-//       gap: 1.5rem;
-//       padding: 1.5rem;
-//       background: rgba(255, 235, 238, 0.3);
-//       border-radius: 15px;
-//       transition: transform 0.3s ease;
-  
-//       &:hover {
-//         transform: translateX(10px);
-//       }
-  
-//       .icon {
-//         font-size: 2.5rem;
-//         width: 60px;
-//         height: 60px;
-//         display: flex;
-//         align-items: center;
-//         justify-content: center;
-//         background: #ff6b6b;
-//         border-radius: 50%;
-//         color: white;
-//       }
-  
-//       p {
-//         margin: 0;
-//         font-size: 1.1rem;
-//         color: #2d3436;
-//         line-height: 1.4;
-//       }
-//     }
-//   }
-  
-//   .cta-button {
-//     background: #ff6b6b;
-//     color: white;
-//     border: none;
-//     padding: 1.3rem 3.5rem;
-//     border-radius: 50px;
-//     font-size: 1.3rem;
-//     font-weight: 600;
-//     cursor: pointer;
-//     transition: all 0.3s ease;
-//     display: inline-flex;
-//     align-items: center;
-//     gap: 1rem;
-//     box-shadow: 0 5px 20px rgba(255, 107, 107, 0.3);
-    
-//     &:hover {
-//       background: #ff5252;
-//       transform: translateY(-2px);
-//       box-shadow: 0 7px 25px rgba(255, 107, 107, 0.4);
-      
-//       .arrow {
-//         transform: translateX(3px);
-//       }
-//     }
-  
-//     .arrow {
-//       transition: transform 0.2s ease;
-//       font-size: 1.5rem;
-//     }
-//   }
-  
-//   .clock-wrapper {
-//     position: relative;
-//     min-width: 350px;
-  
-//     @media (max-width: 768px) {
-//       min-width: auto;
-//       width: 100%;
-//       max-width: 300px;
-//     }
-//   }
-  
-//   .analog-clock {
-//     width: 350px;
-//     height: 350px;
-//     border-radius: 50%;
-//     background: white;
-//     box-shadow: 0 0 40px rgba(255, 131, 149, 0.15);
-//     position: relative;
-  
-//     @media (max-width: 768px) {
-//       width: 280px;
-//       height: 280px;
-//     }
-//   }
-  
-//   // Остальные стили часов аналогичны предыдущим, но с изменениями:
-//   .hand {
-//     &.hour {
-//       background: #ff7675;
-//       height: 28%;
-//     }
-    
-//     &.minute {
-//       background: #ff9aa2;
-//       height: 38%;
-//     }
-    
-//     &.second {
-//       background: #ffb3b3;
-//       height: 42%;
-//     }
-//   }
-  
-//   .center {
-//     background: #ff6b6b;
-//     box-shadow: 0 0 15px rgba(255, 107, 107, 0.3);
-//   }
-  
-//   .number span {
-//     color: #ff9aa2;
-//     font-weight: 700;
-//   }
-  
-//   .current-time {
-//     text-align: center;
-//     margin-top: 2rem;
-//     font-size: 1.8rem;
-//     color: #ff6b6b;
-//     font-weight: 500;
-//     letter-spacing: 2px;
-//   }
-
-
-
-// .our_clock {
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     min-height: 100vh;
-//     background: #f0f0f0;
-//   }
-  
-//   .analog-clock {
-//     width: 300px;
-//     height: 300px;
-//     border-radius: 50%;
-//     background: #ffffff;
-//     box-shadow: 0 0 20px rgba(0,0,0,0.1);
-//     position: relative;
-//   }
-  
-//   .clock-face {
-//     position: relative;
-//     width: 100%;
-//     height: 100%;
-//   }
-  
-//   .number {
-//     position: absolute;
-//     width: 100%;
-//     height: 100%;
-//     top: 0;
-//     left: 50%;
-//     font-size: 1.4em;
-//     font-weight: 600;
-//     color: #333;
-//     text-align: center;
-//     transform-origin: left center;
-  
-//     span {
-//       position: absolute;
-//       transform-origin: center;
-//       display: inline-block;
-//       width: 40px;
-//       height: 40px;
-//       line-height: 40px;
-//     }
-//   }
-  
-//   .hand {
-//     position: absolute;
-//     bottom: 50%;
-//     left: 50%;
-//     transform-origin: bottom;
-//     background: #333;
-//     border-radius: 3px;
-//     transition: transform 0.3s cubic-bezier(0.4, 2.3, 0.6, 1);
-//   }
-  
-//   .hour {
-//     width: 5px;
-//     height: 25%;
-//     background: #e74c3c;
-//     z-index: 3;
-//   }
-  
-//   .minute {
-//     width: 3px;
-//     height: 35%;
-//     background: #2980b9;
-//     z-index: 2;
-//   }
-  
-//   .second {
-//     width: 2px;
-//     height: 40%;
-//     background: #27ae60;
-//     z-index: 1;
-//   }
-  
-//   .center {
-//     position: absolute;
-//     top: 50%;
-//     left: 50%;
-//     width: 12px;
-//     height: 12px;
-//     background: #333;
-//     border-radius: 50%;
-//     transform: translate(-50%, -50%);
-//     z-index: 4;
-//   }
-
-//   .flower-banner {
-//     position: relative;
-//     overflow: hidden;
-//     background: 
-//       linear-gradient(rgba(202, 117, 164, 0.85), rgba(81, 79, 79, 0.9)),
-//       url('https://flomaster.top/o/uploads/posts/2023-11/thumbs/1699375114_flomaster-top-p-risunok-devushka-s-tyulpanami-krasivo-70.jpg');
-//     background-size: cover;
-//     background-position: center;
-//     background-blend-mode: overlay;
-//     object-fit: cover;
-//     padding: 4rem 2rem;
-//     border-radius: 30px;
-//     margin: 2rem;
-//     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-//     animation: backgroundZoom 20s infinite alternate;
-  
-//     &::before {
-//       content: '';
-//       position: absolute;
-//       top: 0;
-//       left: 0;
-//       width: 100%;
-//       height: 100%;
-//       background: rgba(0, 0, 0, 0.1);
-//       z-index: 0;
-//     }
-  
-//     @keyframes backgroundZoom {
-//       0% { background-size: 100%; }
-//       100% { background-size: 110%; }
-//     }
-//   }
-  
-//   .content-wrapper {
-//     display: flex;
-//     justify-content: space-between;
-//     align-items: center;
-//     position: relative;
-//     z-index: 1;
-//     max-width: 1200px;
-//     margin: 0 auto;
-//     background: rgba(255, 255, 255, 0.15); // Прозрачность текстового блока
-//   backdrop-filter: blur(5px); // Эффект матового стекла
-//   padding: 2rem;
-//   border-radius: 20px;
-//     @media (max-width: 768px) {
-//       flex-direction: column;
-//     }
-//   }
-  
-//   .text-content {
-//     flex: 1;
-//     padding-right: 5rem;
-  
-//     @media (max-width: 768px) {
-//       padding-right: 0;
-//       margin-bottom: 3rem;
-//       text-align: center;
-//     }
-//   }
-  
-//   .main-title {
-//     font-size: 3.2rem;
-//     color: #2a5a3e;
-//     margin-bottom: 2rem;
-//     font-family: 'Playfair Display', serif;
-  
-//     .special-offer {
-//       display: block;
-//       font-size: 2rem;
-//       color: #e63946;
-//     }
-  
-//     .discount {
-//       color: #81c784;
-//       font-size: 4rem;
-//     }
-//   }
-  
-//   .features {
-//     margin: 3rem 0;
-  
-//     .feature-item {
-//       display: flex;
-//       align-items: center;
-//       gap: 1.5rem;
-//       padding: 1.5rem;
-//       background: rgba(255, 255, 255, 0.9);
-//       border-radius: 15px;
-//       margin: 1rem 0;
-//       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-  
-//       .icon {
-//         font-size: 2rem;
-//         min-width: 50px;
-//       }
-  
-//       p {
-//         margin: 0;
-//         font-size: 1.1rem;
-//         color: #2d3436;
-//       }
-//     }
-//   }
-  
-//   .cta-button {
-//     background: #81c784;
-//     color: white;
-//     border: none;
-//     padding: 1.3rem 3.5rem;
-//     border-radius: 50px;
-//     font-size: 1.3rem;
-//     cursor: pointer;
-//     transition: all 0.3s ease;
-  
-//     &:hover {
-//       background: #66bb6a;
-//       transform: translateY(-2px);
-//     }
-//   }
-  
-//   .analog-clock {
-//     width: 300px;
-//     height: 300px;
-//     border-radius: 50%;
-//     background: rgba(255, 255, 255, 0.9);
-//     box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
-//     position: relative;
-  
-//     .hand {
-//       position: absolute;
-//       bottom: 50%;
-//       left: 50%;
-//       transform-origin: bottom;
-//       border-radius: 3px;
-//       transition: transform 0.3s cubic-bezier(0.4, 2.3, 0.6, 1);
-  
-//       &.hour {
-//         width: 5px;
-//         height: 25%;
-//         background: #2a5a3e;
-//       }
-  
-//       &.minute {
-//         width: 3px;
-//         height: 35%;
-//         background: #81c784;
-//       }
-  
-//       &.second {
-//         width: 2px;
-//         height: 40%;
-//         background: #e63946;
-//       }
-//     }
-  
-//     .center {
-//       position: absolute;
-//       top: 50%;
-//       left: 50%;
-//       width: 12px;
-//       height: 12px;
-//       background: #e63946;
-//       border-radius: 50%;
-//       transform: translate(-50%, -50%);
-//     }
-  
-//     .number span {
-//       color: #4a7865;
-//       font-weight: 600;
-//     }
-//   }
-  
-//   .current-time {
-//     text-align: center;
-//     margin-top: 1rem;
-//     font-size: 1.5rem;
-//     color: #2a5a3e;
-//   }
-  
-//   @keyframes animate-pop {
-//     0% { transform: scale(0.5); opacity: 0; }
-//     100% { transform: scale(1); opacity: 1; }
-//   }
-  
-//   @keyframes animate-slide {
-//     from { transform: translateX(-50px); opacity: 0; }
-//     to { transform: translateX(0); opacity: 1; }
-//   }
-  
-//   @keyframes animate-pulse {
-//     0%, 100% { transform: scale(1); }
-//     50% { transform: scale(1.05); }
-//   }
-  
- 
-
 $primary-color: #2a5a3e;
 $accent-color: #e63946;
 $discount-color: #81c784;
@@ -488,57 +5,46 @@ $dark-overlay: rgba(81, 79, 79, 0.9);
 $light-overlay: rgba(202, 117, 164, 0.85);
 
 .flower-banner {
-    position: relative;
-    overflow: hidden;
-    background: 
-      linear-gradient($light-overlay, $dark-overlay),
-      url('https://flomaster.top/o/uploads/posts/2023-11/thumbs/1699375114_flomaster-top-p-risunok-devushka-s-tyulpanami-krasivo-70.jpg');
-    background-size: cover; 
-    background-position: center; 
-    background-blend-mode: overlay;
-    padding: 4rem 2rem;
-    border-radius: 30px;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-    animation: backgroundZoom 20s infinite alternate;
-  
-    &::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.1);
-      z-index: 0;
-    }
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient($light-overlay, $dark-overlay),
+    url('https://flomaster.top/o/uploads/posts/2023-11/thumbs/1699375114_flomaster-top-p-risunok-devushka-s-tyulpanami-krasivo-70.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-blend-mode: overlay;
+  padding: 4rem 2rem;
+  border-radius: 30px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+  animation: backgroundZoom 20s infinite alternate;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.1);
+    z-index: 0;
   }
+}
+
 .content-wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: relative;
   z-index: 1;
-//   max-width: 1200px;
   margin: 0 auto;
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(5px);
   padding: 2rem;
   border-radius: 20px;
-
-  @media (max-width: 768px) {
-    flex-direction: column;
-  }
 }
 
 .text-content {
   flex: 1;
   padding-right: 5rem;
-
-  @media (max-width: 768px) {
-    padding-right: 0;
-    margin-bottom: 3rem;
-    text-align: center;
-  }
 }
 
 .main-title {
@@ -605,228 +111,455 @@ $light-overlay: rgba(202, 117, 164, 0.85);
     transform: translateY(-2px);
   }
 }
-.our_clock {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background: #f0f0f0;
-  }
-  
-  .analog-clock {
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    background: #ffffff;
-    box-shadow: 0 0 20px rgba(0,0,0,0.1);
-    position: relative;
-  }
-  
-  .clock-face {
-    position: relative;
-    width: 100%;
-    height: 100%;
-  }
-  
-  .number {
+
+.clock-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.analog-clock {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.clock-face {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.number {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 50%;
+  font-size: 1.4em;
+  font-weight: 600;
+  color: #333;
+  text-align: center;
+  transform-origin: left center;
+
+  span {
     position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 50%;
-    font-size: 1.4em;
-    font-weight: 600;
-    color: #333;
-    text-align: center;
-    transform-origin: left center;
-  
-    span {
-      position: absolute;
-      transform-origin: center;
-      display: inline-block;
-      width: 40px;
-      height: 40px;
-      line-height: 40px;
-    }
+    transform-origin: center;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
   }
-  
-  .hand {
-    position: absolute;
-    bottom: 50%;
-    left: 50%;
-    transform-origin: bottom;
-    background: #333;
-    border-radius: 3px;
-    transition: transform 0.3s cubic-bezier(0.4, 2.3, 0.6, 1);
-  }
-  
-  .hour {
-    width: 5px;
-    height: 25%;
-    background: #e74c3c;
-    z-index: 3;
-  }
-  
-  .minute {
-    width: 3px;
-    height: 35%;
-    background: #2980b9;
-    z-index: 2;
-  }
-  
-  .second {
-    width: 2px;
-    height: 40%;
-    background: #27ae60;
-    z-index: 1;
-  }
-  
-  .center {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 12px;
-    height: 12px;
-    background: #333;
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 4;
+}
+
+.hand {
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  transform-origin: bottom;
+  background: #333;
+  border-radius: 3px;
+  transition: transform 0.3s cubic-bezier(0.4, 2.3, 0.6, 1);
+}
+
+.hour {
+  width: 5px;
+  height: 25%;
+  background: #e74c3c;
+  z-index: 3;
+}
+
+.minute {
+  width: 3px;
+  height: 35%;
+  background: #2980b9;
+  z-index: 2;
+}
+
+.second {
+  width: 2px;
+  height: 40%;
+  background: #27ae60;
+  z-index: 1;
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 12px;
+  height: 12px;
+  background: #333;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 4;
+}
+
+.current-time {
+  margin-left: 100px;
+  font-size: 30px;
+}
+
+@keyframes backgroundZoom {
+  0% {
+    background-size: 100%;
   }
 
-  .current-time{
-    margin-left: 100px;
-    margin-top: 20px;
-    font-size: 30px;
+  100% {
+    background-size: 110%;
   }
-  
-@keyframes backgroundZoom {
-  0% { background-size: 100%; }
-  100% { background-size: 110%; }
 }
 
 @keyframes discountPulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.1) rotate(-5deg); }
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1) rotate(-5deg);
+  }
 }
 
 @keyframes textSlide {
-  from { transform: translateY(20px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 @keyframes featureAppear {
-  from { transform: translateX(-50px); opacity: 0; }
-  to { transform: translateX(0); opacity: 1; }
+  from {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
 @keyframes buttonPulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
 }
 
 @keyframes numberAppear {
-  from { opacity: 0; transform: rotate(0deg) translateX(-50%) scale(0.5); }
-  to { opacity: 1; transform: rotate(var(--angle)) translateX(-50%) scale(1); }
+  from {
+    opacity: 0;
+    transform: rotate(0deg) translateX(-50%) scale(0.5);
+  }
+
+  to {
+    opacity: 1;
+    transform: rotate(var(--angle)) translateX(-50%) scale(1);
+  }
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@media (max-width: 768px) {
-  .flower-banner {
-    padding: 2rem 1rem;
-    margin: 1rem;
+  from {
+    opacity: 0;
   }
 
-  .main-title {
-    font-size: 2.5rem;
-    
-    .discount {
-      font-size: 3rem;
-    }
-  }
-
-  .analog-clock {
-    width: 250px;
-    height: 250px;
+  to {
+    opacity: 1;
   }
 }
 
 .timer-special {
-    background: #fff0f5;
-    padding: 2.5rem 1rem;
-    text-align: center;
-    border-top: 5px solid #7a034b;
-    margin-top: 3rem;
-    box-shadow: 0 6px 12px rgba(255, 136, 182, 0.2);
-    border-radius: 12px;
-  
-    .timer-title {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 2.5rem;
-        font-weight: bold;
-        color: #7a034b;
-        margin-bottom: 2rem;
-        text-shadow: 0 0 5px #fff, 0 0 12px #ff88b6, 0 0 20px #ff88b6;
-        animation: flicker 2s infinite;
-        margin-left: 10px;
+  background: #fff0f5;
+  padding: 2.5rem 1rem;
+  text-align: center;
+  border-top: 5px solid #7a034b;
+  margin-top: 3rem;
+  box-shadow: 0 6px 12px rgba(255, 136, 182, 0.2);
+  border-radius: 12px;
+
+  .timer-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #7a034b;
+    margin-bottom: 2rem;
+    text-shadow: 0 0 5px #fff, 0 0 12px #ff88b6, 0 0 20px #ff88b6;
+    animation: flicker 2s infinite;
+    margin-left: 10px;
+  }
+
+  .timer-grid {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .timer-box {
+    background: #7a034b;
+    border: 2px dashed white;
+    border-radius: 16px;
+    padding: 1rem;
+    width: 90px;
+    box-shadow: 0 4px 12px rgba(255, 105, 180, 0.2);
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: scale(1.05);
     }
-  
-    .timer-grid {
+
+    .timer-number {
+      font-size: 2.8rem;
+      font-family: 'Orbitron', sans-serif;
+      color: #fff;
+      font-weight: bold;
+      text-shadow: 0 0 10px #ff88b6;
+      animation: flip 1s ease-in-out;
+    }
+
+    .timer-label {
+      margin-top: 0.5rem;
+      font-size: 1rem;
+      color: #e0e0e0;
+      font-weight: 600;
+      text-transform: uppercase;
+      display: block;
+    }
+  }
+}
+
+@keyframes flicker {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  45% {
+    opacity: 0.6;
+  }
+
+  55% {
+    opacity: 1;
+  }
+
+  60% {
+    opacity: 0.8;
+  }
+
+  70% {
+    opacity: 1;
+  }
+}
+
+@keyframes flip {
+  0% {
+    transform: rotateX(0);
+  }
+
+  100% {
+    transform: rotateX(360deg);
+  }
+}
+
+@media (max-width: 480px) {
+  .flower-banner {
+    height: 60vh;
+    padding: 3rem 1rem;
+  }
+
+  .content-wrapper {
+    flex-direction: column;
+    align-items: center; 
+    text-align: center; 
+    padding: 1rem;
+    left: auto; 
+    bottom: auto;
+    background-color: rgba(0, 0, 0, 0.3); 
+    border-radius: 15px;
+  }
+
+  .text-content {
+    padding-right: 0; 
+    margin-bottom: 2rem; 
+  }
+
+  .main-title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+
+    .special-offer {
+      font-size: 1.2rem;
+    }
+
+    .discount {
+      font-size: 2.5rem;
+    }
+  }
+
+  .features {
+    margin: 2rem 0;
+
+    .feature-item {
+      padding: 1rem;
+      gap: 1rem;
+
+      .icon {
+        font-size: 1.5rem;
+        min-width: 30px;
+      }
+
+      p {
+        font-size: 0.9rem;
+      }
+    }
+  }
+
+  .clock-wrapper {
+    display: none;
+  }
+
+  .analog-clock {
+    width: 180px;
+    height: 180px;
+    margin-bottom: 1rem;
+  }
+
+  .current-time {
+    font-size: 1.5rem;
+    margin-left: 0;
+    margin-bottom: 2rem; 
+  }
+
+  .cta-button {
+    padding: 1rem 2.5rem;
+    font-size: 1rem;
+  }
+  .timer-special{
+    .timer-grid{
       display: flex;
-      justify-content: center;
+    }
+    .timer-box{
+      width: 81px;
+      .timer-label{
+        font-size: 12px
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 900px) {
+
+  .flower-banner {
+  
+  padding: 2rem;
+  
+  margin: 1rem;
+  
+  }
+  
+  .main-title {
+  
+  font-size: 2.5rem;
+  
+  .discount {
+  
+  font-size: 3rem;
+  
+  }
+  
+  }
+  
+  .analog-clock {
+  
+  width: 250px;
+  
+  height: 250px;
+  
+  }
+  
+  .cta-button {
+  
+  padding: 1.2rem 3rem;
+  
+  font-size: 1.1rem;
+  
+  }
+  
+  }
+
+@media (min-width: 1024px) {
+  .flower-banner {
+    padding: 4rem 2rem;
+    margin: 2rem;
+    height: auto;
+  }
+
+  .content-wrapper {
+    padding: 3rem;
+  }
+
+  .text-content {
+    padding-right: 5rem;
+  }
+
+  .main-title {
+    font-size: 3.2rem;
+
+    .special-offer {
+      font-size: 2rem;
+    }
+
+    .discount {
+      font-size: 4rem;
+    }
+  }
+
+  .features {
+    margin: 3rem 0;
+
+    .feature-item {
+      padding: 1.5rem;
       gap: 1.5rem;
-      flex-wrap: wrap;
-      
-    }
-  
-    .timer-box {
-        
-        background: #7a034b;
-        border: 2px dashed white ;
-        border-radius: 16px;
-        padding: 1rem;
-        width: 90px;
-        box-shadow: 0 4px 12px rgba(255, 105, 180, 0.2);
-        transition: transform 0.3s ease;
-        &:hover {
-          transform: scale(1.05);
-        }  
-  
-      .timer-number {
-        font-size: 2.8rem;
-        font-family: 'Orbitron', sans-serif;
-        color: #fff;
-        font-weight: bold;
-        text-shadow: 0 0 10px #ff88b6;
-        animation: flip 1s ease-in-out;
+
+      .icon {
+        font-size: 2rem;
+        min-width: 50px;
       }
-  
-      .timer-label {
-        margin-top: 0.5rem;
-        font-size: 1rem;
-        color: #e0e0e0;
-        font-weight: 600;
-        text-transform: uppercase;
-        display: block;
+
+      p {
+        font-size: 1.1rem;
       }
     }
   }
-  
-  @keyframes flicker {
-    0%, 100% { opacity: 1; }
-    45% { opacity: 0.6; }
-    55% { opacity: 1; }
-    60% { opacity: 0.8; }
-    70% { opacity: 1; }
+
+  .clock-wrapper {
+    align-items: center;
   }
-  
-  @keyframes flip {
-    0% { transform: rotateX(0); }
-    100% { transform: rotateX(360deg); }
+
+  .analog-clock {
+    width: 300px;
+    height: 300px;
+    margin-right: 3rem;
   }
-  
+
+  .current-time {
+    font-size: 30px;
+    margin-left: 3rem;
+  }
+
+  .cta-button {
+    padding: 1.3rem 3}}
