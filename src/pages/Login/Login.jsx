@@ -2,32 +2,60 @@ import React, { useState } from 'react';
 import "./Login.scss";
 import { Link, useNavigate } from 'react-router-dom';
 import google from "../../assets/svg/google.svg";
-import fecbook from "../../assets/svg/fecbook.svg";
-import { signInWithEmailAndPassword } from 'firebase/auth';
+import { 
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  GoogleAuthProvider,
+  sendPasswordResetEmail
+} from 'firebase/auth';
 import { auth } from '../../firebase';
 import { toast } from 'react-toastify';
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showForgotPassword, setShowForgotPassword] = useState(false);
+  const navigate = useNavigate();
+  const googleProvider = new GoogleAuthProvider();
 
-  async function createLog() {
+  const handleClose = () => {
+    navigate(-1);
+  };
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
     try {
-      const res = await signInWithEmailAndPassword(auth, email, password);
-      if (res) {
-        toast.success("User successfully logged in!");
-      }
+      await signInWithEmailAndPassword(auth, email, password);
+      toast.success("Успешный вход!");
+      navigate('/');
     } catch (error) {
       toast.error(error.message);
     }
-  }
+  };
 
-  const [isModal, setIsModal] = useState(true);
-  const navigate = useNavigate();
+  const handleGoogleSignIn = async () => {
+    try {
+      await signInWithPopup(auth, googleProvider);
+      toast.success("Успешный вход через Google!");
+      navigate('/');
+    } catch (error) {
+      toast.error(error.message);
+    }
+  };
 
-  const handleClose = () => {
-    setIsModal(false);
-    navigate('/login', { replace: true });
+  const handleForgotPassword = async () => {
+    if (!email) {
+      toast.error("Введите ваш email");
+      return;
+    }
+
+    try {
+      await sendPasswordResetEmail(auth, email);
+      toast.success("Письмо для сброса пароля отправлено!");
+      setShowForgotPassword(false);
+    } catch (error) {
+      toast.error(error.message);
+    }
   };
 
   const renderFormContent = () => (
@@ -38,34 +66,42 @@ function Login() {
         Нет аккаунта? <Link to="/registration">Зарегистрируйтесь</Link>
       </p>
 
-      <div className="form-group">
-        <label>Email или телефон</label>
-        <input 
-          type="text" 
-          placeholder="example@mail.com или +996 555 123 456"
-          className="form-input"
-          onChange={(e) => setEmail(e.target.value)}
-          value={email}
-        />
-      </div>
+      <form onSubmit={handleLogin}>
+        <div className="form-group">
+          <label>Email</label>
+          <input 
+            type="email" 
+            placeholder="example@mail.com"
+            className="form-input"
+            onChange={(e) => setEmail(e.target.value)}
+            value={email}
+            required
+          />
+        </div>
 
-      <div className="form-group">
-        <label>Пароль</label>
-        <input 
-          type="password" 
-          placeholder="••••••••"
-          className="form-input"
-          onChange={(e) => setPassword(e.target.value)}
-          value={password}
-        />
-        <a href="/forgot-password" className="forgot-password">
-          Забыли пароль?
-        </a>
-      </div>
+        <div className="form-group">
+          <label>Пароль</label>
+          <input 
+            type="password" 
+            placeholder="••••••••"
+            className="form-input"
+            onChange={(e) => setPassword(e.target.value)}
+            value={password}
+            required
+          />
+          <p 
+            type="button" 
+            className="forgot-password"
+            onClick={() => setShowForgotPassword(true)}
+          >
+            Забыли пароль?
+          </p>
+        </div>
 
-      <button onClick={createLog} className="submit-btn" type="submit">
-        Войти
-      </button>
+        <button type="submit" className="submit-btn">
+          Войти
+        </button>
+      </form>
 
       <div className="social-login">
         <p>Или войти через:</p>
@@ -74,13 +110,7 @@ function Login() {
             src={google} 
             alt="google"
             className="social-icon" 
-            onClick={() => window.location.href='/google-auth'}
-          />
-          <img 
-            src={fecbook} 
-            alt="facebook"
-            className="social-icon"
-            onClick={() => window.location.href='/facebook-auth'}
+            onClick={handleGoogleSignIn}
           />
         </div>
       </div>
@@ -92,26 +122,50 @@ function Login() {
     </>
   );
 
+  const renderForgotPasswordContent = () => (
+    <div className="forgot-password-content">
+      <h3>Восстановление пароля</h3>
+      <p>Введите ваш email для получения инструкций</p>
+      
+      <div className="form-group">
+        <input
+          type="email"
+          placeholder="Ваш email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          className="form-input"
+        />
+      </div>
+
+      <div className="button-group">
+        <button 
+          className="submit-btn"
+          onClick={handleForgotPassword}
+        >
+          Отправить
+        </button>
+        <button
+          className="cancel-btn"
+          onClick={() => setShowForgotPassword(false)}
+        >
+          Назад
+        </button>
+      </div>
+    </div>
+  );
+
   return (
     <div className="auth-container">
-      {isModal ? (
-        <div className="auth-overlay">
-          <div className="auth-box">
-            <button className="close-btn" onClick={handleClose}>
-              &times;
-            </button>
-            {renderFormContent()}
-          </div>
-        </div>
-      ) : (
+      <div className="auth-overlay">
         <div className="auth-box">
-          {renderFormContent()}
+          <button className="close-btn" onClick={handleClose}>
+            &times;
+          </button>
+          {showForgotPassword ? renderForgotPasswordContent() : renderFormContent()}
         </div>
-      )}
+      </div>
     </div>
   );
 }
 
 export default Login;
-
-
