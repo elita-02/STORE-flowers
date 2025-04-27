@@ -199,12 +199,16 @@ function Header() {
             <Link to="/postspage">Новости</Link>
             <Link to="/tovar">Каталог товаров</Link>
             <Link to="/PetalMaker">Создай букет</Link>
+            <Link to="/forum">Форум</Link>
+
           </nav>
         </div>
 
         <div className="contact-cart">
           <div className="social-icons">
-            <a href="https://web.whatsapp.com/send?phone=+996706247507" target="_blank">WhatsApp</a>
+            <a href="https://wa.me/996706247507" className="social-icon" target="_blank" rel="noopener noreferrer">
+              <FaWhatsapp />
+            </a>
             <a href="https://t.me/BishkekFlowersBot" className="social-icon" target="_blank" rel="noopener noreferrer">
               <FaTelegram />
             </a>
