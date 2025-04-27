@@ -1,19 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import roza from '../../assets/svg/roza.svg';
-import gul from '../../assets/svg/gul.svg';
-import podar from '../../assets/svg/podar.svg';
-import photo from '../../assets/img/photo.png';
-import present from '../../assets/img/present.png';
+import Elita from '../../assets/img/Elita.png';
+import Nur from '../../assets/img/Nur.png'
 import gul1 from '../../assets/svg/gul1.svg';
 import gul2 from '../../assets/svg/gul2.svg';
 import kamer from '../../assets/svg/kamer.svg';
-import image1 from '../../assets/img/image1.png';
-import image2 from '../../assets/img/image2.png';
-import image3 from '../../assets/img/image3.png';
-import { IoIosArrowForward } from "react-icons/io";
+
+
 import Aksy from '../Aksy/Aksy';
 import './Banner.scss';
 import Podarki from '../podar/Podarki';
+import BanNew from '../BanNew/BanNew';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
@@ -112,8 +108,8 @@ function Banner() {
             <div className="card-inner">
               <div className="front-content">
                 <div className="card-header">
-                  <img src={image1} alt="Алия" className="florist-photo" />
-                  <h3>Алия – мастер композиций</h3>
+                  <img src={Nur} alt="Алия" className="florist-photo" />
+                  <h3>Нурзада – мастер композиций</h3>
                   <p>Каждую корзину она собирает с особой нежностью и вкусом.</p>
                 </div>
                 <div className="question-block">
@@ -142,8 +138,8 @@ function Banner() {
             <div className="card-inner">
               <div className="front-content">
                 <div className="card-header">
-                  <img src={image2} alt="Дана" className="florist-photo" />
-                  <h3>Дана – вдохновитель природы</h3>
+                  <img src={Elita} alt="Дана" className="florist-photo" />
+                  <h3>Элита – вдохновитель природы</h3>
                   <p>Любит сочетать классику и свежие идеи в каждой</p>
                 </div>
                 <div className="question-block">
@@ -171,41 +167,8 @@ function Banner() {
         </div>
       </div>
       <Podarki />
-      <section className='section2 container'>
-        <div className='block1'>
-          <div className='bush'>
-            <h2>Форум</h2>
-            <div className='p'>
-              <Link to="/postspage">
-              <p>Все новости</p>
-              
-              </Link>
-              <div className='strel'>
-                <IoIosArrowForward />
-                <IoIosArrowForward />
-                <IoIosArrowForward />
-              </div>
-            </div>
-          </div>
-          <div className='block-text'>
-            <div className='forum'>
-              <h1>Какие цветы под запретом: что нельзя дарить</h1>
-              <p>Осведомленности в сфере новых трендов цветочного дизайна и знакомства с работами...</p>
-              <img src={image1} alt="" />
-            </div>
-            <div className='forum1'>
-              <h1>Как сохранить букет свежим: советы и рекомендации</h1>
-              <p>Осведомленности в сфере новых трендов цветочного дизайна и знакомства с работами...</p>
-              <img src={image2} alt="" />
-            </div>
-            <div className='forum2'>
-              <h1>Цветочный этикет - как правильно дарить цветы</h1>
-              <p>Осведомленности в сфере новых трендов цветочного дизайна и знакомства с работами...</p>
-              <img src={image3} alt="" />
-            </div>
-          </div>
-        </div>
-      </section>
+      <BanNew />
+    
     </div>
   );
 }

@@ -26,11 +26,9 @@ function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef(null);
 
-  // Проверка путей к изображениям
   console.log("Logo path:", logo);
   console.log("Burger path:", burger);
 
-  // Google Translate
   useEffect(() => {
     if (!window.googleTranslateElementInit && !document.querySelector('script[src*="translate.google.com"]')) {
       const addGoogleTranslateScript = () => {
