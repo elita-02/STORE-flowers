@@ -1,193 +1,3 @@
-// $primary-color: #f94144;
-// $secondary-color: #f9c74f;
-// $accent-color: #8f26e4;
-// $green: #43aa8b;
-
-// $icon-pink: #f78fb3;
-
-// $gradient: linear-gradient(45deg, $accent-color, $secondary-color);
-
-// $text-dark: #2e2e2e;
-// $text-light: #ffffff;
-// $background-light: #f3f0ff;
-
-// .contact-container {
-//     padding: 30px;
-//     border-radius: 20px;
-//     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
-// }
-
-// .contact-header {
-//     text-align: center;
-//     margin-bottom: 3rem;
-
-//     h2 {
-//         font-size: 2.8rem;
-//         background: $gradient;
-//         -webkit-background-clip: text;
-//         -webkit-text-fill-color: transparent;
-//         font-family: 'Dancing Script', cursive;
-//     }
-
-//     p {
-//         color: #555;
-//         font-size: 1.2rem;
-//         font-style: italic;
-//     }
-// }
-
-// .contact-grid {
-//     display: grid;
-//     grid-template-columns: 1fr 2fr;
-//     gap: 2.5rem;
-//     margin-bottom: 4rem;
-
-//     @media (max-width: 768px) {
-//         grid-template-columns: 1fr;
-//     }
-// }
-
-// .contact-info {
-//     display: grid;
-//     gap: 2rem;
-
-//     .info-card {
-//         padding: 2rem;
-//         border-radius: 20px;
-//         background: white;
-//         box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-//         transition: all 0.4s ease;
-//         border: 1px dashed $secondary-color;
-
-//         &:hover {
-//             transform: scale(1.03);
-//             background: #fff8fb;
-//         }
-
-//         .icon-circle {
-//             width: 70px;
-//             height: 70px;
-//             border-radius: 50%;
-//             background: $gradient;
-//             display: flex;
-//             align-items: center;
-//             justify-content: center;
-//             margin-bottom: 1rem;
-
-//             .contact-icon {
-//                 color: white;
-//                 font-size: 1.8rem;
-//             }
-//         }
-
-//         h3 {
-//             color: $primary-color;
-//             margin-bottom: 0.5rem;
-//             font-weight: bold;
-//         }
-
-//         p {
-//             color: #555;
-//             font-size: 1rem;
-//         }
-//     }
-// }
-
-// .social-links {
-//     display: flex;
-//     gap: 1rem;
-//     justify-content: center;
-//     margin-top: 1rem;
-
-//     .social-icon {
-//         font-size: 2rem;
-//         color: $icon-pink;
-//         transition: transform 0.3s ease, color 0.3s ease;
-
-//         &:hover {
-//             color: darken($icon-pink, 10%);
-//             transform: scale(1.1) rotate(10deg);
-//         }
-//     }
-// }
-
-// .contact-form {
-//     background: white;
-//     padding: 2.5rem;
-//     border-radius: 20px;
-//     box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
-//     height: 500px;
-//     background: $background-light;
-
-//     .form-group {
-//         margin-bottom: 1.5rem;
-//         position: relative;
-
-//         input,
-//         textarea {
-//             width: 100%;
-//             padding: 1.2rem;
-//             border: 2px solid lighten($accent-color, 40%);
-//             border-radius: 10px;
-//             font-size: 1rem;
-//             transition: border-color 0.3s ease;
-
-//             &:focus {
-//                 outline: none;
-//                 border-color: $primary-color;
-
-//                 + .input-border {
-//                     width: 100%;
-//                 }
-//             }
-//         }
-
-//         .input-border {
-//             position: absolute;
-//             bottom: 0;
-//             left: 0;
-//             width: 0;
-//             height: 2px;
-//             background: $gradient;
-//             transition: width 0.3s ease;
-//         }
-//     }
-// }
-
-// .submit-btn {
-//     background: $gradient;
-//     color: white;
-//     border: none;
-//     padding: 1rem 2.5rem;
-//     border-radius: 10px;
-//     font-size: 1.1rem;
-//     font-weight: bold;
-//     cursor: pointer;
-//     position: relative;
-//     overflow: hidden;
-//     transition: transform 0.3s ease, background 0.4s;
-
-//     &:hover {
-//         transform: translateY(-3px);
-//         background: linear-gradient(45deg, lighten($accent-color, 10%), lighten($secondary-color, 10%));
-
-//         .btn-wave {
-//             top: -100%;
-//         }
-//     }
-
-//     .btn-wave {
-//         position: absolute;
-//         top: -30%;
-//         left: -50%;
-//         width: 200%;
-//         height: 200%;
-//         background: rgba(255, 255, 255, 0.2);
-//         transform: rotate(15deg);
-//         transition: top 0.5s ease;
-//     }
-// }
-
 $primary-color: #f94144;
 $secondary-color: #f9c74f;
 $accent-color: #8f26e4;
@@ -385,11 +195,11 @@ $background-light: #f3f0ff;
     }
 }
 
-// Map.scss
+
 .map-container {
     position: relative;
     width: 100%;
-    height: 300px; /* Демейки бийиктик телефондор үчүн */
+    height: 300px; 
     background: #ddd;
     overflow: hidden;
     margin-top: 1.5rem;
@@ -403,10 +213,10 @@ $background-light: #f3f0ff;
     }
 
     @media (min-width: 768px) {
-        height: 400px; /* Планшет үчүн бийиктик */
+        height: 400px; 
     }
 
     @media (min-width: 1024px) {
-        height: 600px; /* Ноутбук жана андан чоңураак үчүн бийиктик */
+        height: 600px; 
     }
 }

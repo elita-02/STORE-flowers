@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './Aksy.scss';
@@ -51,7 +50,10 @@ function Aksy() {
       <button onClick={() => window.location.reload()}>Кайталоо</button>
     </div>
   );
-
+  const handleRemoveItem = (id) => {
+    dispatch({ type: "cart/removeFromCart", payload: id });
+  };
+  
   return (
     <div className="desserts">
       <h1 className="section-title animate__fadeInDown">Акция</h1>
@@ -107,13 +109,15 @@ function Aksy() {
                   className="cart-icon animate__bounceIn"
                 />
               </div>
-              
-              <div className="dessert-info">
-                <h3 className="product-title">{dessert.title}</h3>
-                <div className="price-container">
-                  <span className="price">{dessert.price} </span>
+              <div className="dessert-details">
+                  <h3 className="dessert-title">{dessert.title}</h3>
+                  <div className="price-info">
+                    {dessert.oldPrice && (
+                      <span className="old-price">{dessert.oldPrice}</span>
+                    )}
+                    <span className="new-price">{dessert.price}</span>
+                  </div>
                 </div>
-              </div>
               
               <Link 
                 to="/checkout" 
@@ -136,6 +140,7 @@ function Aksy() {
         isOpen={isModalOpen} 
         onClose={() => setIsModalOpen(false)} 
         items={cartItems} 
+        onRemoveItem={handleRemoveItem}
       />
     </div>
   );
