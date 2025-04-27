@@ -1,32 +1,33 @@
 
-
 import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { ru } from 'date-fns/locale';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import './CheckoutPage.scss';
 import { addOrder } from '../../redux/order/ordersSlice';
 import { Link } from 'react-router-dom';
 
-
 function CheckoutPage() {
-  const [activeStep, setActiveStep] = useState(2);
+  const [activeStep] = useState(2);
   const [deliveryDate, setDeliveryDate] = useState(null);
   const [selectedTime, setSelectedTime] = useState('');
   const [deliveryOption, setDeliveryOption] = useState('');
   const [paymentMethod, setPaymentMethod] = useState('');
   const [agreeTerms, setAgreeTerms] = useState(false);
-
   const [senderName, setSenderName] = useState('');
   const [senderPhone, setSenderPhone] = useState('');
   const [receiverName, setReceiverName] = useState('');
   const [receiverPhone, setReceiverPhone] = useState('');
+  const [loading, setLoading] = useState(false);
 
-  const items = useSelector((state) => state.cart.items);
+  const items = useSelector((state) => state.cart.items || []);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  console.log('Cart items in CheckoutPage:', items);
 
   const deliveryTimes = [
     'с 09:00 до 12:00',
@@ -51,12 +52,24 @@ function CheckoutPage() {
   };
 
   const handleConfirm = () => {
-    if (!senderName || !senderPhone || !receiverName || !receiverPhone || !paymentMethod || !agreeTerms) {
-      alert('Пожалуйста, заполните все обязательные поля и примите условия.');
+    console.log('handleConfirm triggered');
+    console.log('Form data:', { senderName, senderPhone, receiverName, receiverPhone, paymentMethod, agreeTerms, items });
+
+    if (!senderName || !receiverName || !senderPhone || !receiverPhone || !paymentMethod || !agreeTerms) {
+      console.log('Missing required fields');
+      toast.error('Пожалуйста, заполните все обязательные поля и примите условия.', { autoClose: 3000 });
       return;
     }
 
+    if (items.length === 0) {
+      console.log('Cart is empty');
+      toast.error('Корзина пуста. Добавьте товары перед оформлением заказа.', { autoClose: 3000 });
+      return;
+    }
+
+    setLoading(true);
     const orderData = {
+      id: Date.now().toString(),
       senderName,
       senderPhone,
       receiverName,
@@ -66,19 +79,37 @@ function CheckoutPage() {
       deliveryOption,
       paymentMethod,
       totalPrice: getTotalPrice(),
-      items,
-      createdAt: new Date().toISOString()
+      items: items.map(item => ({
+        ...item,
+        price: parseFloat(item.price) || 0,
+        quantity: parseInt(item.quantity) || 1
+      })),
+      createdAt: new Date().toISOString(),
+      confirmed: false
     };
 
-    dispatch(addOrder(orderData));
-    navigate('/history');
+    console.log('Order data to be dispatched:', orderData);
+
+    try {
+      dispatch(addOrder(orderData));
+      console.log('Order dispatched successfully');
+      toast.success('Заказ оформлен!', { autoClose: 2000 });
+      setTimeout(() => {
+        setLoading(false);
+        navigate('/history');
+      }, 2000); // 2 секунд задержка
+    } catch (error) {
+      console.error('Error dispatching order:', error);
+      setLoading(false);
+      toast.error('Ошибка при оформлении заказа. Попробуйте снова.', { autoClose: 3000 });
+    }
   };
 
   return (
     <div className="checkout container">
       <div className='checkout-header'>
-        <Link to="/korzina"  className="step-link">
-        <span className={`step ${activeStep === 1 ? 'active' : ''}`}>КОРЗИНА</span>
+        <Link to="/korzina" className="step-link">
+          <span className={`step ${activeStep === 1 ? 'active' : ''}`}>КОРЗИНА</span>
         </Link>
         <div className='arrow'>→</div>
         <span className={`step ${activeStep === 2 ? 'active' : ''}`}>Информация о заказе</span>
@@ -86,7 +117,6 @@ function CheckoutPage() {
         <Link to="/history" className="step-link">
           <span className={`step ${activeStep === 3 ? 'active' : ''}`}>Завершение заказа</span>
         </Link>
-
       </div>
 
       <div className="checkout-cel">
@@ -229,12 +259,21 @@ function CheckoutPage() {
               Я прочитал(а) и принимаю правила и условия сайта *
             </label>
           </div>
-          <Link to="/history">
-            <button className="confirm-order" onClick={handleConfirm}>
-              ПОДТВЕРДИТЕ ЗАКАЗ
-            </button>
 
-          </Link>
+          <button
+            className="confirm-order"
+            onClick={handleConfirm}
+            disabled={loading}
+          >
+            {loading ? (
+              <>
+                <span className="spinner"></span>
+                Обработка...
+              </>
+            ) : (
+              'ПОДТВЕРДИТЕ ЗАКАЗ'
+            )}
+          </button>
 
           <p>Ваши личные данные используются для обработки заказов и в соответствии с нашей политикой конфиденциальности.</p>
         </div>
@@ -244,7 +283,4 @@ function CheckoutPage() {
 }
 
 export default CheckoutPage;
-
-
-
 
