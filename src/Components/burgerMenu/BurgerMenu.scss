@@ -1,0 +1,68 @@
+.mobile-menu {
+    position: fixed; /* Раскомментировать */
+    top: 0; 
+    left: -10px;
+    width: 80%;
+    max-width: 300px;
+    height: 50%;
+    background-color: #fff;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.3);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    transition: right 0.3s ease;
+    overflow-y: auto;
+    z-index: 3000; /* Раскомментировать */
+    
+    a {
+      text-decoration: none;
+      color: #333;
+      font-size: 18px;
+    }
+  
+    &.active {
+      right: 0;
+    }
+  
+    .phone {
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 16px;
+    }
+  
+    .social-icons {
+      display: flex;
+      gap: 15px;
+      margin-top: 15px;
+  
+      .social-icon {
+        font-size: 24px;
+        color: #555;
+      }
+    }
+  }
+  
+  /* Телефон: 320px - 480px */
+  @media (min-width: 320px) and (max-width: 480px) {
+    .mobile-menu {
+        position: fixed;
+        display: flex;
+        justify-content: flex-start !important;
+      width: 90%;
+    //   height: 60%; /* 60% кылдым */
+      max-height: 45vh; /* экрандын 60% эле алат */
+      overflow-y: auto; /* скролл иштейт */
+    }
+  }
+  
+  /* Планшет: 768px - 900px */
+  @media (min-width: 768px) and (max-width: 900px) {
+    .mobile-menu {
+      width: 60%;
+      height: 40%;
+    }
+  }
+   
+
+  

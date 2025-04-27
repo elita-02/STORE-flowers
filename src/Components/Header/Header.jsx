@@ -14,13 +14,13 @@
   import { FaInstagram, FaTelegram, FaWhatsapp, FaRegHeart } from "react-icons/fa";
   import { PiShoppingCartLight } from "react-icons/pi";
   import burger from "../../assets/img/burger.jpg"
-
+  import BurgerMenu from '../burgerMenu/BurgerMenu';
   function Header() {
     const flowersRef = useRef([]);
     const cartItems = useSelector((state) => state.cart.items);
     const wishlistItems = useSelector((state) => state.wishlist.items);
     const navigate = useNavigate();
-
+    
     const [categorySearch, setCategorySearch] = useState("");
     const [productSearch, setProductSearch] = useState("");
 
@@ -90,7 +90,7 @@
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const menuRef = useRef(null);
 
-    const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+ 
 
     // Закрытие меню при клике вне области
     useEffect(() => {
@@ -103,7 +103,28 @@
       document.addEventListener("mousedown", handleClickOutside);
       return () => document.removeEventListener("mousedown", handleClickOutside);
     }, []);
-
+    const toggleMenu = () => {
+      setIsMenuOpen((prev) => !prev);
+    };
+  
+    useEffect(() => {
+      const handleClickOutside = (event) => {
+        if (menuRef.current && !menuRef.current.contains(event.target)) {
+          setIsMenuOpen(false);
+        }
+      };
+  
+      if (isMenuOpen) {
+        document.addEventListener("mousedown", handleClickOutside);
+      } else {
+        document.removeEventListener("mousedown", handleClickOutside);
+      }
+  
+      // Тазалоо үчүн
+      return () => {
+        document.removeEventListener("mousedown", handleClickOutside);
+      };
+    }, [isMenuOpen]);
     return (
       <div className="header ">
         <div className="top-bar  ">
@@ -135,37 +156,15 @@
         </div>
 
         <div className="main-header container">
+       
           <div className="burger-menu" onClick={toggleMenu}>
             <img src={burger} alt="Меню" className="burger-icon" />
           </div>
-
+               
           {/* Мобильное меню */}
-          <div ref={menuRef} className={`mobile-menu ${isMenuOpen ? "active" : ""}`}>
-
-            <Link to="/" onClick={toggleMenu}>Главная</Link>
-            <Link to="/reviews" onClick={toggleMenu}>Отзывы</Link>
-            <Link to="/aksia" onClick={toggleMenu}>Акции</Link>
-            <Link to="/postspage" onClick={toggleMenu}>Новости</Link>
-            <Link to="/tovar" onClick={toggleMenu}>Каталог товаров</Link>
-            <Link to="/PetalMaker" onClick={toggleMenu}>Создай букет</Link>
-            <div className="right">
-              <Link to="/login">Вход</Link>
-              <span> | </span>
-              <Link to="/registration">Регистрация</Link>
-            </div>
-            <div className="phone">996 702368268</div>
-            
-            <div className="social-icons">
-              <a href="996702368268" className="social-icon">
-                <FaWhatsapp />
-              </a>
-              <a href="@BishkekFlowersBot" className="social-icon">
-                <FaTelegram />
-              </a>
-              <a href="https://www.instagram.com/bishkekflowers17/" className="social-icon">
-                <FaInstagram />
-              </a>
-            </div>        </div>
+          <div ref={menuRef}>
+        <BurgerMenu isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
+      </div>
 
           <div className="flower-container">
             {[...Array(40)].map((_, i) => (
