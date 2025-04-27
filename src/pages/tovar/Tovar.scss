@@ -322,12 +322,11 @@
         }
     }
 }
-
-/* Мобильная версия (до 768px) */
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 480px) {
     .mack-container {
         margin-top: 60px;
         padding: 0 15px;
+        
 
         .burger-btn {
             display: flex;
@@ -399,15 +398,16 @@
 
                     .card-grid {
                         grid-template-columns: 1fr;
+                        padding-right: 60px;
+                       
+                    
                     }
                 }
             }
         }
     }
 }
-
-/* Планшет (768px - 1024px) */
-@media only screen and (min-width: 768px) and (max-width: 1024px) {
+@media only screen and (min-width: 768px) and (max-width: 900px) {
     .mack-container {
         margin-top: 60px;
         padding: 0 20px;
@@ -497,34 +497,13 @@
         }
     }
 }
-
-/* Ноутбук (1024px - 1440px) */
-@media only screen and (min-width: 1024px) and (max-width: 1440px) {
+@media only screen and (min-width: 1024px) {
     .mack-container {
         .menu-container {
             .category-items {
                 .cards {
                     .card-grid {
                         grid-template-columns: repeat(3, 1fr);
-                    }
-                }
-            }
-        }
-    }
-}
-
-/* Десктоп (1440px+) */
-@media only screen and (min-width: 1440px) {
-    .mack-container {
-        max-width: 1420px;
-        margin-left: auto;
-        margin-right: auto;
-
-        .menu-container {
-            .category-items {
-                .cards {
-                    .card-grid {
-                        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
                     }
                 }
             }
