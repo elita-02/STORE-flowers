@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchPosts } from '../../redux/newpost/postsSlice';
 import { useNavigate } from 'react-router-dom';
-import './posts.css';
+import './Posts.css';
 
 const PostsPage = () => {
     const dispatch = useDispatch();
