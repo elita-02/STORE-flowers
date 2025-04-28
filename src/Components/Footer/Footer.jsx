@@ -45,7 +45,7 @@ function Footer() {
             {infoOpen ? <FaChevronUp /> : <FaChevronDown />}
           </h4>
           <div className={`links ${infoOpen ? 'open' : ''}`}>
-            <Link to="/info">О НАС</Link>
+            <Link to="/postspage">О НАС</Link>
           </div>
         </div>
 
@@ -56,7 +56,6 @@ function Footer() {
           </h4>
           <div className={`links ${supportOpen ? 'open' : ''}`}>
             <Link to="/contacty">СВЯЗАТЬСЯ С НАМИ</Link>
-            <Link to="/cooperation">ДЛЯ СОТРУДНИЧЕСТВА</Link>
           </div>
         </div>
 
@@ -68,7 +67,7 @@ function Footer() {
           <div className={`links ${accountOpen ? 'open' : ''}`}>
             <Link to="/registration">ЛИЧНЫЙ КАБИНЕТ</Link>
             <Link to="/wishlist">ЗАКЛАДКИ</Link>
-            <Link to="/news">СПИСОК НОВОСТЕЙ</Link>
+            <Link to="/postspage">СПИСОК НОВОСТЕЙ</Link>
           </div>
         </div>
 
@@ -89,12 +88,6 @@ function Footer() {
           <p>Способы оплаты:</p>
           <a href="https://www.mbank.kg" target="_blank" rel="noopener noreferrer">
             <img src={mbank} alt="Mbank" />
-          </a>
-          <a href="https://www.kompanion.kg" target="_blank" rel="noopener noreferrer">
-            <img src={kampanon} alt="Kompanion" />
-          </a>
-          <a href="https://www.bakai.kg" target="_blank" rel="noopener noreferrer">
-            <img src={bakai} alt="Bakai" />
           </a>
           <a href="https://dengi.kg" target="_blank" rel="noopener noreferrer">
             <img src={o} alt="odengi" />

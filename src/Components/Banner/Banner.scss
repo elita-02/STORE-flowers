@@ -1,12 +1,12 @@
 .banner {
   position: relative;
   width: 100%;
+  z-index: 1;
 
   .banner-container {
     position: relative;
     width: 100%;
     max-height: 700px;
-    // min-height: 500px;
     overflow: hidden;
     border-radius: 20px;
     box-shadow: 0 15px 40px rgba(255, 105, 180, 0.3);
@@ -347,7 +347,7 @@
     margin-bottom: 3rem;
 
     .section-title {
-      font-size: 2.5rem;
+      font-size: 2.8rem;
       color: #2c3e50;
       display: flex;
       align-items: center;
@@ -366,7 +366,7 @@
       }
 
       .deco-flower {
-        width: 80px;
+        width: 90px;
         margin: 0 1rem;
         opacity: 0.8;
 
@@ -413,12 +413,9 @@
     width: 100%;
     max-height: 700px;
     min-height: 300px;
-    /* Кичинекей экрандарда бийиктикти азайтабыз */
     overflow: hidden;
     border-radius: 15px;
-    /* Кичинекей экрандарда бурчтарды азыраак кылабыз */
     box-shadow: 0 5px 20px rgba(255, 105, 180, 0.2);
-    /* Кичинекей экрандарда көлөкөнү азайтабыз */
     transition: all 0.5s ease;
     display: flex;
     align-items: center;
@@ -458,29 +455,23 @@
     position: relative;
     z-index: 2;
     text-align: center;
-    /* Кичинекей экрандарда борборго */
     padding: 1.5rem;
-    /* Кичинекей экрандарда ички боштукту азайтабыз */
     color: white;
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
     background-color: rgba(255, 192, 203, 0.2);
     border-radius: 10px;
-    /* Кичинекей экрандарда бурчтарды азайтабыз */
     backdrop-filter: blur(3px);
     max-width: 80%;
-    /* Кичинекей экрандарда туурасын чектейбиз */
   }
 
   .title {
     font-size: 2.5rem;
-    /* Кичинекей экрандарда шрифтти кичирейтебиз */
     margin-bottom: 0.8rem;
     font-family: 'Dancing Script', cursive;
   }
 
   .subtitle {
     font-size: 1.2rem;
-    /* Кичинекей экрандарда шрифтти кичирейтебиз */
     margin-bottom: 1.5rem;
     font-weight: 300;
     line-height: 1.4;
@@ -488,14 +479,12 @@
 
   .cta-button {
     padding: 0.6rem 1.5rem;
-    /* Кичинекей экрандарда боштукту азайтабыз */
     font-size: 1rem;
     font-weight: 500;
     border: 2px solid #fff;
     background-color: rgba(255, 255, 255, 0.05);
     color: #fff;
     border-radius: 12px;
-    /* Кичинекей экрандарда бурчтарды азайтабыз */
     cursor: pointer;
     backdrop-filter: blur(2px);
     transition: all 0.3s ease;
@@ -552,12 +541,10 @@
     .section2 {
       max-width: 100%;
       overflow: hidden;
-      // max-width: 480px;
       display: flex;
       flex-direction: column;
       height: auto;
       padding-bottom: 2rem;
-      /* Скролл болгондо акыркы элемент көрүнүп турсун үчүн */
     }
 
     .bush {
@@ -592,23 +579,20 @@
     .bush .p .strel svg {
       font-size: 0.9rem;
     }
-
+     .deco-flower{
+      display: none;
+     }
     .block-text {
       width: 100vw;
       margin-left: -15px;
       display: flex;
       flex-direction: row;
-      /* Горизонталдуу кылабыз */
       overflow-x: auto;
-      /* Горизонталдуу скроллду иштетебиз */
       gap: 1rem;
       margin-top: 1.5rem;
       padding-left: 1rem;
-      /* Сол жагынан бир аз ички боштук */
       padding-right: 1rem;
-      /* Оң жагынан бир аз ички боштук */
       -webkit-overflow-scrolling: touch;
-      /* Плавный скролл iOS үчүн */
     }
 
     .block-text .forum,

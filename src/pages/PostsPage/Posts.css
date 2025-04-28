@@ -2,6 +2,7 @@
 .posts-page {
   width: 100%;
   overflow-x: hidden;
+  z-index: 1;
 }
 
 .posts-list {
@@ -167,7 +168,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
+   z-index: 1;
   @media (max-width: 768px) {
     height: 80vh;
   }

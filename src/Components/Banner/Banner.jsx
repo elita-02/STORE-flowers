@@ -90,9 +90,9 @@ function Banner() {
       </div>
 
       <Aksy />
-      <div className='floristy'>
+      <div className='floristy '>
 
-        <div className="florist-header">
+        <div className="florist-header container">
           <h1 className="section-title">
             <img src={gul1} alt="цветок" className="deco-flower left" />
             Мастера цветочных композиций
