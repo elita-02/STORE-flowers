@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import gsap from "gsap";
@@ -53,7 +52,6 @@ function Header() {
     }
   }, []);
 
-  // Анимация цветов
   useEffect(() => {
     const flowerElements = flowersRef.current.filter(Boolean);
 
@@ -82,7 +80,6 @@ function Header() {
     return () => flowerElements.forEach((f) => gsap.killTweensOf(f));
   }, []);
 
-  // Закрытие меню при клике вне области
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (menuRef.current && !menuRef.current.contains(event.target)) {
@@ -148,7 +145,6 @@ function Header() {
           <img src={burger} alt="Меню" className="burger-icon" />
         </div>
 
-        {/* Мобильное меню */}
         <div ref={menuRef}>
           <BurgerMenu isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
         </div>
