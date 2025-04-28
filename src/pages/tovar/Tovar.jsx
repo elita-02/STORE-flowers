@@ -9,7 +9,7 @@ import {
     setColor
 } from '../../redux/category/categorySlice';
 import { addWish, removeWish } from '../../redux/wish/wishSlice';
-import { addToCart } from '../../redux/cart/cartSlice'; 
+import { addToCart } from '../../redux/cart/CartSlice'; 
 import hart from '../../assets/svg/hart.svg';
 import redser from '../../assets/svg/redser.svg';
 import QuickViewModal from '../../Components/QuickViewModal/QuickViewModal';
