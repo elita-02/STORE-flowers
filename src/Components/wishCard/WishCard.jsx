@@ -5,7 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import gul2 from '../../assets/svg/gul2.svg';
 import deleteImg from "../../assets/svg/delate.svg";
 import { removeWish } from '../../redux/wish/wishSlice';
-import { addToCart } from '../../redux/cart/cartSlice';
+import { addToCart } from '../../redux/cart/CartSlice';
 import QuickViewModal from '../QuickViewModal/QuickViewModal'; // 🌟 Модалды коштук
 
 function WishCard({ data }) {
