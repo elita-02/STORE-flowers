@@ -7,7 +7,7 @@ import categoryReducer from './category/categorySlice';
 import aksyReducer from './Aksy/AksySlice'; 
 import podarReducer from './podar/podarkiSlice';
 import wishlistReducer from './wish/wishSlice';
-import cartReducer from './cart/cartSlice'; 
+import cartReducer from './cart/CartSlice'; 
 import modalReducer from './modal/modalSlice';
 import buketReducer from './PetalMaker/buketSlice'; 
 import postsReducer from './newpost/postsSlice';
