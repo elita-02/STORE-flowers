@@ -39,7 +39,8 @@ const BurgerMenu = ({ isMenuOpen, toggleMenu }) => {
         <Link to="/aksia" onClick={() => toggleMenu(false)}>Акции</Link>
         <Link to="/postspage" onClick={() => toggleMenu(false)}>Новости</Link>
         <Link to="/tovar" onClick={() => toggleMenu(false)}>Каталог товаров</Link>
-        <Link to="/PetalMaker" onClick={() => toggleMenu(false)}>Создай букет</Link>
+        <Link to="/PetalMaker" onClick={() => toggleMenu(false)}>Создай свой букет</Link>
+        <Link to="/forum" onClick={() => toggleMenu(false)}>Форум</Link>
       </div>
 
       <div className="menu-footer">

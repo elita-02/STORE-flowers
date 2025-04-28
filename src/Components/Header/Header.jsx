@@ -41,7 +41,7 @@ function Header() {
         new window.google.translate.TranslateElement(
           {
             pageLanguage: "ru",
-            includedLanguages: "ru,ky,en,tr",
+            includedLanguages: "ru,ky,en,tr,ar",
             layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE,
           },
           "google_translate_element"
