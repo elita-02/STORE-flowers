@@ -4,7 +4,7 @@ import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
 import categoryReducer from './category/categorySlice';
-import aksyReducer from './Aksy/aksySlice'; 
+import aksyReducer from './Aksy/AksySlice'; 
 import podarReducer from './podar/podarkiSlice';
 import wishlistReducer from './wish/wishSlice';
 import cartReducer from './cart/cartSlice'; 
