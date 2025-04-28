@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import './Cart.scss';
-import { updateQuantity } from '../../redux/cart/cartSlice';
+import { updateQuantity } from '../../redux/cart/CartSlice';
 import { Link } from 'react-router-dom';
 import QuickViewModal from '../QuickViewModal/QuickViewModal';
 
