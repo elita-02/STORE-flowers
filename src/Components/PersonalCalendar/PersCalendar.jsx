@@ -76,7 +76,6 @@ const PersonalCalendar = () => {
         date: '',
         phone: '',
         flower: '',
-        category: '',
         address: ''
       });
 
@@ -100,7 +99,6 @@ const PersonalCalendar = () => {
             <input type="date" value={newEvent.date} onChange={(e) => setNewEvent({ ...newEvent, date: e.target.value })} />
             <input type="text" placeholder="Телефон" value={newEvent.phone} onChange={(e) => setNewEvent({ ...newEvent, phone: e.target.value })} />
             <input type="text" placeholder="Название цветов" value={newEvent.flower} onChange={(e) => setNewEvent({ ...newEvent, flower: e.target.value })} />
-            <input type="text" placeholder="Категория" value={newEvent.category} onChange={(e) => setNewEvent({ ...newEvent, category: e.target.value })} />
             <input type="text" placeholder="Адрес доставки" value={newEvent.address} onChange={(e) => setNewEvent({ ...newEvent, address: e.target.value })} />
             <button onClick={handleAddEvent}>Добавить</button>
           </div>

@@ -54,7 +54,7 @@ function Banner() {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 1 }}
-                style={{ backgroundImage: `url(${slide.image})` }} // Түзөтүлгөн линия
+                style={{ backgroundImage: `url(${slide.image})` }} 
               >
                 <div className="dark-overlay"></div>
 

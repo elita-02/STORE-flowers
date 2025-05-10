@@ -81,7 +81,8 @@
         z-index: 5;
 
         &:hover {
-          background-color: rgba(233, 30, 99, 1);
+          background: rgba(233, 30, 30, 0.5); 
+          opacity: 1;
         }
       }
 

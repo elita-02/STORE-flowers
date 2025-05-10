@@ -82,7 +82,6 @@ function Tovar() {
 
             <div className="menu-container">
                 <div className="katalog">
-                    {/* Боковое меню */}
                     <div className={`menu ${isMenuOpen ? 'active' : ''}`}>
                         <h1>Букеты</h1>
                         {menu.map((item, index) => (
